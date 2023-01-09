@@ -1,22 +1,25 @@
 - defaults:
     link:
       relink: true
+      create: false
+      force: false
 
 - clean: ["~"]
 
 - link:
     ~/.zshrc:
-      force: true
       path: .zshrc
+      force: true
     ~/.gitconfig:
-      force: false
       path: .gitconfig
     ~/.gitignore_global:
-      force: false
       path: .gitignore_global
     ~/.editorconfig:
-      force: false
       path: .editorconfig
+    ~/.zprofile:
+      path: .zprofile
+    ~/.oh-my-zsh/custom/themes/codespaces.zsh-theme:
+      path: codespaces.zsh-theme
 
 - shell:
     - command: git submodule update --init --recursive
