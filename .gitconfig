@@ -1,6 +1,6 @@
 [user]
 	email = 88557639+lishaduck@users.noreply.github.com
-	name = lishaduck
+	name = Eli
 
 [github]
 	user = lishaduck
@@ -9,6 +9,13 @@
 	excludesfile = ~/.gitignore_global
 	editor = code --wait
 	ignorecase = false
+    filemode=true
+    repositoryformatversion=0
+    bare=false
+    logallrefupdates=true
+
+[init]
+    defaultbranch=main
 
 [pull]
 	rebase = true
