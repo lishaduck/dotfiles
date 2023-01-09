@@ -90,7 +90,12 @@ plugins=(
   themes
   virtualenv
   web-search
- xcode z)
+  xcode
+  z
+  zsh-completions
+  zsh-autosuggestions
+  zsh-syntax-highlighting # must be last
+)
 
 source $ZSH/oh-my-zsh.sh
 

@@ -1,25 +1,33 @@
 - defaults:
     link:
       relink: true
-      create: false
+      create: true
       force: false
 
-- clean: ["~"]
+- clean: ["~", "~/.config"]
 
 - link:
+    ~/.dotfiles:
+      path: ""
     ~/.zshrc:
-      path: .zshrc
+      path: zsh/.zshrc
       force: true
+    ~/.zprofile:
+      path: zsh/.zprofile
+    ~/.oh-my-zsh/custom/themes/codespaces.zsh-theme:
+      path: zsh/omz/themes/codespaces.zsh-theme
+    ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions:
+      path: zsh/omz/plugins/zsh-autosuggestions/
+    ~/.oh-my-zsh/custom/plugins/zsh-completions:
+      path: zsh/omz/plugins/zsh-completions
+    ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting:
+      path: zsh/omz/plugins/zsh-syntax-highlighting
     ~/.gitconfig:
-      path: .gitconfig
+      path: git/.gitconfig
     ~/.gitignore_global:
-      path: .gitignore_global
+      path: git/.gitignore_global
     ~/.editorconfig:
       path: .editorconfig
-    ~/.zprofile:
-      path: .zprofile
-    ~/.oh-my-zsh/custom/themes/codespaces.zsh-theme:
-      path: codespaces.zsh-theme
 
 - shell:
     - command: git submodule update --init --recursive
