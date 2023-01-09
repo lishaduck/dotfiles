@@ -14,6 +14,9 @@
     ~/.gitignore_global:
       force: false
       path: .gitignore_global
+    ~/.editorconfig:
+      force: false
+      path: .editorconfig
 
 - shell:
     - command: git submodule update --init --recursive
