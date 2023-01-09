@@ -1,0 +1,20 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ["~"]
+
+- link:
+    ~/.zshrc:
+      force: true
+      path: .zshrc
+    ~/.gitconfig:
+      force: false
+      path: .gitconfig
+    ~/.gitignore_global:
+      force: false
+      path: .gitignore_global
+
+- shell:
+    - command: git submodule update --init --recursive
+      description: Installing submodules
