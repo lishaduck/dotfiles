@@ -28,6 +28,8 @@
       path: git/.gitignore_global
     ~/.editorconfig:
       path: .editorconfig
+    ~/.aliases:
+      path: zsh/.aliases
 
 - shell:
     - command: git submodule update --init --recursive

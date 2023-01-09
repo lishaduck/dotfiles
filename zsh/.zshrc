@@ -137,6 +137,9 @@ export PATH="$PATH:/Users/dukese01/.local/bin"
 # Created by `pipx` on 2023-01-07 20:19:02
 export PATH="$PATH:/Users/dukese01/Library/Python/3.10/bin"
 
+if [ -e $HOME/.aliases ]; then
+    source $HOME/.aliases
+fi
 
 fpath+=~/.zfunc
 autoload -Uz compinit bashcompinit
