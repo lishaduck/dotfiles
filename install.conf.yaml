@@ -4,7 +4,7 @@
       create: true
       force: false
 
-- clean: ["~", "~/.config"]
+- clean: ["~", "~/.config", "~/.etc", "~/.local/bin"]
 
 - link:
     ~/.dotfiles:
@@ -30,6 +30,10 @@
       path: .editorconfig
     ~/.aliases:
       path: zsh/.aliases
+    ~/.functions:
+      path: zsh/.functions
+    ~/.env:
+      path: zsh/.env
 
 - shell:
     - command: git submodule update --init --recursive

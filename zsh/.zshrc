@@ -141,6 +141,11 @@ if [ -e $HOME/.aliases ]; then
     source $HOME/.aliases
 fi
 
+if [ -e $HOME/.functions ]; then
+    source $HOME/.functions
+fi
+
+
 fpath+=~/.zfunc
 autoload -Uz compinit bashcompinit
 compinit
