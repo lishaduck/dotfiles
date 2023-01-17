@@ -1,3 +1,6 @@
+# for pyzshcomplete (I'm running PR 59 so I don't need sudo)
+fpath=(/Users/dukese01/.local/pipx/venvs/pyzshcomplete/lib/python3.10/site-packages/pyzshcomplete/zsh_scripts $fpath)
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -137,16 +140,15 @@ export PATH="$PATH:/Users/dukese01/.local/bin"
 # Created by `pipx` on 2023-01-07 20:19:02
 export PATH="$PATH:/Users/dukese01/Library/Python/3.10/bin"
 
-if [ -e $HOME/.aliases ]; then
-    source $HOME/.aliases
-fi
-
-if [ -e $HOME/.functions ]; then
-    source $HOME/.functions
-fi
+export PATH="$PATH:/Users/dukese01/Applications/Chrome Apps"
 
 
 fpath+=~/.zfunc
 autoload -Uz compinit bashcompinit
 compinit
 bashcompinit
+
+eval "$(register-python-argcomplete pytest)"
+
+export NVS_HOME="$HOME/Users/dukese01/Applications/Chrome Apps/.nvs"
+[ -s "$NVS_HOME/nvs.sh" ] && . "$NVS_HOME/nvs.sh"

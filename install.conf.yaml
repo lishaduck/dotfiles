@@ -28,10 +28,10 @@
       path: git/.gitignore_global
     ~/.editorconfig:
       path: .editorconfig
-    ~/.aliases:
-      path: zsh/.aliases
-    ~/.functions:
-      path: zsh/.functions
+    ~/.oh-my-zsh/custom/aliases.zsh:
+      path: zsh/aliases.zsh
+    ~/.oh-my-zsh/custom/functions.zsh:
+      path: zsh/functions.zsh
     ~/.env:
       path: zsh/.env
 
