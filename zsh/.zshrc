@@ -81,8 +81,6 @@ plugins=(
   python
   pylint
   swiftpm
-  git-prompt
-  emoji-clock
   octozen
   safe-paste
   man
@@ -94,7 +92,6 @@ plugins=(
   virtualenv
   web-search
   xcode
-  z
   zsh-completions
   zsh-autosuggestions
   zsh-syntax-highlighting # must be last
