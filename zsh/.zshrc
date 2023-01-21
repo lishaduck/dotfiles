@@ -32,7 +32,7 @@ ZSH_THEME="robbyrussell"
 zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
-zstyle ':omz:update' frequency 1
+zstyle ':omz:update' frequency 2
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -85,10 +85,12 @@ plugins=(
   safe-paste
   man
   gitfast
+  git_auto_status
   aliases
   alias-finder
   timer
   themes
+  zshnotes
   virtualenv
   web-search
   xcode
@@ -96,6 +98,17 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting # must be last
 )
+
+PROMPT='${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)$(git_prompt_status)$(hg_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
+
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}%{$fg_bold[blue]%}) "
+ZSH_THEME_GIT_PROMPT_DIRTY=""
+ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%%"
+ZSH_THEME_GIT_PROMPT_MODIFIED="*"
+ZSH_THEME_GIT_PROMPT_ADDED="+"
+
 
 source $ZSH/oh-my-zsh.sh
 
@@ -136,8 +149,6 @@ export PATH="$PATH:/Users/dukese01/.local/bin"
 
 # Created by `pipx` on 2023-01-07 20:19:02
 export PATH="$PATH:/Users/dukese01/Library/Python/3.10/bin"
-
-export PATH="$PATH:/Users/dukese01/Applications/Chrome Apps"
 
 
 fpath+=~/.zfunc
