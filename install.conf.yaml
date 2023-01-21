@@ -34,8 +34,8 @@
       path: zsh/omz/plugins/oh-my-zsh-reminder
     ~/.oh-my-zsh/custom/plugins/zshnotes:
       path: zsh/omz/plugins/zshnotes
-    ~/.oh-my-zsh/custom/plugins/git-auto-status.plugin.zsh:
-      path: zsh/omz/plugins/git-auto-status.plugin.zsh
+    ~/.oh-my-zsh/custom/plugins/git-auto-status:
+      path: zsh/omz/plugins/git-auto-status
     ~/.gitconfig:
       path: git/.gitconfig
     ~/.gitignore_global:

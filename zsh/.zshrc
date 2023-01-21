@@ -85,7 +85,7 @@ plugins=(
   safe-paste
   man
   gitfast
-  git_auto_status
+  git-auto-status
   aliases
   alias-finder
   timer
