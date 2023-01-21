@@ -11,3 +11,9 @@
 [submodule "zsh/omz/plugins/zsh-completions"]
 	path = zsh/omz/plugins/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions.git
+[submodule "zsh/omz/plugins/oh-my-zsh-reminder"]
+	path = zsh/omz/plugins/oh-my-zsh-reminder
+	url = https://github.com/AlexisBRENON/oh-my-zsh-reminder.git
+[submodule "zsh/omz/plugins/zshnotes"]
+	path = zsh/omz/plugins/zshnotes
+	url = https://github.com/jameshgrn/zshnotes.git
