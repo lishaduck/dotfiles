@@ -151,6 +151,8 @@ export PATH="$PATH:/Users/dukese01/.local/bin"
 export PATH="$PATH:/Users/dukese01/Library/Python/3.10/bin"
 
 
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
+
 fpath+=~/.zfunc
 autoload -Uz compinit bashcompinit
 compinit
