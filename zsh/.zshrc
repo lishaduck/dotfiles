@@ -160,5 +160,5 @@ bashcompinit
 
 eval "$(register-python-argcomplete pytest)"
 
-export NVS_HOME="$HOME/Users/dukese01/Applications/Chrome Apps/.nvs"
-[ -s "$NVS_HOME/nvs.sh" ] && . "$NVS_HOME/nvs.sh"
+
+export PATH=$PATH:"/Users/dukese01/.venv/roc_nightly-macos_x86_64-2023-02-06-613ef2a"
