@@ -1,5 +1,8 @@
+
+fpath+="${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src"
+
 # for pyzshcomplete (I'm running PR 59 so I don't need sudo)
-fpath=(/Users/dukese01/.local/pipx/venvs/pyzshcomplete/lib/python3.10/site-packages/pyzshcomplete/zsh_scripts $fpath)
+fpath+="/Users/dukese01/.local/pipx/venvs/pyzshcomplete/lib/python3.10/site-packages/pyzshcomplete/zsh_scripts"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -94,7 +97,6 @@ plugins=(
   virtualenv
   web-search
   xcode
-  zsh-completions
   zsh-autosuggestions
   zsh-syntax-highlighting # must be last
 )
