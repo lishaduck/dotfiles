@@ -1,4 +1,3 @@
-
 fpath+="${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src"
 
 # for pyzshcomplete (I'm running PR 59 so I don't need sudo)
@@ -163,4 +162,8 @@ bashcompinit
 eval "$(register-python-argcomplete pytest)"
 
 
-export PATH=$PATH:"/Users/dukese01/.venv/roc_nightly-macos_x86_64-2023-02-06-613ef2a"
+export PATH=$PATH:"/Users/dukese01/.venv/roc_nightly-macos_x86_64-2023-02-21-63f84ac"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
