@@ -17,3 +17,6 @@
 [submodule "zsh/omz/plugins/zshnotes"]
 	path = zsh/omz/plugins/zshnotes
 	url = https://github.com/jameshgrn/zshnotes.git
+[submodule "zsh/omz/plugins/zsh-nvm"]
+	path = zsh/omz/plugins/zsh-nvm
+	url = https://github.com/lukechilds/zsh-nvm
