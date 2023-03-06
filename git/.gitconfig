@@ -9,19 +9,17 @@
 	excludesfile = ~/.gitignore_global
 	editor = code --wait
 	ignorecase = false
-    filemode=true
-    repositoryformatversion=0
-    bare=false
-    logallrefupdates=true
+    filemode = true
+    repositoryformatversion = 1
+    bare = false
+    logallrefupdates = true
+	autocrlf = true
 
 [init]
-    defaultbranch=main
+    defaultbranch = main
 
 [pull]
 	rebase = true
-
-[init]
-	defaultBranch = main
 
 [push]
 	default = simple
@@ -29,7 +27,6 @@
 
 [fetch]
 	prune = true
-    lease
 
 [grep]
 	lineNumber = true
