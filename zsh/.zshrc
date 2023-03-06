@@ -1,7 +1,7 @@
 fpath+="${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src"
 
 # for pyzshcomplete (I'm running PR 59 so I don't need sudo)
-fpath+="/Users/dukese01/.local/pipx/venvs/pyzshcomplete/lib/python3.10/site-packages/pyzshcomplete/zsh_scripts"
+fpath+="~/.local/pipx/venvs/pyzshcomplete/lib/python3.10/site-packages/pyzshcomplete/zsh_scripts"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -70,6 +70,13 @@ zstyle ':omz:update' frequency 2
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+
+# Export nvm completion settings for zsh-nvm plugin
+export NVM_DIR="$HOME/.nvm"
+export NVM_COMPLETION=true
+export NVM_LAZY_LOAD=true
+export NVM_AUTO_USE=true
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -92,10 +99,11 @@ plugins=(
   alias-finder
   timer
   themes
-  zshnotes
+  # zshnotes
   virtualenv
   web-search
   xcode
+  zsh-nvm
   zsh-autosuggestions
   zsh-syntax-highlighting # must be last
 )
@@ -146,10 +154,10 @@ export PATH
 
 
 # Created by `pipx` on 2023-01-07 20:19:02
-export PATH="$PATH:/Users/dukese01/.local/bin"
+export PATH="$PATH:~/.local/bin"
 
 # Created by `pipx` on 2023-01-07 20:19:02
-export PATH="$PATH:/Users/dukese01/Library/Python/3.10/bin"
+export PATH="$PATH:~/Library/Python/3.10/bin"
 
 
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
@@ -162,8 +170,11 @@ bashcompinit
 eval "$(register-python-argcomplete pytest)"
 
 
-export PATH=$PATH:"/Users/dukese01/.venv/roc_nightly-macos_x86_64-2023-02-21-63f84ac"
+export PATH=$PATH:"~/.venv/roc_nightly/"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# pnpm
+export PNPM_HOME="~/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+
+zstyle ':completion:*' menu select

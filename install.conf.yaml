@@ -36,6 +36,8 @@
       path: zsh/omz/plugins/zshnotes
     ~/.oh-my-zsh/custom/plugins/git-auto-status:
       path: zsh/omz/plugins/git-auto-status
+    ~/.oh-my-zsh/custom/plugins/zsh-nvm:
+      path: zsh/omz/plugins/zsh-nvm
     ~/.gitconfig:
       path: git/.gitconfig
     ~/.gitignore_global:
