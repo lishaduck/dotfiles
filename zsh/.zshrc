@@ -1,4 +1,3 @@
-
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
@@ -13,7 +12,7 @@ fpath+="$HOME/.local/pipx/venvs/pyzshcomplete/lib/python3.10/site-packages/pyzsh
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
- 
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -36,10 +35,10 @@ HYPHEN_INSENSITIVE="true"
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
-zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+zstyle ":omz:update" mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
-zstyle ':omz:update' frequency 2
+zstyle ":omz:update" frequency 2
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -83,9 +82,13 @@ export PATH
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/Library/Python/3.10/bin"
 
+# Rust
+export CARGO_HOME="$HOME/.venv/.cargo/"
+export RUSTUP_HOME="$HOME/.venv/.config/rustup/"
+
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST-$ZSH_VERSION
 autoload -Uz compinit bashcompinit && compinit bashcompinit
-zstyle ':completion:*' menu yes select
+zstyle ":completion:*" menu yes select
 
 # Export nvm completion settings for zsh-nvm plugin
 export NVM_DIR="$HOME/.nvm"
@@ -123,7 +126,6 @@ plugins=(
   zsh-syntax-highlighting # must be last
 )
 
-PROMPT='${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)$(git_prompt_status)$(hg_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}%{$fg_bold[blue]%}) "
 ZSH_THEME_GIT_PROMPT_DIRTY=""
