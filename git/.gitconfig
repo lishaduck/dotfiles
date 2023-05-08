@@ -9,20 +9,19 @@
 	excludesfile = ~/.gitignore_global
 	editor = code --wait
 	ignorecase = false
-    filemode = true
-    repositoryformatversion = 1
-    bare = false
-    logallrefupdates = true
-	autocrlf = true
+	filemode = true
+	repositoryformatversion = 1
+	logAllRefUpdates = true
+	autocrlf = input
 
 [init]
-    defaultbranch = main
+	defaultbranch = main
 
 [pull]
 	rebase = true
 
 [push]
-	default = simple
+	default = upstream
 	followTags = true
 
 [fetch]
@@ -30,9 +29,6 @@
 
 [grep]
 	lineNumber = true
-
-[help]
-	autocorrect = 1
 
 [alias]
 	amend = commit --amend --reuse-message=HEAD
