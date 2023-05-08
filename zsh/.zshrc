@@ -86,6 +86,12 @@ export PATH="$PATH:$HOME/Library/Python/3.10/bin"
 export CARGO_HOME="$HOME/.venv/.cargo/"
 export RUSTUP_HOME="$HOME/.venv/.config/rustup/"
 
+# Flutter
+export PATH="$PATH:$HOME/.venv/flutter/bin"
+
+# Lamdera
+export PATH="$PATH:$HOME/.venv/lamdera"
+
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST-$ZSH_VERSION
 autoload -Uz compinit bashcompinit && compinit bashcompinit
 zstyle ":completion:*" menu yes select
@@ -171,3 +177,18 @@ export PATH=$PATH:"$HOME/.venv/roc_nightly/"
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+# Zi
+
+if [[ ! -f $HOME/.zi/bin/zi.zsh ]]; then
+  print -P "%F{33}▓▒░ %F{160}Installing (%F{33}z-shell/zi%F{160})…%f"
+  command mkdir -p "$HOME/.zi" && command chmod go-rwX "$HOME/.zi"
+  command git clone -q --depth=1 --branch "main" https://github.com/z-shell/zi "$HOME/.zi/bin" && \
+    print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+    print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
+source "$HOME/.zi/bin/zi.zsh"
+autoload -Uz _zi
+(( ${+_comps} )) && _comps[zi]=_zi
+# examples here -> https://wiki.zshell.dev/ecosystem/category/-annexes
+zicompinit # <- https://wiki.zshell.dev/docs/guides/commands
