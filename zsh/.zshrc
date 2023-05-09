@@ -23,9 +23,10 @@ path=(
 export CARGO_HOME="${HOME}/.venv/.cargo/"
 export RUSTUP_HOME="${HOME}/.venv/.config/rustup/"
 
-# Zomp
 export ZSH_COMPDUMP="$ZSH/cache/.zcompdump-$HOST-$ZSH_VERSION"
-autoload -Uz compinit bashcompinit && compinit bashcompinit
+autoload -Uz compinit bashcompinit
+compinit -d $ZSH_COMPDUMP
+bashcompinit
 
 # Export nvm completion settings for zsh-nvm plugin
 export NVM_DIR="${HOME}/.nvm"
@@ -127,7 +128,7 @@ source "${HOME}/.zi/bin/zi.zsh"
 autoload -Uz _zi
 (( ${+_comps} )) && _comps[zi]=_zi
 # examples here -> https://wiki.zshell.dev/ecosystem/category/-annexes
-zicompinit # <- https://wiki.zshell.dev/docs/guides/commands
+# zicompinit # <- https://wiki.zshell.dev/docs/guides/commands
 
 ## Install Zi plugins from OMZ
 zi snippet OMZP::git
@@ -151,7 +152,7 @@ zi load lukechilds/zsh-nvm
 zi load lukechilds/zsh-better-npm-completion
 
 ## Install Zi Annexes
-zi light-mode for z-shell/z-a-meta-plugins @annexes @z-shell @zsh-users+fast @ext-git
+zi light-mode for z-shell/z-a-meta-plugins @annexes @z-shell @ext-git @zsh-users+fast
 
 ## It asked me to
 source "${HOME}/.zi/plugins/tj---git-extras/etc/git-extras-completion.zsh"
