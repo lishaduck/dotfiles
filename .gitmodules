@@ -2,21 +2,6 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
-[submodule "zsh/omz/plugins/zsh-autosuggestions"]
-	path = zsh/omz/plugins/zsh-autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule "zsh/omz/plugins/zsh-syntax-highlighting"]
-	path = zsh/omz/plugins/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "zsh/omz/plugins/zsh-completions"]
-	path = zsh/omz/plugins/zsh-completions
-	url = https://github.com/zsh-users/zsh-completions.git
 [submodule "zsh/omz/plugins/oh-my-zsh-reminder"]
 	path = zsh/omz/plugins/oh-my-zsh-reminder
 	url = https://github.com/AlexisBRENON/oh-my-zsh-reminder.git
-[submodule "zsh/omz/plugins/zshnotes"]
-	path = zsh/omz/plugins/zshnotes
-	url = https://github.com/jameshgrn/zshnotes.git
-[submodule "zsh/omz/plugins/zsh-nvm"]
-	path = zsh/omz/plugins/zsh-nvm
-	url = https://github.com/lukechilds/zsh-nvm

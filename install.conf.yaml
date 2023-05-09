@@ -3,16 +3,17 @@
       relink: true
       create: true
       force: false
+    clean:
+      recursive: true
+      force: true
 
 - clean:
-    [
-      "~",
-      "~/.config",
-      "~/.etc",
-      "~/.local/bin",
-      "~/.oh-my-zsh/custom/plugins",
-      "~/.oh-my-zsh/custom/themes",
-    ]
+    "~":
+      recursive: false
+    "~/.config":
+    "~/.etc":
+    "~/.local/bin":
+    "~/.zi":
 
 - link:
     ~/.dotfiles:
@@ -22,35 +23,19 @@
       force: true
     ~/.zprofile:
       path: zsh/.zprofile
-    ~/.oh-my-zsh/custom/themes/codespaces.zsh-theme:
-      path: zsh/omz/themes/codespaces.zsh-theme
-    ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions:
-      path: zsh/omz/plugins/zsh-autosuggestions/
-    ~/.oh-my-zsh/custom/plugins/zsh-completions:
-      path: zsh/omz/plugins/zsh-completions
-    ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting:
-      path: zsh/omz/plugins/zsh-syntax-highlighting
-    ~/.oh-my-zsh/custom/plugins/oh-my-zsh-reminder:
-      path: zsh/omz/plugins/oh-my-zsh-reminder
-    ~/.oh-my-zsh/custom/plugins/zshnotes:
-      path: zsh/omz/plugins/zshnotes
-    ~/.oh-my-zsh/custom/plugins/git-auto-status:
-      path: zsh/omz/plugins/git-auto-status
-    ~/.oh-my-zsh/custom/plugins/zsh-nvm:
-      path: zsh/omz/plugins/zsh-nvm
+    ~/.zi/plugins/git-auto-status:
+      path: zsh/plugins/git-auto-status
     ~/.gitconfig:
       path: git/.gitconfig
     ~/.gitignore_global:
       path: git/.gitignore_global
     ~/.editorconfig:
       path: .editorconfig
-    ~/.oh-my-zsh/custom/aliases.zsh:
+    ~/aliases.zsh:
       path: zsh/aliases.zsh
-    ~/.oh-my-zsh/custom/functions.zsh:
+    ~/functions.zsh:
       path: zsh/functions.zsh
+    ~/.config/starship.toml:
+      path: zsh/starship.toml
     ~/.env:
       path: zsh/.env
-
-- shell:
-    - command: git submodule update --init --recursive
-      description: Installing submodules
