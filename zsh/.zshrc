@@ -17,12 +17,17 @@ path=(
   "${HOME}/.venv/flutter/bin" # Flutter
   "${HOME}/.venv/lamdera" # Lamdera
   "${HOME}/.venv/github" # `gh` cli
+  "${HOME}/.pub-cache/bin" # Dart
   )
 
 # Rust
 export CARGO_HOME="${HOME}/.venv/.cargo/"
 export RUSTUP_HOME="${HOME}/.venv/.config/rustup/"
 
+# Flutter
+export FLUTTER_ROOT="${HOME}/.venv/flutter"
+
+# Completions
 export ZSH_COMPDUMP="$ZSH/cache/.zcompdump-$HOST-$ZSH_VERSION"
 autoload -Uz compinit bashcompinit
 compinit -d $ZSH_COMPDUMP
