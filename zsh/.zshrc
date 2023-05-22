@@ -27,6 +27,12 @@ export RUSTUP_HOME="${HOME}/.venv/.config/rustup/"
 # Flutter
 export FLUTTER_ROOT="${HOME}/.venv/flutter"
 
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /Users/dukese01/.dart-cli-completion/zsh-config.zsh ]] && . /Users/dukese01/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
+
 # Completions
 export ZSH_COMPDUMP="$ZSH/cache/.zcompdump-$HOST-$ZSH_VERSION"
 autoload -Uz compinit bashcompinit
