@@ -155,6 +155,7 @@ zi snippet OMZP::xcode
 # zi load jameshgrn/zshnotes    # broken on mac
 zi load lukechilds/zsh-nvm
 zi load lukechilds/zsh-better-npm-completion
+zi load MichaelAquilina/zsh-you-should-use
 
 ## Install Zi Annexes
 zi light-mode for z-shell/z-a-meta-plugins @annexes @z-shell @ext-git @zsh-users+fast
