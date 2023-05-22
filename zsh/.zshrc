@@ -59,7 +59,8 @@ fi
 source "${HOME}/aliases.zsh"
 source "${HOME}/functions.zsh"
 
-eval "$(register-python-argcomplete pytest)"
+eval "$(register-python-argcomplete -s zsh pytest)"
+eval "$(register-python-argcomplete -s zsh pipx)"
 
 # pnpm
 export PNPM_HOME="${HOME}/.local/share/pnpm"
