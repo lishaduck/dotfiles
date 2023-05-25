@@ -39,3 +39,9 @@
       path: zsh/starship.toml
     ~/.env:
       path: zsh/.env
+    ~/.profile:
+      path: zsh/.profile
+    ~/.zi/completions/_autodoc2:
+      path: zsh/completions/_autodoc2
+    ~/.zi/completions/_poetry:
+      path: zsh/completions/_poetry

@@ -1,0 +1,7 @@
+#compdef autodoc2
+
+_autodoc2_completion() {
+  eval $(env _TYPER_COMPLETE_ARGS="${words[1,$CURRENT]}" _AUTODOC2_COMPLETE=complete_zsh autodoc2)
+}
+
+compdef _autodoc2_completion autodoc2
