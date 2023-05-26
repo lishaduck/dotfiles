@@ -35,6 +35,8 @@
       path: zsh/aliases.zsh
     ~/functions.zsh:
       path: zsh/functions.zsh
+    ~/.inputrc:
+      path: zsh/.inputrc
     ~/.config/starship.toml:
       path: zsh/starship.toml
     ~/.env:
