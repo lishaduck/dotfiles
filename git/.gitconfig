@@ -1,6 +1,6 @@
 [user]
-	email = 88557639+lishaduck@users.noreply.github.com
 	name = Eli
+	email = 88557639+lishaduck@users.noreply.github.com
 
 [github]
 	user = lishaduck
@@ -12,7 +12,7 @@
 	filemode = true
 	repositoryformatversion = 1
 	logAllRefUpdates = true
-	autocrlf = input
+	autocrlf = false
 
 [init]
 	defaultbranch = main
@@ -27,8 +27,35 @@
 [fetch]
 	prune = true
 
+[rebase]
+	autoStash = true
+
 [grep]
 	lineNumber = true
+
+[color "status"]
+	added = green bold
+	changed = red bold strike
+	untracked = cyan
+	branch = yellow black bold ul
+
+[diff]
+	guitool = vscode
+
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+
+[merge]
+	guitool = vscode
+
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 
 [alias]
 	amend = commit --amend --reuse-message=HEAD
