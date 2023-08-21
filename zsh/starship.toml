@@ -12,7 +12,7 @@ add_newline = true
 # right_format = """$all"""
 
 [directory]
-read_only         = " "
+read_only         = " 󰌾"
 truncate_to_repo  = true
 truncation_length = 4
 truncation_symbol = '…/'
@@ -21,9 +21,8 @@ disabled = false
 
 
 [git_commit]
-# tag_disabled = false
-
-disabled = false
+disabled     = false
+tag_disabled = false
 
 
 [shlvl]
@@ -72,7 +71,7 @@ symbol = " "
 symbol = " "
 
 [haxe]
-symbol = "⌘ "
+symbol = " "
 
 [hg_branch]
 symbol = " "
@@ -90,13 +89,13 @@ symbol = " "
 symbol = " "
 
 [memory_usage]
-symbol = " "
+symbol = "󰍛 "
 
 [meson]
-symbol = "喝 "
+symbol = "󰔷 "
 
 [nim]
-symbol = " "
+symbol = "󰆥 "
 
 [nix_shell]
 symbol = " "
@@ -121,10 +120,10 @@ Emscripten       = " "
 EndeavourOS      = " "
 Fedora           = " "
 FreeBSD          = " "
-Garuda           = "﯑ "
+Garuda           = "󰛓 "
 Gentoo           = " "
-HardenedBSD      = "ﲊ "
-Illumos          = " "
+HardenedBSD      = "󰞌 "
+Illumos          = "󰈸 "
 Linux            = " "
 Mabox            = " "
 Macos            = " "
@@ -134,31 +133,31 @@ MidnightBSD      = " "
 Mint             = " "
 NetBSD           = " "
 NixOS            = " "
-OpenBSD          = " "
-OracleLinux      = " "
+OpenBSD          = "󰈺 "
+OracleLinux      = "󰌷 "
 Pop              = " "
 Raspbian         = " "
 RedHatEnterprise = " "
 Redhat           = " "
-Redox            = " "
+Redox            = "󰀘 "
 SUSE             = " "
-Solus            = "ﴱ "
+Solus            = "󰠳 "
 Ubuntu           = " "
 Unknown          = " "
-Windows          = " "
+Windows          = "󰍲 "
 openSUSE         = " "
 
 [package]
-symbol = " "
+symbol = "󰏗 "
 
 [pijul_channel]
-symbol = "🪺 "
+symbol = " "
 
 [python]
 symbol = " "
 
 [rlang]
-symbol = "ﳒ "
+symbol = "󰟔 "
 
 [ruby]
 symbol = " "
@@ -168,6 +167,3 @@ symbol = " "
 
 [scala]
 symbol = " "
-
-[spack]
-symbol = "🅢 "
