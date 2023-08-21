@@ -14,7 +14,7 @@ path=(
   "${HOME}/.venv/stars" # starship
   "${HOME}/.venv/.cargo/bin" # cargo
   "${HOME}/.venv/roc_nightly" # roc
-  "${HOME}/.venv/flutter/bin" # Flutter
+  "${HOME}/development/flutter/bin" # Flutter
   "${HOME}/.venv/lamdera" # Lamdera
   "${HOME}/.venv/github" # `gh` cli
   "${HOME}/.pub-cache/bin" # Dart
@@ -128,14 +128,16 @@ setopt pushd_ignore_dups;    # Don't push multiple copies directory onto the dir
 # Zi
 
 ## Load Zi
-if [[ ! -f $HOME/.zi/bin/zi.zsh ]]; then
+if [[ ! -f $HOME/.venv/.zi/bin/zi.zsh ]]; then
   print -P "%F{33}▓▒░ %F{160}Installing (%F{33}z-shell/zi%F{160})…%f";
-  command mkdir -p "${HOME}/.zi" && command chmod go-rwX "${HOME}/.zi";
-  command git clone -q --depth=1 --branch "main" https://github.com/z-shell/zi "${HOME}/.zi/bin" && \
+  command mkdir -p "${HOME}/.venv/.zi" && command chmod go-rwX "${HOME}/.venv/.zi";
+  command git clone -q --depth=1 --branch "main" https://github.com/z-shell/zi "${HOME}/.venv/.zi/bin" && \
     print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
     print -P "%F{160}▓▒░ The clone has failed.%f%b";
 fi
-source "${HOME}/.zi/bin/zi.zsh";
+typeset -Ag ZI
+typeset -gx ZI[HOME_DIR]="${HOME}/.venv/.zi" ZI[BIN_DIR]="${ZI[HOME_DIR]}/bin"
+source "${HOME}/.venv/.zi/bin/zi.zsh";
 autoload -Uz _zi;
 (( ${+_comps} )) && _comps[zi]=_zi;
 # examples here -> https://wiki.zshell.dev/ecosystem/category/-annexes
@@ -143,7 +145,7 @@ autoload -Uz _zi;
 
 ## Install Zi plugins from OMZ
 zi snippet "OMZP::git";
-zi snippet "OMZP::macos";        # requires copying in spotify and music files manually
+# zi snippet "OMZP::macos";        # requires copying in spotify and music files manually
 # zi snippet "OMZP::poetry";     # broken without $ZSH_CACHE_DIR
 zi snippet "OMZP::python";
 zi snippet "OMZP::pylint";
@@ -167,10 +169,12 @@ zi load "MichaelAquilina/zsh-you-should-use";
 zi light-mode for "z-shell/z-a-meta-plugins" "@annexes" "@z-shell" "@ext-git" "@zsh-users+fast";
 
 ## It asked me to
-source "${HOME}/.zi/plugins/tj---git-extras/etc/git-extras-completion.zsh";
+source "${ZI[PLUGINS_DIR]}/tj---git-extras/etc/git-extras-completion.zsh";
 
-# my theme
-eval "$(starship init zsh)";
+zi ice as"command" from"gh-r" \
+  atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+  atpull"%atclone" src"init.zsh"
+zi light starship/starship
 
 function set_win_title(){
     echo -ne "\033]0; $(basename "${PWD}") \007";
