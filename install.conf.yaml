@@ -43,7 +43,9 @@
       path: zsh/.env
     ~/.profile:
       path: zsh/.profile
-    ~/.zi/completions/_autodoc2:
+    ~/.venv/.zi/completions/_autodoc2:
       path: zsh/completions/_autodoc2
-    ~/.zi/completions/_poetry:
+    ~/.venv/.zi/completions/_poetry:
       path: zsh/completions/_poetry
+    ~/.config/direnv/direnv.toml:
+      path: zsh/direnv.toml

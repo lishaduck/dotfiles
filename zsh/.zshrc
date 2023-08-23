@@ -1,48 +1,67 @@
 # You may need to manually set your language environment
 export LANG="en_US.UTF-8";
-
-# for pyzshcomplete (I'm running PR 59 so I don't need sudo)
-fpath+="${HOME}/.local/pipx/venvs/pyzshcomplete/lib/python3.10/site-packages/pyzshcomplete/zsh_scripts";
 fpath+="${HOME}/.zfunc";
+
+# Zi
+
+## Load Zi
+if [[ ! -f $HOME/.venv/.zi/bin/zi.zsh ]]; then
+  print -P "%F{33}▓▒░ %F{160}Installing (%F{33}z-shell/zi%F{160})…%f";
+  command mkdir -p "${HOME}/.venv/.zi" && command chmod go-rwX "${HOME}/.venv/.zi";
+  command git clone -q --depth=1 --branch "main" https://github.com/z-shell/zi "${HOME}/.venv/.zi/bin" && \
+    print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+    print -P "%F{160}▓▒░ The clone has failed.%f%b";
+fi
+typeset -Ag ZI
+typeset -gx ZI[HOME_DIR]="${HOME}/.venv/.zi" ZI[BIN_DIR]="${ZI[HOME_DIR]}/bin"
+source "${HOME}/.venv/.zi/bin/zi.zsh";
+autoload -Uz _zi;
+(( ${+_comps} )) && _comps[zi]=_zi;
+# examples here -> https://wiki.zshell.dev/ecosystem/category/-annexes
+
+## Install Zi Annexes
+zi light-mode for z-shell/z-a-meta-plugins \
+  "@annexes" \
+  "@z-shell" \
+  "@ext-git" \
+  "@zsh-users+fast" \
+  "@sharkdp" \
+
+zi pack for \
+  atclone'nb notebooks add https://github.com/lishaduck/notes' nb \
+  pack'bgn' pyenv \
+  ls_colors \
+
+# zi rustup for \
+#   z-shell/0
+
+# Rust
+export CARGO_HOME="${ZPFX}/bin/rust/.cargo";
+export RUSTUP_HOME="${ZPFX}/bin/rust/rustup";
 
 path=(
   $path
   "."
   "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" # vscode
   "${HOME}/.local/bin" # pipx
-  "${HOME}/.local/share/pnpm" # pnpm
-  "${HOME}/.venv/stars" # starship
-  "${HOME}/.venv/.cargo/bin" # cargo
-  "${HOME}/.venv/roc_nightly" # roc
+  "${CARGO_HOME}/bin" # cargo
   "${HOME}/development/flutter/bin" # Flutter
-  "${HOME}/.venv/lamdera" # Lamdera
-  "${HOME}/.venv/github" # `gh` cli
   "${HOME}/.pub-cache/bin" # Dart
+   $HOME/.gradle/wrapper/dists/gradle-8.*-bin/*/gradle-8.*/bin # Gradle
   )
 
-# Rust
-export CARGO_HOME="${HOME}/.venv/.cargo/";
-export RUSTUP_HOME="${HOME}/.venv/.config/rustup/";
-
 # Flutter
-export FLUTTER_ROOT="${HOME}/.venv/flutter";
+# export FLUTTER_ROOT="${HOME}/.venv/flutter";
 
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
-[[ -f /Users/dukese01/.dart-cli-completion/zsh-config.zsh ]] && . /Users/dukese01/.dart-cli-completion/zsh-config.zsh || true;
+[[ -f ~/.dart-cli-completion/zsh-config.zsh ]] && . ~/.dart-cli-completion/zsh-config.zsh || true;
 ## [/Completion]
-
 
 # Completions
 export ZSH_COMPDUMP="$ZSH/cache/.zcompdump-$HOST-$ZSH_VERSION";
 autoload -Uz compinit bashcompinit;
 compinit -d "${ZSH_COMPDUMP}" && bashcompinit;
-
-# Export nvm completion settings for zsh-nvm plugin
-export NVM_DIR="${HOME}/.nvm";
-export NVM_COMPLETION=true;
-export NVM_LAZY_LOAD=true;
-export NVM_AUTO_USE=true;
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -52,18 +71,10 @@ else
   export VISUAL="code";
 fi
 
-
 # Set personal aliases
 # For a full list of active aliases, run `alias`.
 source "${HOME}/aliases.zsh";
 source "${HOME}/functions.zsh";
-
-eval "$(register-python-argcomplete -s zsh pytest)";
-eval "$(register-python-argcomplete -s zsh pipx)";
-
-# pnpm
-export PNPM_HOME="${HOME}/.local/share/pnpm";
-# pnpm end
 
 # ZMods
 zmodload -a colors;
@@ -124,59 +135,85 @@ setopt multios;              # Implicit tees or cats when multiple redirections 
 setopt prompt_subst;         # Substitution of parameters inside the prompt each time the prompt is drawn.
 setopt pushd_ignore_dups;    # Don't push multiple copies directory onto the directory stack.
 
-
-# Zi
-
-## Load Zi
-if [[ ! -f $HOME/.venv/.zi/bin/zi.zsh ]]; then
-  print -P "%F{33}▓▒░ %F{160}Installing (%F{33}z-shell/zi%F{160})…%f";
-  command mkdir -p "${HOME}/.venv/.zi" && command chmod go-rwX "${HOME}/.venv/.zi";
-  command git clone -q --depth=1 --branch "main" https://github.com/z-shell/zi "${HOME}/.venv/.zi/bin" && \
-    print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-    print -P "%F{160}▓▒░ The clone has failed.%f%b";
-fi
-typeset -Ag ZI
-typeset -gx ZI[HOME_DIR]="${HOME}/.venv/.zi" ZI[BIN_DIR]="${ZI[HOME_DIR]}/bin"
-source "${HOME}/.venv/.zi/bin/zi.zsh";
-autoload -Uz _zi;
-(( ${+_comps} )) && _comps[zi]=_zi;
-# examples here -> https://wiki.zshell.dev/ecosystem/category/-annexes
-# zicompinit # <- https://wiki.zshell.dev/docs/guides/commands
+# Zi managed installations.
 
 ## Install Zi plugins from OMZ
-zi snippet "OMZP::git";
-# zi snippet "OMZP::macos";        # requires copying in spotify and music files manually
-# zi snippet "OMZP::poetry";     # broken without $ZSH_CACHE_DIR
-zi snippet "OMZP::python";
-zi snippet "OMZP::pylint";
-zi snippet "OMZP::swiftpm";
-zi snippet "OMZP::safe-paste";
-zi snippet "OMZP::man";
-zi snippet "OMZP::aliases";
-zi snippet "OMZP::alias-finder";
-zi snippet "OMZP::virtualenv";
-zi snippet "OMZP::web-search";
-zi snippet "OMZP::xcode";
-# zi snippet "OMZP::octozen";      # took to long, broke vscode
+zi for \
+  OMZL::git.zsh \
+  atload"unalias grv" \
+  OMZP::git \
+  OMZP::python \
+  OMZP::pylint \
+  OMZP::swiftpm \
+  OMZP::safe-paste \
+  OMZP::man \
+  OMZP::aliases \
+  OMZP::alias-finder \
+  OMZP::virtualenv \
+  OMZP::web-search \
+  OMZP::xcode \
+  # OMZP::macos \      # requires copying in spotify and music files manually
+  # OMZP::poetry \     # broken without $ZSH_CACHE_DIR
+  # OMZP::octozen \    # didn't work w/out wifi
 
 ## Install Zi plugins from OMZ (custom)
-# zi load "jameshgrn/zshnotes"    # broken on mac
-# zi load "lukechilds/zsh-nvm"
-zi load "lukechilds/zsh-better-npm-completion";
-zi load "MichaelAquilina/zsh-you-should-use";
+zi wait lucid for MichaelAquilina/zsh-you-should-use
 
-## Install Zi Annexes
-zi light-mode for "z-shell/z-a-meta-plugins" "@annexes" "@z-shell" "@ext-git" "@zsh-users+fast";
 
-## It asked me to
-source "${ZI[PLUGINS_DIR]}/tj---git-extras/etc/git-extras-completion.zsh";
+# GIT stands for 'Github Issue Tracker', the future name of the project
+GIT_PROJECTS="PSDTools/app:PSDTools/PHS-Map:PSDTools/GPA_Calculator"
 
-zi ice as"command" from"gh-r" \
-  atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-  atpull"%atclone" src"init.zsh"
-zi light starship/starship
+zi service"GIT" pick"zsh-github-issues.service.zsh" wait'2' lucid for \
+  z-shell/zsh-github-issues
 
+## Install Direnv
+zi from'gh-r' as'program' mv'direnv* -> direnv' \
+  atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
+  pick'direnv' src='zhook.zsh' for \
+    direnv/direnv
+
+## Install Appwrite, Docker, and Roc
+zi wait lucid as'program' from'gh-r' for \
+  mv'appwrite-cli* -> appwrite' appwrite/sdk-for-cli \
+  mv'docker* -> docker-compose' docker/compose \
+  pick'gh*/bin/gh' cli/cli \
+  \
+  nocompile \
+  bpick'*macos_x86_64-latest*' \
+  extract \
+  mv'roc*/roc -> roc' \
+  pick'roc' \
+    roc-lang/roc \
+
+## Install Lamdera
+zi wait lucid as'program' for \
+  pick'lamdera' dl'static.lamdera.com/bin/lamdera-1.1.0-macos-x86_64 -> lamdera' \
+    z-shell/null
+
+## Install Pnpm
+zi light-mode for id-as'pnpm' from'gh-r' bpick'*-macos-x64' as'program' \
+  atinit'export PNPM_HOME=$ZPFX/bin; [[ -z $NODE_PATH ]] && \
+  export NODE_PATH=$PWD' sbin'pnpm* -> pnpm' nocompile \
+    pnpm/pnpm
+
+## Install Starship
+zi as'program' from'gh-r' for \
+  atclone'./starship init zsh > init.zsh; ./starship completions zsh > _starship' \
+  atpull'%atclone' src'init.zsh' \
+    starship/starship
+
+# Set window title for Starship.
 function set_win_title(){
     echo -ne "\033]0; $(basename "${PWD}") \007";
 };
 precmd_functions+=(set_win_title);
+
+# Faster completions
+zicompinit_fast
+zicdreplay
+
+# Please?
+please
+
+# Source global settings.
+source ~/.env
