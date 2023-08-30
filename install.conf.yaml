@@ -23,8 +23,6 @@
       force: true
     ~/.zprofile:
       path: zsh/.zprofile
-    ~/.zi/plugins/git-auto-status:
-      path: zsh/plugins/git-auto-status
     ~/.gitconfig:
       path: git/.gitconfig
     ~/.gitignore_global:
@@ -39,13 +37,17 @@
       path: zsh/.inputrc
     ~/.config/starship.toml:
       path: zsh/starship.toml
-    ~/.env:
-      path: zsh/.env
+    ~/.settings.zsh:
+      path: zsh/.settings.zsh
     ~/.profile:
       path: zsh/.profile
+    ~/.config/direnv/direnv.toml:
+      path: zsh/direnv.toml
+    ~/.venv/.zi/plugins/git-auto-status:
+      path: zsh/plugins/git-auto-status
     ~/.venv/.zi/completions/_autodoc2:
       path: zsh/completions/_autodoc2
     ~/.venv/.zi/completions/_poetry:
       path: zsh/completions/_poetry
-    ~/.config/direnv/direnv.toml:
-      path: zsh/direnv.toml
+    ~/.venv/.zi/polaris/bin/rustup:
+      path: zsh/rustup

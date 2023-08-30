@@ -8,3 +8,6 @@ alias cleanupds="find . -type f -name '\*.DS_Store' -ls -delete";
 
 # Alias to make safe force-pushing easier
 alias gforce='git push --force-with-lease';
+
+# Alias to fix python
+alias python='python3';
