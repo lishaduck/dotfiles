@@ -49,11 +49,11 @@ path=(
   "."
   "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" # vscode
   "${CARGO_HOME}/bin" # cargo
-  "${HOME}/.venv/.zi/polaris/rustup-tmp" # rustup bootstrap
   "${FLUTTER_ROOT}/bin" # Flutter
   "${HOME}/.pub-cache/bin" # Dart
   "${HOME}/Library/Android/sdk/cmake/3.22.1/bin" # CMake
   "${HOME}/Library/Android/sdk/sdk/cmdline-tools/latest/bin" # Android
+  "${HOME}/Library/Android/sdk/platform-tools" # More Android
    $HOME/.gradle/wrapper/dists/gradle-8.*-bin/*/gradle-8.*/bin # Gradle
   )
 
