@@ -49,8 +49,11 @@ path=(
   "."
   "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" # vscode
   "${CARGO_HOME}/bin" # cargo
+  "${HOME}/.venv/.zi/polaris/rustup-tmp" # rustup bootstrap
   "${FLUTTER_ROOT}/bin" # Flutter
   "${HOME}/.pub-cache/bin" # Dart
+  "${HOME}/Library/Android/sdk/cmake/3.22.1/bin" # CMake
+  "${HOME}/Library/Android/sdk/sdk/cmdline-tools/latest/bin" # Android
    $HOME/.gradle/wrapper/dists/gradle-8.*-bin/*/gradle-8.*/bin # Gradle
   )
 
@@ -160,8 +163,8 @@ zi wait lucid from'gh-r' nocompile for \
   \
   as'program' \
   bpick'*macos_x86_64-latest*' \
-  pick'roc' \
   extract'!-' \
+  pick'roc' \
     roc-lang/roc \
 
 ## Install Lamdera
@@ -182,6 +185,18 @@ zi light-mode for from'gh-r' bpick'*-macos-x64' \
   lbin'!pnpm' \
   nocompile \
     pnpm/pnpm
+
+zi wait lucid light-mode for \
+  atload"zpcdreplay" \
+  atclone"./zplug.zsh" \
+  atpull"%atclone" \
+    g-plane/pnpm-shell-completion
+
+## Dotnet
+zi wait lucid for id-as'dotnet' \
+  cp"${HOME}/Library/Application Support/Code/User/globalStorage/ms-dotnettools.vscode-dotnet-runtime/.dotnet/7.0.10/dotnet -> dotnet" \
+  lbin'!dotnet' \
+    z-shell/0
 
 ## Please?
 zi light-mode id-as'please' as'program' for \

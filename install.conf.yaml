@@ -49,5 +49,5 @@
       path: zsh/completions/_autodoc2
     ~/.venv/.zi/completions/_poetry:
       path: zsh/completions/_poetry
-    ~/.venv/.zi/polaris/bin/rustup:
+    ~/.venv/.zi/polaris/rustup-tmp/rustup:
       path: zsh/rustup
