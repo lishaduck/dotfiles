@@ -24,7 +24,7 @@ zi light-mode for z-shell/z-a-meta-plugins \
   "@sharkdp" \
 
 zi pack for \
-  atclone'nb notebooks add https://github.com/lishaduck/notes' nb \
+  nb \
 
 zi lucid reset id-as'ls-colors' for \
   atclone"echo 'LS_COLORS=\"\$(vivid generate solarized-dark)\"; export LS_COLORS' >! clrs.zsh" \
@@ -151,7 +151,7 @@ zi wait lucid for \
 zi wait lucid from'gh-r' nocompile for \
   mv'appwrite-cli* -> appwrite' lbin'!appwrite' appwrite/sdk-for-cli \
   mv'docker* -> docker-compose' lbin'!docker-compose' docker/compose \
-  mv'gh*/bin/gh' pick'gh' lbin'!gh' cli/cli \
+  as'program' pick'gh*/bin/gh' cli/cli \
   \
   mv'direnv* -> direnv' \
   atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
@@ -233,7 +233,6 @@ zicdreplay
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f ~/.config/.dart-cli-completion/zsh-config.zsh ]] && . ~/.config/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
-
 
 # Source global settings.
 source ~/.settings.zsh
