@@ -21,13 +21,6 @@ truncate_to_repo  = true
 truncation_length = 4
 truncation_symbol = '…/'
 
-disabled = false
-
-
-[git_commit]
-disabled     = false
-tag_disabled = false
-
 
 [shlvl]
 disabled = false
