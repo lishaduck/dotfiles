@@ -1,42 +1,59 @@
-# Zi
+# Source global settings.
+source ~/.settings.zsh
+
+# Zinit
+ZINIT_HOME="${XDG_DATA_HOME}/zinit/zinit.git"
+declare -A ZINIT
 
 ## Load Zi
-if [[ ! -f $HOME/.venv/.zi/bin/zi.zsh ]]; then
-  print -P "%F{33}▓▒░ %F{160}Installing (%F{33}z-shell/zi%F{160})…%f"
-  command mkdir -p "${HOME}/.venv/.zi" && command chmod go-rwX "${HOME}/.venv/.zi"
-  command git clone -q --depth=1 --branch "main" https://github.com/z-shell/zi "${HOME}/.venv/.zi/bin" && \
+if [[ ! -f $ZINIT_HOME/zinit.zsh ]]; then
+  print -P "%F{33}▓▒░ %F{160}Installing (%F{33}zdharma-continuum/zinit%F{160})…%f"
+  command mkdir -p "$(dirname $ZINIT_HOME)"
+  command git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME" && \
     print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
     print -P "%F{160}▓▒░ The clone has failed.%f%b"
 fi
-typeset -Ag ZI
-typeset -gx ZI[HOME_DIR]="${HOME}/.venv/.zi" ZI[BIN_DIR]="${ZI[HOME_DIR]}/bin"
-source "${HOME}/.venv/.zi/bin/zi.zsh"
-autoload -Uz _zi
-(( ${+_comps} )) && _comps[zi]=_zi
+source "${ZINIT_HOME}/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 # examples here -> https://wiki.zshell.dev/ecosystem/category/-annexes
 
-## Install Zi Annexes
-zi light-mode for z-shell/z-a-meta-plugins \
-  "@annexes" z-shell/z-a-linkbin \
-  "@z-shell" \
-  skip'jonas/tig' "@ext-git" \
+## Install zinit Annexes
+zinit light-mode for zdharma-continuum/z-a-meta-plugins \
+  "@annexes" zdharma-continuum/z-a-linkbin \
+  "@ext-git" \
   "@zsh-users+fast" \
   "@sharkdp" \
+  "@zdharma" \
+  skip'zdharma-continuum/zconvey' "@zdharma2" \
+  zdharma-continuum/zinit-console  \
 
-zi pack for \
-  nb \
+zinit light-mode for if"(( ! ${+commands[jq]} ))" from'gh-r' \
+  sbin'* -> jq' \
+  nocompile'' \
+    @jqlang/jq
 
-zi lucid reset id-as'ls-colors' for \
-  atclone"echo 'LS_COLORS=\"\$(vivid generate solarized-dark)\"; export LS_COLORS' >! clrs.zsh" \
-  atpull'%atclone' pick'clrs.zsh' nocompile'!' \
+zinit wait lucid light-mode for \
+  git'' \
+  depth'3' \
+  as'completion' \
+  atclone'ln -sfv etc/nb-completion.zsh _nb' \
+  atpull'%atclone' \
+  sbin'../xwmx---nb/nb ' \
+  nocompile'' \
+    @xwmx/nb \
+
+zinit wait lucid light-mode reset id-as'ls-colors' for \
+  atclone"echo 'LS_COLORS=\"$(vivid generate solarized-dark)\"; export LS_COLORS' >! clrs.zsh" \
+  atpull'%atclone' pick'clrs.zsh' nocompile'''!' \
   atload'zstyle ":completion:*:default" list-colors "${(s.:.)LS_COLORS}"' \
-    z-shell/null \
+    zdharma-continuum/null \
 
 # Rust
-# zi light-mode for id-as'rust' \
+# zinit light-mode for id-as'rust' \
 #   rustup \
-#   nocompile \
-#     z-shell/null
+#   nocompile'' \
+#     zdharma-continuum/null
 
 export CARGO_HOME="${ZPFX}/bin/rust/.cargo"
 export RUSTUP_HOME="${ZPFX}/bin/rust/rustup"
@@ -44,17 +61,22 @@ export RUSTUP_HOME="${ZPFX}/bin/rust/rustup"
 # Flutter
 export FLUTTER_ROOT="${HOME}/development/flutter"
 
+# bun
+export BUN_INSTALL="$HOME/.bun"
+
 path=(
   $path
-  "."
+  "." # current directory
   "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" # vscode
-  "${CARGO_HOME}/bin" # cargo
-  "${FLUTTER_ROOT}/bin" # Flutter
-  "${HOME}/.pub-cache/bin" # Dart
-  "${HOME}/Library/Android/sdk/cmake/3.22.1/bin" # CMake
-  "${HOME}/Library/Android/sdk/sdk/cmdline-tools/latest/bin" # Android
-  "${HOME}/Library/Android/sdk/platform-tools" # More Android
-   $HOME/.gradle/wrapper/dists/gradle-8.*-bin/*/gradle-8.*/bin # Gradle
+  $CARGO_HOME/bin # cargo
+  $HOME/development/zig # zig
+  $FLUTTER_ROOT/bin # Flutter
+  $HOME/.pub-cache/bin # Dart
+  $HOME/Library/Android/sdk/cmake/3.22.1/bin # CMake
+  $HOME/Library/Android/sdk/sdk/cmdline-tools/latest/bin # Android
+  $HOME/Library/Android/sdk/platform-tools # More Android
+  $BUN_INSTALL/bin
+  $HOME/.gradle/wrapper/dists/gradle-8.*-bin/*/gradle-8.*/bin # Gradle
   )
 
 # Set personal aliases
@@ -97,7 +119,7 @@ zstyle ":completion:*" menu yes select
 ## Colors
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
-# Zi's recommended "history optimization" techniques
+# Zinit's recommended "history optimization" techniques
 setopt append_history         # Allow multiple sessions to append to one Zsh command history.
 setopt extended_history       # Show timestamp in history.
 setopt hist_expire_dups_first # Expire A duplicate event first when trimming history.
@@ -121,10 +143,10 @@ setopt multios              # Implicit tees or cats when multiple redirections a
 setopt prompt_subst         # Substitution of parameters inside the prompt each time the prompt is drawn.
 setopt pushd_ignore_dups    # Don't push multiple copies directory onto the directory stack.
 
-# Zi managed installations.
+# Zinit managed installations.
 
-## Install Zi plugins from OMZ
-zi for \
+## Install zinit plugins from OMZ
+zinit lucid light-mode for \
   OMZL::git.zsh \
   atload"unalias grv" \
   OMZP::git \
@@ -142,13 +164,13 @@ zi for \
   # OMZP::poetry \     # broken without $ZSH_CACHE_DIR
   # OMZP::octozen \    # didn't work w/out wifi
 
-## Install Zi plugins from OMZ (custom)
-zi wait lucid for \
+## Install zinit plugins from OMZ (custom)
+zinit wait lucid light-mode for \
   MichaelAquilina/zsh-you-should-use \
   MichaelAquilina/zsh-autoswitch-virtualenv \
 
 ## Install Appwrite, Docker, the GH CLI, Direnv, and Roc
-zi wait lucid from'gh-r' nocompile for \
+zinit wait lucid light-mode from'gh-r' nocompile'' for \
   mv'appwrite-cli* -> appwrite' lbin'!appwrite' appwrite/sdk-for-cli \
   mv'docker* -> docker-compose' lbin'!docker-compose' docker/compose \
   as'program' pick'gh*/bin/gh' cli/cli \
@@ -168,54 +190,56 @@ zi wait lucid from'gh-r' nocompile for \
     roc-lang/roc \
 
 ## Install Lamdera
-zi light-mode for id-as'lamdera' \
+zinit lucid light-mode for id-as'lamdera' \
   as'program' \
   dl'static.lamdera.com/bin/lamdera-1.1.0-macos-x86_64 -> lamdera' \
   pick'lamdera' \
   cp'lamdera -> $ZPFX/bin/lamdera' \
-  nocompile \
-    z-shell/0
+  nocompile'' \
+    zdharma-continuum/null
 
 ## Install Pnpm
-zi light-mode for from'gh-r' bpick'*-macos-x64' \
+zinit lucid light-mode for from'gh-r' bpick'*macos-x64' \
   atinit'export PNPM_HOME=$ZPFX/bin; [[ -z $NODE_PATH ]] && \
   export NODE_PATH=$PWD' \
   atpull'pnpm env use --global lts' \
   mv'pnpm* -> pnpm' \
   lbin'!pnpm' \
-  nocompile \
+  nocompile'' \
     pnpm/pnpm
 
-zi wait lucid light-mode for \
+zinit wait lucid light-mode for \
   atload"zpcdreplay" \
   atclone"./zplug.zsh" \
   atpull"%atclone" \
     g-plane/pnpm-shell-completion
 
 ## Dotnet
-zi wait lucid for id-as'dotnet' \
-  cp"${HOME}/Library/Application Support/Code/User/globalStorage/ms-dotnettools.vscode-dotnet-runtime/.dotnet/7.0.10/dotnet -> dotnet" \
+zinit wait lucid light-mode for id-as'dotnet' \
+  cp"${HOME}/Library/Application Support/Code/User/globalStorage/ms-dotnettools.vscode-dotnet-runtime/.dotnet/7.0.11/dotnet -> dotnet" \
   lbin'!dotnet' \
-    z-shell/0
+  nocompile'' \
+    zdharma-continuum/null
 
 ## Please?
-zi light-mode id-as'please' as'program' for \
+zinit lucid light-mode id-as'please' as'program' for \
   pip'please <- !please-cli -> please' \
   atpull'please --show-completion zsh > _please' \
   atload'please' \
-    z-shell/0
+    zdharma-continuum/null
 
 ## Install Poetry
-zi light-mode id-as'poetry' as'program' for \
+zinit lucid light-mode id-as'poetry' as'program' for \
   pip'poetry <- !poetry -> poetry' \
   atpull'poetry completions zsh > _poetry' \
-    z-shell/0
+    zdharma-continuum/null
 
 ## Install Starship
-zi from'gh-r' for \
-  atclone'./starship init zsh > init.zsh; ./starship completions zsh > _starship' \
+zinit lucid light-mode from'gh-r' for \
+  atclone'echo "source <(starship init zsh --print-full-init)" > init.zsh; ./starship completions zsh > _starship' \
   atpull'%atclone' src'init.zsh' \
   lbin'!starship' \
+  nocompile'' \
     starship/starship
 
 # Set window title for Starship.
@@ -226,7 +250,7 @@ precmd_functions+=(set_win_title)
 
 # Completions (fast)
 export ZSH_COMPDUMP="${ZI[CACHE_DIR]}/.zcompdump-$HOST-$ZSH_VERSION"
-zicompinit_fast -d "${ZSH_COMPDUMP}"
+zicompinit -d "${ZSH_COMPDUMP}"
 zicdreplay
 
 ## [Completion]
@@ -234,5 +258,5 @@ zicdreplay
 [[ -f ~/.config/.dart-cli-completion/zsh-config.zsh ]] && . ~/.config/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
-# Source global settings.
-source ~/.settings.zsh
+# bun completions
+[ -s "/Users/dukese01/.bun/_bun" ] && source "/Users/dukese01/.bun/_bun"

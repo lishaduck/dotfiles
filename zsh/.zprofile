@@ -1,5 +1,5 @@
 # Created by `pipx` on 2023-01-07 20:19:02
-export PATH="$PATH:${HOME}/.local/bin"
+export PATH="$PATH:${HOME}/.venv/.local/bin"
 
 # Created by `pipx` on 2023-01-07 20:19:02
 export PATH="$PATH:${HOME}/Library/Python/3.10/bin"

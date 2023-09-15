@@ -12,8 +12,7 @@
       recursive: false
     "~/.config":
     "~/.etc":
-    "~/.local/bin":
-    "~/.venv/.zi":
+    "~/.venv":
 
 - link:
     ~/.dotfiles:
@@ -41,11 +40,13 @@
       path: zsh/.settings.zsh
     ~/.profile:
       path: zsh/.profile
-    ~/.config/direnv/direnv.toml:
+    ~/.venv/.config/direnv/direnv.toml:
       path: zsh/direnv.toml
-    ~/.venv/.zi/plugins/git-auto-status:
+    ~/.venv/.local/share/zinit/plugins/git-auto-status:
       path: zsh/plugins/git-auto-status
-    ~/.venv/.zi/completions/_autodoc2:
+    ~/.venv/.local/share/zinit/completions/_autodoc2:
       path: zsh/completions/_autodoc2
-    ~/.venv/.zi/completions/_poetry:
+    ~/.venv/.local/share/zinit/completions/_poetry:
       path: zsh/completions/_poetry
+    ~/.config/please/config.json:
+      path: zsh/please.json

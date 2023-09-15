@@ -98,7 +98,7 @@ main() {
     #     # propagate exit status.
     #     exit 1
     # fi
-    local _dir="${HOME}/.venv/.zi/polaris/bin/rust/rustup"
+    local _dir="${ZPFX}/bin/rust/rustup"
     local _file="${_dir}/rustup-init${_ext}"
 
     local _ansi_escapes_are_valid=false

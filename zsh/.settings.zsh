@@ -4,9 +4,10 @@ export VISUAL="code"
 
 # XDG Base Directory Specification (https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
 
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.venv/.cache"
+export XDG_CONFIG_HOME="$HOME/.venv/.config"
+export XDG_DATA_HOME="$HOME/.venv/.local/share"
+export XDG_STATE_HOME="$HOME/.venv/.local/state"
 
 # History
 
@@ -16,11 +17,9 @@ export SAVEHIST=4096
 export HISTCONTROL=ignoredups:erasedups
 
 # Enable colors
-
 export CLICOLOR=1
 
 # Prefer US English and use UTF-8
-
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
 
@@ -28,7 +27,6 @@ export LANG="en_US"
 export LESS_TERMCAP_md="${yellow}"
 
 # Keep showing man page after exit
-
 export MANPAGER="less -X"
 
 # Tell grep to highlight matches
