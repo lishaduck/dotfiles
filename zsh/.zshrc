@@ -1,5 +1,5 @@
 # Source global settings.
-source ~/.settings.zsh
+source $HOME/.settings.zsh
 
 # Zinit
 ZINIT_HOME="${XDG_DATA_HOME}/zinit/zinit.git"
@@ -255,8 +255,8 @@ zicdreplay
 
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
-[[ -f ~/.config/.dart-cli-completion/zsh-config.zsh ]] && . ~/.config/.dart-cli-completion/zsh-config.zsh || true
+[[ -f $HOME/.config/.dart-cli-completion/zsh-config.zsh ]] && . $HOME/.config/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
 # bun completions
-[ -s "/Users/dukese01/.bun/_bun" ] && source "/Users/dukese01/.bun/_bun"
+[ -s "${HOME}/.bun/_bun" ] && source "${HOME/.bun/_bun}"
