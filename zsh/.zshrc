@@ -18,7 +18,15 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 # examples here -> https://wiki.zshell.dev/ecosystem/category/-annexes
 
-## Install zinit Annexes
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f $HOME/.config/.dart-cli-completion/zsh-config.zsh ]] && . $HOME/.config/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
+## bun completions
+[ -s "${HOME}/.bun/_bun" ] && source "${HOME/.bun/_bun}"
+
+## Install zinit annexes
 zinit light-mode for zdharma-continuum/z-a-meta-plugins \
   "@annexes" zdharma-continuum/z-a-linkbin \
   "@ext-git" \
@@ -247,16 +255,3 @@ function set_win_title(){
     echo -ne "\033]0; $(basename "${PWD}") \007"
 }
 precmd_functions+=(set_win_title)
-
-# Completions (fast)
-export ZSH_COMPDUMP="${ZI[CACHE_DIR]}/.zcompdump-$HOST-$ZSH_VERSION"
-zicompinit -d "${ZSH_COMPDUMP}"
-zicdreplay
-
-## [Completion]
-## Completion scripts setup. Remove the following line to uninstall
-[[ -f $HOME/.config/.dart-cli-completion/zsh-config.zsh ]] && . $HOME/.config/.dart-cli-completion/zsh-config.zsh || true
-## [/Completion]
-
-# bun completions
-[ -s "${HOME}/.bun/_bun" ] && source "${HOME/.bun/_bun}"
