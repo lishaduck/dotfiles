@@ -5,7 +5,7 @@ source $HOME/.settings.zsh
 ZINIT_HOME="${XDG_DATA_HOME}/zinit/zinit.git"
 declare -A ZINIT
 
-## Load Zi
+## Load Zinit
 if [[ ! -f $ZINIT_HOME/zinit.zsh ]]; then
   print -P "%F{33}▓▒░ %F{160}Installing (%F{33}zdharma-continuum/zinit%F{160})…%f"
   command mkdir -p "$(dirname $ZINIT_HOME)"
@@ -24,17 +24,18 @@ autoload -Uz _zinit
 ## [/Completion]
 
 ## bun completions
-[ -s "${HOME}/.bun/_bun" ] && source "${HOME/.bun/_bun}"
+[ -s "${HOME}/.bun/_bun" ] && source "${HOME}/.bun/_bun" # completions broken!
+
 
 ## Install zinit annexes
 zinit light-mode for zdharma-continuum/z-a-meta-plugins \
-  "@annexes" zdharma-continuum/z-a-linkbin \
+  "@annexes" @zdharma-continuum/z-a-linkbin \
   "@ext-git" \
   "@zsh-users+fast" \
   "@sharkdp" \
   "@zdharma" \
   skip'zdharma-continuum/zconvey' "@zdharma2" \
-  zdharma-continuum/zinit-console  \
+  @zdharma-continuum/zinit-console
 
 zinit light-mode for if"(( ! ${+commands[jq]} ))" from'gh-r' \
   sbin'* -> jq' \
@@ -49,19 +50,19 @@ zinit wait lucid light-mode for \
   atpull'%atclone' \
   sbin'../xwmx---nb/nb ' \
   nocompile'' \
-    @xwmx/nb \
+    @xwmx/nb # completions broken!
 
 zinit wait lucid light-mode reset id-as'ls-colors' for \
   atclone"echo 'LS_COLORS=\"$(vivid generate solarized-dark)\"; export LS_COLORS' >! clrs.zsh" \
   atpull'%atclone' pick'clrs.zsh' nocompile'''!' \
   atload'zstyle ":completion:*:default" list-colors "${(s.:.)LS_COLORS}"' \
-    zdharma-continuum/null \
+    @zdharma-continuum/null
 
 # Rust
 # zinit light-mode for id-as'rust' \
 #   rustup \
 #   nocompile'' \
-#     zdharma-continuum/null
+#     @zdharma-continuum/null
 
 export CARGO_HOME="${ZPFX}/bin/rust/.cargo"
 export RUSTUP_HOME="${ZPFX}/bin/rust/rustup"
@@ -141,7 +142,7 @@ setopt hist_verify            # Do not execute immediately upon history expansio
 setopt inc_append_history     # Write to the history file immediately, not when the shell exits.
 setopt share_history          # Share history between different instances of the shell.
 
-# Zi's recommended tweaks
+# Zinit's recommended tweaks
 setopt auto_cd              # Use cd by typing directory name if it's not a command.
 setopt auto_list            # Automatically list choices on ambiguous completion.
 setopt auto_pushd           # Make cd push the old directory onto the directory stack.
@@ -168,20 +169,18 @@ zinit lucid light-mode for \
   OMZP::virtualenv \
   OMZP::web-search \
   OMZP::xcode \
-  # OMZP::macos \      # requires copying in spotify and music files manually
-  # OMZP::poetry \     # broken without $ZSH_CACHE_DIR
-  # OMZP::octozen \    # didn't work w/out wifi
+#   OMZP::macos # requires copying in spotify and music files manually
 
 ## Install zinit plugins from OMZ (custom)
 zinit wait lucid light-mode for \
-  MichaelAquilina/zsh-you-should-use \
-  MichaelAquilina/zsh-autoswitch-virtualenv \
+  @MichaelAquilina/zsh-you-should-use \
+  @MichaelAquilina/zsh-autoswitch-virtualenv \
 
-## Install Appwrite, Docker, the GH CLI, Direnv, and Roc
+## Install Appwrite, Docker, the GH and Excersim CLIs, Direnv, and Roc
 zinit wait lucid light-mode from'gh-r' nocompile'' for \
-  mv'appwrite-cli* -> appwrite' lbin'!appwrite' appwrite/sdk-for-cli \
-  mv'docker* -> docker-compose' lbin'!docker-compose' docker/compose \
-  as'program' pick'gh*/bin/gh' cli/cli \
+  mv'appwrite-cli* -> appwrite' lbin'!appwrite' @appwrite/sdk-for-cli \
+  as'program' pick'gh*/bin/gh' @cli/cli \
+  mv'exercism* -> exercism' lbin'!exercism' @exercism/cli \
   \
   mv'direnv* -> direnv' \
   atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
@@ -189,13 +188,13 @@ zinit wait lucid light-mode from'gh-r' nocompile'' for \
   src'zhook.zsh' \
   lbin'!direnv' \
   pick'direnv' \
-    direnv/direnv \
+    @direnv/direnv \
   \
   as'program' \
   bpick'*macos_x86_64-latest*' \
   extract'!-' \
   pick'roc' \
-    roc-lang/roc \
+    @roc-lang/roc
 
 ## Install Lamdera
 zinit lucid light-mode for id-as'lamdera' \
@@ -204,7 +203,7 @@ zinit lucid light-mode for id-as'lamdera' \
   pick'lamdera' \
   cp'lamdera -> $ZPFX/bin/lamdera' \
   nocompile'' \
-    zdharma-continuum/null
+    @zdharma-continuum/null
 
 ## Install Pnpm
 zinit lucid light-mode for from'gh-r' bpick'*macos-x64' \
@@ -214,33 +213,33 @@ zinit lucid light-mode for from'gh-r' bpick'*macos-x64' \
   mv'pnpm* -> pnpm' \
   lbin'!pnpm' \
   nocompile'' \
-    pnpm/pnpm
+    @pnpm/pnpm
 
 zinit wait lucid light-mode for \
   atload"zpcdreplay" \
   atclone"./zplug.zsh" \
   atpull"%atclone" \
-    g-plane/pnpm-shell-completion
+    @g-plane/pnpm-shell-completion
 
 ## Dotnet
 zinit wait lucid light-mode for id-as'dotnet' \
-  cp"${HOME}/Library/Application Support/Code/User/globalStorage/ms-dotnettools.vscode-dotnet-runtime/.dotnet/7.0.11/dotnet -> dotnet" \
+  cp"${HOME}/Library/Application Support/Code/User/globalStorage/ms-dotnettools.vscode-dotnet-runtime/.dotnet/7.0.11\~x64/dotnet -> dotnet" \
   lbin'!dotnet' \
   nocompile'' \
-    zdharma-continuum/null
+    @zdharma-continuum/null
 
 ## Please?
 zinit lucid light-mode id-as'please' as'program' for \
   pip'please <- !please-cli -> please' \
   atpull'please --show-completion zsh > _please' \
   atload'please' \
-    zdharma-continuum/null
+    @zdharma-continuum/null # completions broken!
 
 ## Install Poetry
 zinit lucid light-mode id-as'poetry' as'program' for \
   pip'poetry <- !poetry -> poetry' \
   atpull'poetry completions zsh > _poetry' \
-    zdharma-continuum/null
+    @zdharma-continuum/null # completions broken!
 
 ## Install Starship
 zinit lucid light-mode from'gh-r' for \
@@ -248,7 +247,7 @@ zinit lucid light-mode from'gh-r' for \
   atpull'%atclone' src'init.zsh' \
   lbin'!starship' \
   nocompile'' \
-    starship/starship
+    @starship/starship
 
 # Set window title for Starship.
 function set_win_title(){

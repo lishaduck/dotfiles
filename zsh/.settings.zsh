@@ -4,10 +4,11 @@ export VISUAL="code"
 
 # XDG Base Directory Specification (https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
 
-export XDG_CACHE_HOME="$HOME/.venv/.cache"
-export XDG_CONFIG_HOME="$HOME/.venv/.config"
-export XDG_DATA_HOME="$HOME/.venv/.local/share"
-export XDG_STATE_HOME="$HOME/.venv/.local/state"
+export XDG_HOME_DIR="$HOME/development"
+export XDG_CACHE_HOME="$XDG_HOME_DIR/.cache"
+export XDG_CONFIG_HOME="$XDG_HOME_DIR/.config"
+export XDG_DATA_HOME="$XDG_HOME_DIR/.local/share"
+export XDG_STATE_HOME="$XDG_HOME_DIR/.local/state"
 
 # History
 
