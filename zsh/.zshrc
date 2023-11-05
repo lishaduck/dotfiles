@@ -1,9 +1,7 @@
-# Source global settings.
-source $HOME/.settings.zsh
-
 # Zinit
 ZINIT_HOME="${XDG_DATA_HOME}/zinit/zinit.git"
 declare -A ZINIT
+ZINIT[NO_ALIASES]=1
 
 ## Load Zinit
 if [[ ! -f $ZINIT_HOME/zinit.zsh ]]; then
@@ -16,82 +14,79 @@ fi
 source "${ZINIT_HOME}/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
-# examples here -> https://wiki.zshell.dev/ecosystem/category/-annexes
+# examples here -> https://github.com/zdharma-continuum/zinit/wiki/Recipes-for-popular-programs
 
-## [Completion]
-## Completion scripts setup. Remove the following line to uninstall
-[[ -f $HOME/.config/.dart-cli-completion/zsh-config.zsh ]] && . $HOME/.config/.dart-cli-completion/zsh-config.zsh || true
-## [/Completion]
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(rbenv init - zsh)"
 
-## bun completions
-[ -s "${HOME}/.bun/_bun" ] && source "${HOME}/.bun/_bun" # completions broken!
+export LDFLAGS="-L/opt/homebrew/opt/llvm@16/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm@16/include"
 
+if type brew &>/dev/null; then
+  zinit add-fpath "$HOMEBREW_PREFIX/share/zsh/site-functions"
+fi
 
+HB_CNF_HANDLER="$HOMEBREW_REPOSITORY/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
+if [ -f "$HB_CNF_HANDLER" ]; then
+source "$HB_CNF_HANDLER";
+fi
+
+# Install stuff!
 ## Install zinit annexes
 zinit light-mode for zdharma-continuum/z-a-meta-plugins \
   "@annexes" @zdharma-continuum/z-a-linkbin \
-  "@ext-git" \
   "@zsh-users+fast" \
-  "@sharkdp" \
-  "@zdharma" \
+  skip'zdharma-continuum/zsh-diff-so-fancy' "@zdharma" \
   skip'zdharma-continuum/zconvey' "@zdharma2" \
   @zdharma-continuum/zinit-console
 
-zinit light-mode for if"(( ! ${+commands[jq]} ))" from'gh-r' \
-  sbin'* -> jq' \
-  nocompile'' \
-    @jqlang/jq
-
-zinit wait lucid light-mode for \
-  git'' \
-  depth'3' \
-  as'completion' \
-  atclone'ln -sfv etc/nb-completion.zsh _nb' \
-  atpull'%atclone' \
-  sbin'../xwmx---nb/nb ' \
-  nocompile'' \
-    @xwmx/nb # completions broken!
-
 zinit wait lucid light-mode reset id-as'ls-colors' for \
-  atclone"echo 'LS_COLORS=\"$(vivid generate solarized-dark)\"; export LS_COLORS' >! clrs.zsh" \
+  atclone"echo 'LS_COLORS=\"$(vivid generate one-dark)\"; export LS_COLORS' >! clrs.zsh" \
   atpull'%atclone' pick'clrs.zsh' nocompile'''!' \
   atload'zstyle ":completion:*:default" list-colors "${(s.:.)LS_COLORS}"' \
     @zdharma-continuum/null
 
-# Rust
-# zinit light-mode for id-as'rust' \
-#   rustup \
-#   nocompile'' \
-#     @zdharma-continuum/null
-
-export CARGO_HOME="${ZPFX}/bin/rust/.cargo"
-export RUSTUP_HOME="${ZPFX}/bin/rust/rustup"
-
 # Flutter
 export FLUTTER_ROOT="${HOME}/development/flutter"
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f $XDG_CONFIG_HOME/.dart-cli-completion/zsh-config.zsh ]] && . $XDG_CONFIG_HOME/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 
-path=(
-  $path
+path+=(
   "." # current directory
   "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" # vscode
   $CARGO_HOME/bin # cargo
-  $HOME/development/zig # zig
   $FLUTTER_ROOT/bin # Flutter
   $HOME/.pub-cache/bin # Dart
   $HOME/Library/Android/sdk/cmake/3.22.1/bin # CMake
   $HOME/Library/Android/sdk/sdk/cmdline-tools/latest/bin # Android
   $HOME/Library/Android/sdk/platform-tools # More Android
-  $BUN_INSTALL/bin
-  $HOME/.gradle/wrapper/dists/gradle-8.*-bin/*/gradle-8.*/bin # Gradle
+  $BUN_INSTALL/bin # bun
+  $HOMEBREW_PREFIX/opt/ruby/bin # ruby
+  $HOMEBREW_PREFIX/opt/llvm@16/bin # llvm
+  $HOMEBREW_PREFIX/opt/python@3.12/libexec/bin # python
+  $HOMEBREW_PREFIX/lib/python3.12/site-packages # python
   )
 
 # Set personal aliases
 # For a full list of active aliases, run `alias`.
 source "${HOME}/aliases.zsh"
 source "${HOME}/functions.zsh"
+
+# History
+export HISTSIZE=32768
+export HISTFILESIZE="${HISTSIZE}"
+export SAVEHIST=4096
+export HISTCONTROL=ignoredups:erasedups
+
+# Enable colors
+export CLICOLOR=1
 
 # ZMods
 zmodload -a colors
@@ -171,27 +166,22 @@ zinit lucid light-mode for \
   OMZP::xcode \
 #   OMZP::macos # requires copying in spotify and music files manually
 
-## Install zinit plugins from OMZ (custom)
-zinit wait lucid light-mode for \
-  @MichaelAquilina/zsh-you-should-use \
-  @MichaelAquilina/zsh-autoswitch-virtualenv \
+## Nvm Config
+export NVM_COMPLETION=true
+# export NVM_LAZY_LOAD=true
+export NVM_AUTO_USE=true
 
-## Install Appwrite, Docker, the GH and Excersim CLIs, Direnv, and Roc
+
+## Install zinit plugins (custom)
+zinit wait lucid light-mode for \
+    @MichaelAquilina/zsh-you-should-use \
+    @MichaelAquilina/zsh-autoswitch-virtualenv \
+  atclone'nvm install --lts' atpull'%atclone' \
+    @lukechilds/zsh-nvm
+
+## Install Roc
 zinit wait lucid light-mode from'gh-r' nocompile'' for \
-  mv'appwrite-cli* -> appwrite' lbin'!appwrite' @appwrite/sdk-for-cli \
-  as'program' pick'gh*/bin/gh' @cli/cli \
-  mv'exercism* -> exercism' lbin'!exercism' @exercism/cli \
-  \
-  mv'direnv* -> direnv' \
-  atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
-  pick'direnv' \
-  src'zhook.zsh' \
-  lbin'!direnv' \
-  pick'direnv' \
-    @direnv/direnv \
-  \
   as'program' \
-  bpick'*macos_x86_64-latest*' \
   extract'!-' \
   pick'roc' \
     @roc-lang/roc
@@ -199,58 +189,40 @@ zinit wait lucid light-mode from'gh-r' nocompile'' for \
 ## Install Lamdera
 zinit lucid light-mode for id-as'lamdera' \
   as'program' \
-  dl'static.lamdera.com/bin/lamdera-1.1.0-macos-x86_64 -> lamdera' \
+  dl'https://static.lamdera.com/bin/lamdera-1.2.1-macos-arm64 -> lamdera' \
   pick'lamdera' \
   cp'lamdera -> $ZPFX/bin/lamdera' \
   nocompile'' \
     @zdharma-continuum/null
 
-## Install Pnpm
-zinit lucid light-mode for from'gh-r' bpick'*macos-x64' \
-  atinit'export PNPM_HOME=$ZPFX/bin; [[ -z $NODE_PATH ]] && \
-  export NODE_PATH=$PWD' \
-  atpull'pnpm env use --global lts' \
-  mv'pnpm* -> pnpm' \
-  lbin'!pnpm' \
-  nocompile'' \
-    @pnpm/pnpm
-
+## Install Pnpm shell completions
 zinit wait lucid light-mode for \
   atload"zpcdreplay" \
   atclone"./zplug.zsh" \
   atpull"%atclone" \
     @g-plane/pnpm-shell-completion
 
-## Dotnet
-zinit wait lucid light-mode for id-as'dotnet' \
-  cp"${HOME}/Library/Application Support/Code/User/globalStorage/ms-dotnettools.vscode-dotnet-runtime/.dotnet/7.0.11\~x64/dotnet -> dotnet" \
-  lbin'!dotnet' \
+# Hook direnv into zsh
+zinit lucid light-mode id-as'direnv/loader' for \
+  atclone'echo "source <(direnv hook zsh)" > init.zsh' \
+  atpull'%atclone' src'init.zsh' \
   nocompile'' \
     @zdharma-continuum/null
 
-## Please?
-zinit lucid light-mode id-as'please' as'program' for \
-  pip'please <- !please-cli -> please' \
-  atpull'please --show-completion zsh > _please' \
-  atload'please' \
-    @zdharma-continuum/null # completions broken!
-
-## Install Poetry
-zinit lucid light-mode id-as'poetry' as'program' for \
-  pip'poetry <- !poetry -> poetry' \
-  atpull'poetry completions zsh > _poetry' \
-    @zdharma-continuum/null # completions broken!
-
-## Install Starship
-zinit lucid light-mode from'gh-r' for \
-  atclone'echo "source <(starship init zsh --print-full-init)" > init.zsh; ./starship completions zsh > _starship' \
+# Use starship prompt
+zinit lucid light-mode id-as'starship/loader' for \
+  atclone'echo "source <(starship init zsh --print-full-init)" > init.zsh' \
   atpull'%atclone' src'init.zsh' \
-  lbin'!starship' \
   nocompile'' \
-    @starship/starship
+    @zdharma-continuum/null
 
-# Set window title for Starship.
-function set_win_title(){
-    echo -ne "\033]0; $(basename "${PWD}") \007"
-}
-precmd_functions+=(set_win_title)
+# Get completions for autodoc2, please, and poetry
+zinit lucid light-mode id-as'completions/ext' as'completion' for \
+  atclone'poetry completions zsh > _poetry \
+    && autodoc2 --show-completion > _autodoc2 \
+    && please --show-completion zsh > _please' \
+  atpull'%atclone' \
+  nocompile'' \
+    @zdharma-continuum/null
+
+please # use please as terminal "new tab page"

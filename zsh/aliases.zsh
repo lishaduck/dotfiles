@@ -9,5 +9,8 @@ alias cleanupds="find . -type f -name '\*.DS_Store' -ls -delete";
 # Alias to make safe force-pushing easier
 alias gforce='git push --force-with-lease';
 
-# Alias to fix python
-alias python='python3';
+# Alias to launch chrome from terminal
+alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome';
+
+# Alias to 'ls'
+alias eza_long='eza -l --icons=always --hyperlink --no-permissions -h --total-size --git'

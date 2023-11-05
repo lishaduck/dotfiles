@@ -12,16 +12,17 @@
       recursive: false
     "~/.config":
     "~/.etc":
-    "~/development/.local":
+    "~/.local":
 
 - link:
     ~/.dotfiles:
       path: ""
     ~/.zshrc:
       path: zsh/.zshrc
-      force: true
-    ~/.zprofile:
-      path: zsh/.zprofile
+      force: false
+    ~/.zshenv:
+      path: zsh/.zshenv
+      force: false
     ~/.gitconfig:
       path: git/.gitconfig
     ~/.gitignore_global:
@@ -36,15 +37,57 @@
       path: zsh/.inputrc
     ~/.config/starship.toml:
       path: zsh/starship.toml
-    ~/.settings.zsh:
-      path: zsh/.settings.zsh
-    ~/.profile:
-      path: zsh/.profile
-    ~/development/.config/direnv/direnv.toml:
+    ~/.config/direnv/direnv.toml:
       path: zsh/direnv.toml
-    ~/development/.local/share/zinit/plugins/git-auto-status:
+    ~/.local/share/zinit/plugins/git-auto-status:
       path: zsh/plugins/git-auto-status
-    ~/development/.local/share/zinit/completions/_autodoc2:
-      path: zsh/completions/_autodoc2
     ~/.config/please/config.json:
       path: zsh/please.json
+
+# - tap: # Not working
+#     - oven-sh/bun
+#     - appwrite/sdk-for-cli https://github.com/appwrite/sdk-for-cli
+#     - homebrew/command-not-found
+#     - homebrew/services
+
+- brew:
+    - appwrite --HEAD
+    - bat
+    - bun
+    # - cocoapods
+    - coreutils
+    - direnv
+    - eza
+    - fd
+    - gh
+    - git
+    - gradle@8
+    - gradle-completion
+    - hexyl
+    - hyperfine
+    - jq
+    - llvm@16
+    - nb
+    - pipx
+    - python@3.12
+    - python-tk@3.12
+    - rbenv
+    - rustup-init
+    - starship
+    - vivid
+    - zig
+
+- cask:
+    - racket
+
+- shell:
+    - command: pipx install please-cli --force
+      description: Installing please
+    - command: pipx install rich-cli --force
+      description: Installing rich
+    - command: pipx install textualize-see --force
+      description: Installing see
+    - command: pipx install poetry --force
+      description: Installing poetry
+    - command: pipx install "sphinx-autodoc2[cli]"
+      description: Installing sphinx-autodoc2

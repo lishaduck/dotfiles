@@ -13,7 +13,6 @@
 	repositoryformatversion = 1
 	logAllRefUpdates = true
 	autocrlf = false
-	pager = diff-so-fancy | less --tabs=4 -RFX
 
 [init]
 	defaultbranch = main
@@ -55,8 +54,8 @@
 [alias]
 	amend = commit --amend --reuse-message=HEAD
 
-[interactive]
-	diffFilter = diff-so-fancy --patch
-
 [color]
 	ui = true
+
+[sequence]
+	editor = code --wait --reuse-window
