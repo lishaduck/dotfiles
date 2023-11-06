@@ -205,24 +205,29 @@ zinit wait lucid light-mode for \
 # Hook direnv into zsh
 zinit lucid light-mode id-as'direnv/loader' for \
   atclone'echo "source <(direnv hook zsh)" > init.zsh' \
-  atpull'%atclone' src'init.zsh' \
+  atpull'%atclone' \
   nocompile'' \
     @zdharma-continuum/null
 
 # Use starship prompt
 zinit lucid light-mode id-as'starship/loader' for \
   atclone'echo "source <(starship init zsh --print-full-init)" > init.zsh' \
-  atpull'%atclone' src'init.zsh' \
-  nocompile'' \
-    @zdharma-continuum/null
-
-# Get completions for autodoc2, please, and poetry
-zinit lucid light-mode id-as'completions/ext' as'completion' for \
-  atclone'poetry completions zsh > _poetry \
-    && autodoc2 --show-completion > _autodoc2 \
-    && please --show-completion zsh > _please' \
   atpull'%atclone' \
   nocompile'' \
     @zdharma-continuum/null
 
-please # use please as terminal "new tab page"
+# Get completions for autodoc2, and poetry
+zinit lucid light-mode id-as'completions/ext' as'completion' for \
+  atclone'poetry completions zsh > _poetry \
+    && autodoc2 --show-completion > _autodoc2' \
+  atpull'%atclone' \
+  nocompile'' \
+    @zdharma-continuum/null
+
+
+# use please as terminal "new tab page"
+zinit lucid light-mode id-as'please/loader' for \
+  atclone'echo "please" > init.zsh && please --show-completion zsh > _please' \
+  atpull'%atclone' \
+  nocompile'' \
+    @zdharma-continuum/null
