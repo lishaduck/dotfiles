@@ -39,16 +39,12 @@
       path: zsh/starship.toml
     ~/.config/direnv/direnv.toml:
       path: zsh/direnv.toml
-    ~/.local/share/zinit/plugins/git-auto-status:
-      path: zsh/plugins/git-auto-status
-    ~/.config/please/config.json:
-      path: zsh/please.json
 
 # - tap: # Not working
-#     - oven-sh/bun
 #     - appwrite/sdk-for-cli https://github.com/appwrite/sdk-for-cli
 #     - homebrew/command-not-found
 #     - homebrew/services
+#     - oven-sh/bun
 
 - brew:
     - appwrite --HEAD
