@@ -231,3 +231,7 @@ zinit lucid light-mode id-as'please/loader' for \
   atpull'%atclone' \
   nocompile'' \
     @zdharma-continuum/null
+
+# >>> VSCode venv deactivate hook >>>
+source ~/.vscode-python/deactivate
+# <<< VSCode venv deactivate hook <<<

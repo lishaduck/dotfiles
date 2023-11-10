@@ -55,10 +55,12 @@
     # - cocoapods
     - coreutils
     - direnv
+    # - dotnet-sdk
     - eza
     - fd
     - gh
     - git
+    # - godot-mono
     - gradle@8
     - gradle-completion
     - hexyl
