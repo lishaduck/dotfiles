@@ -25,6 +25,8 @@
       force: false
     ~/.gitconfig:
       path: git/.gitconfig
+    ~/.gitattributes:
+      path: git/.gitattributes
     ~/.gitignore_global:
       path: git/.gitignore_global
     ~/.editorconfig:
