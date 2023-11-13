@@ -44,6 +44,7 @@
 
 # - tap: # Not working
 #     - appwrite/sdk-for-cli https://github.com/appwrite/sdk-for-cli
+#     - homebrew/cask-fonts
 #     - homebrew/command-not-found
 #     - homebrew/services
 #     - oven-sh/bun
@@ -52,32 +53,36 @@
     - appwrite --HEAD
     - bat
     - bun
-    # - cocoapods
+    - cocoapods
     - coreutils
     - direnv
-    # - dotnet-sdk
-    - eza
     - fd
+    - font-caskaydia-cove-nerd-font -f
     - gh
     - git
-    # - godot-mono
     - gradle@8
     - gradle-completion
     - hexyl
     - hyperfine
     - jq
     - llvm@16
+    - lsd
     - nb
     - pipx
     - python@3.12
     - python-tk@3.12
-    - rbenv
+    - ranger
     - rustup-init
     - starship
     - vivid
     - zig
 
 - cask:
+    - blender
+    # - docker
+    # - dotnet-sdk
+    # - flutter
+    # - godot-mono
     - racket
 
 - shell:
