@@ -18,10 +18,6 @@ autoload -Uz _zinit
 
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(rbenv init - zsh)"
-
-export LDFLAGS="-L/opt/homebrew/opt/llvm@16/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/llvm@16/include"
 
 if type brew &>/dev/null; then
   zinit add-fpath "$HOMEBREW_PREFIX/share/zsh/site-functions"
@@ -69,7 +65,6 @@ path+=(
   $HOME/Library/Android/sdk/platform-tools # More Android
   $BUN_INSTALL/bin # bun
   $HOMEBREW_PREFIX/opt/ruby/bin # ruby
-  $HOMEBREW_PREFIX/opt/llvm@16/bin # llvm
   $HOMEBREW_PREFIX/opt/python@3.12/libexec/bin # python
   $HOMEBREW_PREFIX/lib/python3.12/site-packages # python
   )
