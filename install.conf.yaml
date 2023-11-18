@@ -53,11 +53,14 @@
     - appwrite --HEAD
     - bat
     - bun
+    - cmatrix
+    - deno
     - cocoapods
     - coreutils
     - direnv
     - fd
-    - font-caskaydia-cove-nerd-font -f
+    - font-caskaydia-cove-nerd-font
+    - font-monaspace
     - gh
     - git
     - gradle@8
@@ -67,6 +70,7 @@
     - jq
     - llvm@16
     - lsd
+    # - maccy
     - nb
     - pipx
     - python@3.12
@@ -84,15 +88,20 @@
     # - flutter
     # - godot-mono
     - racket
+    - warp
 
 - shell:
     - command: pipx install please-cli --force
-      description: Installing please
+      description: Installing please with pipx
     - command: pipx install rich-cli --force
-      description: Installing rich
+      description: Installing rich with pipx
     - command: pipx install textualize-see --force
-      description: Installing see
+      description: Installing see with pipx
     - command: pipx install poetry --force
-      description: Installing poetry
+      description: Installing poetry with pipx
     - command: pipx install "sphinx-autodoc2[cli]"
-      description: Installing sphinx-autodoc2
+      description: Installing sphinx-autodoc2 with pipx
+    - command: pipx install gdtoolkit
+      description: Installing godot toolkit with pipx
+    - command: gh extension install github/gh-copilot
+      description: Installing gh copilot for github cli
