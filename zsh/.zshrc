@@ -32,7 +32,6 @@ fi
 ## Install zinit annexes
 zinit light-mode for zdharma-continuum/z-a-meta-plugins \
   "@annexes" @zdharma-continuum/z-a-linkbin \
-  "@zsh-users+fast" \
   skip'zdharma-continuum/zsh-diff-so-fancy' "@zdharma" \
   skip'zdharma-continuum/zconvey' "@zdharma2" \
   @zdharma-continuum/zinit-console
@@ -54,7 +53,9 @@ export FLUTTER_ROOT="${HOME}/development/flutter"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 
-path+=(
+path=(
+  $HOMEBREW_PREFIX/opt/ruby/bin # ruby
+  $path
   "." # current directory
   "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" # vscode
   $CARGO_HOME/bin # cargo
@@ -64,7 +65,6 @@ path+=(
   $HOME/Library/Android/sdk/sdk/cmdline-tools/latest/bin # Android
   $HOME/Library/Android/sdk/platform-tools # More Android
   $BUN_INSTALL/bin # bun
-  $HOMEBREW_PREFIX/opt/ruby/bin # ruby
   $HOMEBREW_PREFIX/opt/python@3.12/libexec/bin # python
   $HOMEBREW_PREFIX/lib/python3.12/site-packages # python
   )
@@ -166,7 +166,6 @@ export NVM_COMPLETION=true
 # export NVM_LAZY_LOAD=true
 export NVM_AUTO_USE=true
 
-
 ## Install zinit plugins (custom)
 zinit wait lucid light-mode for \
     @MichaelAquilina/zsh-you-should-use \
@@ -204,13 +203,6 @@ zinit lucid light-mode id-as'direnv/loader' for \
   nocompile'' \
     @zdharma-continuum/null
 
-# Use starship prompt
-zinit lucid light-mode id-as'starship/loader' for \
-  atclone'echo "source <(starship init zsh --print-full-init)" > init.zsh' \
-  atpull'%atclone' \
-  nocompile'' \
-    @zdharma-continuum/null
-
 # Get completions for autodoc2, and poetry
 zinit lucid light-mode id-as'completions/ext' as'completion' for \
   atclone'poetry completions zsh > _poetry \
@@ -219,13 +211,28 @@ zinit lucid light-mode id-as'completions/ext' as'completion' for \
   nocompile'' \
     @zdharma-continuum/null
 
+if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
+##### WHAT YOU WANT TO DISABLE FOR WARP - BELOW
 
-# use please as terminal "new tab page"
-zinit lucid light-mode id-as'please/loader' for \
-  atclone'echo "please" > init.zsh && please --show-completion zsh > _please' \
-  atpull'%atclone' \
-  nocompile'' \
-    @zdharma-continuum/null
+    # Use starship prompt
+    zinit lucid light-mode id-as'starship/loader' for \
+    atclone'echo "source <(starship init zsh --print-full-init)" > init.zsh' \
+    atpull'%atclone' \
+    nocompile'' \
+        @zdharma-continuum/null
+
+    # Use zsh-users tools
+    zinit light-mode for \
+        "@zsh-users+fast"
+
+    # use please as terminal "new tab page"
+    zinit lucid light-mode id-as'please/loader' for \
+    atclone'echo "please" > init.zsh && please --show-completion zsh > _please' \
+    atpull'%atclone' \
+    nocompile'' \
+        @zdharma-continuum/null
+##### WHAT YOU WANT TO DISABLE FOR WARP - ABOVE
+fi
 
 # >>> VSCode venv deactivate hook >>>
 source ~/.vscode-python/deactivate
