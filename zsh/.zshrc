@@ -166,12 +166,24 @@ export NVM_COMPLETION=true
 # export NVM_LAZY_LOAD=true
 export NVM_AUTO_USE=true
 
-## Install zinit plugins (custom)
+## Install shell plugins
 zinit wait lucid light-mode for \
     @MichaelAquilina/zsh-you-should-use \
     @MichaelAquilina/zsh-autoswitch-virtualenv \
   atclone'nvm install --lts' atpull'%atclone' \
     @lukechilds/zsh-nvm
+
+# >>> VSCode venv deactivate hook >>>
+#! >>> Compatiblity note >>>
+#! If this acts up, try running `@command:workspace-storage-cleanup.run`.
+#! It's provided to the command palette by the `mehyaa.workspace-storage-cleanup` extension.
+#! This will clear the workspace storage, which may fix the issue.
+#! In addition, this command will also save some storage space in the process.
+#! It can also be useful if you're having issues with vscode caching environment variables too aggressively.
+#! That's, after all, the root cause of this issue.
+#! <<< Compatiblity note <<<
+source $HOME/.vscode-python/deactivate
+# <<< VSCode venv deactivate hook <<<
 
 ## Install Roc
 zinit wait lucid light-mode from'gh-r' nocompile'' for \
@@ -221,19 +233,21 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
     nocompile'' \
         @zdharma-continuum/null
 
-    # Use zsh-users tools
-    zinit light-mode for \
-        "@zsh-users+fast"
-
     # use please as terminal "new tab page"
     zinit lucid light-mode id-as'please/loader' for \
     atclone'echo "please" > init.zsh && please --show-completion zsh > _please' \
     atpull'%atclone' \
     nocompile'' \
         @zdharma-continuum/null
+
+    # Use zsh-users tools
+    zinit light-mode for \
+        "@zsh-users+fast"
+
 ##### WHAT YOU WANT TO DISABLE FOR WARP - ABOVE
 fi
 
-# >>> VSCode venv deactivate hook >>>
-source ~/.vscode-python/deactivate
-# <<< VSCode venv deactivate hook <<<
+# Completions (fast)
+export ZSH_COMPDUMP="${ZI[CACHE_DIR]}/.zcompdump-$HOST-$ZSH_VERSION"
+zicompinit -d "${ZSH_COMPDUMP}"
+zicdreplay
