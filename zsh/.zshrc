@@ -1,9 +1,9 @@
 # Zinit
-ZINIT_HOME="${XDG_DATA_HOME}/zinit/zinit.git"
 declare -A ZINIT
 ZINIT[NO_ALIASES]=1
 
 ## Load Zinit
+ZINIT_HOME="${XDG_DATA_HOME}/zinit/zinit.git"
 if [[ ! -f $ZINIT_HOME/zinit.zsh ]]; then
   print -P "%F{33}▓▒░ %F{160}Installing (%F{33}zdharma-continuum/zinit%F{160})…%f"
   command mkdir -p "$(dirname $ZINIT_HOME)"
@@ -50,9 +50,10 @@ export FLUTTER_ROOT="${HOME}/development/flutter"
 [[ -f $XDG_CONFIG_HOME/.dart-cli-completion/zsh-config.zsh ]] && . $XDG_CONFIG_HOME/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
-# bun
+# Bun.sh
 export BUN_INSTALL="$HOME/.bun"
 
+# Update path
 path=(
   $HOMEBREW_PREFIX/opt/ruby/bin # ruby
   $path
@@ -70,7 +71,7 @@ path=(
   )
 
 # Set personal aliases
-# For a full list of active aliases, run `alias`.
+## For a full list of active aliases, run `alias`.
 source "${HOME}/aliases.zsh"
 source "${HOME}/functions.zsh"
 
@@ -142,7 +143,7 @@ setopt multios              # Implicit tees or cats when multiple redirections a
 setopt prompt_subst         # Substitution of parameters inside the prompt each time the prompt is drawn.
 setopt pushd_ignore_dups    # Don't push multiple copies directory onto the directory stack.
 
-# Zinit managed installations.
+# More Zinit managed installations.
 
 ## Install zinit plugins from OMZ
 zinit lucid light-mode for \
@@ -161,29 +162,29 @@ zinit lucid light-mode for \
   OMZP::xcode \
 #   OMZP::macos # requires copying in spotify and music files manually
 
-## Nvm Config
-export NVM_COMPLETION=true
-# export NVM_LAZY_LOAD=true
-export NVM_AUTO_USE=true
 
 ## Install shell plugins
+### Nvm Config
+export NVM_COMPLETION=true
+#export NVM_LAZY_LOAD=true
+export NVM_AUTO_USE=true
 zinit wait lucid light-mode for \
     @MichaelAquilina/zsh-you-should-use \
     @MichaelAquilina/zsh-autoswitch-virtualenv \
   atclone'nvm install --lts' atpull'%atclone' \
     @lukechilds/zsh-nvm
 
-# >>> VSCode venv deactivate hook >>>
-#! >>> Compatiblity note >>>
-#! If this acts up, try running `@command:workspace-storage-cleanup.run`.
-#! It's provided to the command palette by the `mehyaa.workspace-storage-cleanup` extension.
-#! This will clear the workspace storage, which may fix the issue.
-#! In addition, this command will also save some storage space in the process.
-#! It can also be useful if you're having issues with vscode caching environment variables too aggressively.
-#! That's, after all, the root cause of this issue.
-#! <<< Compatiblity note <<<
+### >>> VSCode venv deactivate hook >>>
+###! >>> Compatiblity note >>>
+###! If this acts up, try running `@command:workspace-storage-cleanup.run`.
+###! It's provided to the command palette by the `mehyaa.workspace-storage-cleanup` extension.
+###! This will clear the workspace storage, which may fix the issue.
+###! In addition, this command will also save some storage space in the process.
+###! It can also be useful if you're having issues with vscode caching environment variables too aggressively.
+###! That's, after all, the root cause of this issue.
+###! <<< Compatiblity note <<<
 source $HOME/.vscode-python/deactivate
-# <<< VSCode venv deactivate hook <<<
+### <<< VSCode venv deactivate hook <<<
 
 ## Install Roc
 zinit wait lucid light-mode from'gh-r' nocompile'' for \
@@ -208,14 +209,14 @@ zinit wait lucid light-mode for \
   atpull"%atclone" \
     @g-plane/pnpm-shell-completion
 
-# Hook direnv into zsh
+## Hook direnv into zsh
 zinit lucid light-mode id-as'direnv/loader' for \
   atclone'echo "source <(direnv hook zsh)" > init.zsh' \
   atpull'%atclone' \
   nocompile'' \
     @zdharma-continuum/null
 
-# Get completions for autodoc2, and poetry
+## Get completions for autodoc2, and poetry
 zinit lucid light-mode id-as'completions/ext' as'completion' for \
   atclone'poetry completions zsh > _poetry \
     && autodoc2 --show-completion > _autodoc2' \
@@ -233,7 +234,7 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
     nocompile'' \
         @zdharma-continuum/null
 
-    # use please as terminal "new tab page"
+    # Use please as terminal "new tab page"
     zinit lucid light-mode id-as'please/loader' for \
     atclone'echo "please" > init.zsh && please --show-completion zsh > _please' \
     atpull'%atclone' \
@@ -247,7 +248,8 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 ##### WHAT YOU WANT TO DISABLE FOR WARP - ABOVE
 fi
 
-# Completions (fast)
+# Completions (must be last, so it can hook into everything else)
 export ZSH_COMPDUMP="${ZI[CACHE_DIR]}/.zcompdump-$HOST-$ZSH_VERSION"
+#zicompinit_fast -d "${ZSH_COMPDUMP}"
 zicompinit -d "${ZSH_COMPDUMP}"
 zicdreplay
