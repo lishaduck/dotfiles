@@ -92,6 +92,7 @@
     # - flutter
     # - godot-mono
     - racket
+    - utm
     - warp
 
 - shell:
