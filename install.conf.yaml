@@ -50,19 +50,22 @@
 #     - oven-sh/bun
 
 - brew:
+    - act
     - appwrite --HEAD
     - bat
     - bun
     - cmatrix
-    - deno
     - cocoapods
     - coreutils
+    - deno
+    - dotnet
     - direnv
     - fd
     - font-caskaydia-cove-nerd-font
     - font-monaspace
     - gh
     - git
+    - git-absorb
     - gradle@8
     - gradle-completion
     - hexyl
@@ -75,16 +78,17 @@
     - pipx
     - python@3.12
     - python-tk@3.12
+    - qemu
     - ranger
     - rustup-init
     - starship
     - vivid
+    - youtube-dl
     - zig
 
 - cask:
     - blender
     # - docker
-    # - dotnet-sdk
     # - flutter
     # - godot-mono
     - racket
