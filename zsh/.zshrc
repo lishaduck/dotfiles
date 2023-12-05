@@ -182,6 +182,7 @@ zinit wait lucid light-mode for \
 ###! In addition, this command will also save some storage space in the process.
 ###! It can also be useful if you're having issues with vscode caching environment variables too aggressively.
 ###! That's, after all, the root cause of this issue.
+###! Maybe.
 ###! <<< Compatiblity note <<<
 source $HOME/.vscode-python/deactivate
 ### <<< VSCode venv deactivate hook <<<
