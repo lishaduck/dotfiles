@@ -47,35 +47,39 @@
 #     - homebrew/cask-fonts
 #     - homebrew/command-not-found
 #     - homebrew/services
+#     - martido/graph
 #     - oven-sh/bun
 
 - brew:
     - act
     - appwrite --HEAD
+    - bash
     - bat
     - bun
     - cmatrix
     - cocoapods
     - coreutils
     - deno
-    - dotnet
     - direnv
+    - dotnet
     - fd
-    - font-caskaydia-cove-nerd-font
-    - font-monaspace
     - gh
     - git
     - git-absorb
-    - gradle@8
+    - git-lfs
+    - gradle
     - gradle-completion
+    - graphviz
     - hexyl
     - hyperfine
     - jq
+    - lcov
     - llvm@16
     - lsd
     # - maccy
     - nb
     - pipx
+    - pkg-config
     - python@3.12
     - python-tk@3.12
     - qemu
@@ -83,17 +87,21 @@
     - rustup-init
     - starship
     - vivid
-    - youtube-dl
+    - w3m
+    - yt-dlp
     - zig
 
 - cask:
     - blender
     # - docker
     # - flutter
+    - font-monaspace
+    - font-caskaydia-cove-nerd-font
     # - godot-mono
     - racket
     - utm
     - warp
+    - zed
 
 - shell:
     - command: pipx install please-cli --force
@@ -108,5 +116,9 @@
       description: Installing sphinx-autodoc2 with pipx
     - command: pipx install gdtoolkit
       description: Installing godot toolkit with pipx
+    - command: pipx install virtualenv
+      description: Installing virtualenv with pipx
     - command: gh extension install github/gh-copilot
       description: Installing gh copilot for github cli
+    - command: bun install -g readability-cli
+      description: Installing readable with bun

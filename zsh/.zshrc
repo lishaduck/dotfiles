@@ -174,19 +174,6 @@ zinit wait lucid light-mode for \
   atclone'nvm install --lts' atpull'%atclone' \
     @lukechilds/zsh-nvm
 
-### >>> VSCode venv deactivate hook >>>
-###! >>> Compatiblity note >>>
-###! If this acts up, try running `@command:workspace-storage-cleanup.run`.
-###! It's provided to the command palette by the `mehyaa.workspace-storage-cleanup` extension.
-###! This will clear the workspace storage, which may fix the issue.
-###! In addition, this command will also save some storage space in the process.
-###! It can also be useful if you're having issues with vscode caching environment variables too aggressively.
-###! That's, after all, the root cause of this issue.
-###! Maybe.
-###! <<< Compatiblity note <<<
-source $HOME/.vscode-python/deactivate
-### <<< VSCode venv deactivate hook <<<
-
 ## Install Roc
 zinit wait lucid light-mode from'gh-r' nocompile'' for \
   as'program' \
