@@ -42,13 +42,13 @@
     ~/.config/direnv/direnv.toml:
       path: zsh/direnv.toml
 
-# - tap: # Not working
-#     - appwrite/sdk-for-cli https://github.com/appwrite/sdk-for-cli
-#     - homebrew/cask-fonts
-#     - homebrew/command-not-found
-#     - homebrew/services
-#     - martido/graph
-#     - oven-sh/bun
+- tap:
+    - appwrite/sdk-for-cli https://github.com/appwrite/sdk-for-cli
+    - homebrew/cask-fonts
+    - homebrew/command-not-found
+    - homebrew/services
+    - martido/graph
+    - oven-sh/bun
 
 - brew:
     - act
