@@ -12,5 +12,10 @@ alias gforce='git push --force-with-lease';
 # Alias to launch chrome from terminal
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome';
 
-# Alias to 'ls'
-alias eza_long='eza -l --icons=always --hyperlink --no-permissions -h --total-size --git'
+# Aliases for 'eza'
+alias _eza_base='eza  --classify --hyperlink --header --group-directories-first -I .git --icons --git --git-ignore --no-permissions'
+alias eza_long='_eza_base --long --all --dereference --total-size'
+alias eza_tree='_eza_base --tree --almost-all --git';
+
+# Alias
+alias brewgraph='brew graph --installed --highlight-leaves | fdp -T png -o graph.png'
