@@ -62,11 +62,13 @@
     - deno
     - direnv
     - dotnet
+    - eza
     - fd
     - gh
     - git
     - git-absorb
     - git-lfs
+    - gnupg
     - gradle
     - gradle-completion
     - graphviz
@@ -75,9 +77,9 @@
     - jq
     - lcov
     - llvm@16
-    - lsd
     # - maccy
     - nb
+    - pinentry-mac
     - pipx
     - pkg-config
     - python@3.12
