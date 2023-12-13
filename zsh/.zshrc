@@ -236,6 +236,9 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 ##### WHAT YOU WANT TO DISABLE FOR WARP - ABOVE
 fi
 
+# GPG Verification
+export GPG_TTY=$(tty)
+
 # Completions (must be last, so it can hook into everything else)
 export ZSH_COMPDUMP="${ZI[CACHE_DIR]}/.zcompdump-$HOST-$ZSH_VERSION"
 #zicompinit_fast -d "${ZSH_COMPDUMP}"

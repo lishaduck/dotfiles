@@ -1,6 +1,7 @@
 [user]
 	name = Eli
 	email = 88557639+lishaduck@users.noreply.github.com
+	signingkey = A5DEA67F0CC8C8A8
 
 [github]
 	user = lishaduck
@@ -63,3 +64,5 @@
 
 [sequence]
 	editor = code --wait --reuse-window
+[commit]
+	gpgsign = true
