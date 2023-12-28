@@ -20,10 +20,5 @@ export LESS_TERMCAP_md=$'\e[1;36m'
 # Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto';
 
-# Configure brew
-export HOMEBREW_CLEANUP_PERIODIC_FULL_DAYS=1
-export HOMEBREW_BAT=1
-export HOMEBREW_CASK_OPTS="--appdir=${HOME}/Applications"
-
 # Configure rust
 source "$HOME/.cargo/env"

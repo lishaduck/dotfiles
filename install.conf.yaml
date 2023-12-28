@@ -41,6 +41,8 @@
       path: zsh/starship.toml
     ~/.config/direnv/direnv.toml:
       path: zsh/direnv.toml
+    ~/.config/homebrew/brew.env:
+      path: zsh/brew.env
 
 - tap:
     - appwrite/sdk-for-cli https://github.com/appwrite/sdk-for-cli
