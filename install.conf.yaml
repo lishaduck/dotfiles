@@ -53,7 +53,6 @@
     - oven-sh/bun
 
 - brew:
-    - act
     - appwrite --HEAD
     - bash
     - bat

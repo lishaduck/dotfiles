@@ -31,10 +31,9 @@ fi
 # Install stuff!
 ## Install zinit annexes
 zinit light-mode for zdharma-continuum/z-a-meta-plugins \
-  "@annexes" @zdharma-continuum/z-a-linkbin \
+  "@annexes" \
   skip'zdharma-continuum/zsh-diff-so-fancy' "@zdharma" \
-  skip'zdharma-continuum/zconvey' "@zdharma2" \
-  @zdharma-continuum/zinit-console
+  skip'zdharma-continuum/zconvey' "@zdharma2"
 
 zinit wait lucid light-mode reset id-as'ls-colors' for \
   atclone"echo 'LS_COLORS=\"$(vivid generate one-dark)\"; export LS_COLORS' >! clrs.zsh" \
@@ -184,7 +183,6 @@ zinit lucid light-mode for id-as'lamdera' \
   as'program' \
   dl'https://static.lamdera.com/bin/lamdera-1.2.1-macos-arm64 -> lamdera' \
   pick'lamdera' \
-  cp'lamdera -> $ZPFX/bin/lamdera' \
   nocompile'' \
     @zdharma-continuum/null
 
