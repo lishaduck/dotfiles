@@ -16,15 +16,13 @@ add_newline = true
 command_timeout = 800
 
 [directory]
-read_only         = " 󰌾"
-truncate_to_repo  = true
+read_only = " 󰌾"
+truncate_to_repo = true
 truncation_length = 4
 truncation_symbol = '…/'
 
-
 [shlvl]
 disabled = false
-
 
 # Nerd Font Preset
 
@@ -104,45 +102,45 @@ symbol = " "
 # disabled = false
 
 [os.symbols]
-Alpaquita        = " "
-Alpine           = " "
-Amazon           = " "
-Android          = " "
-Arch             = " "
-Artix            = " "
-CentOS           = " "
-Debian           = " "
-DragonFly        = " "
-Emscripten       = " "
-EndeavourOS      = " "
-Fedora           = " "
-FreeBSD          = " "
-Garuda           = "󰛓 "
-Gentoo           = " "
-HardenedBSD      = "󰞌 "
-Illumos          = "󰈸 "
-Linux            = " "
-Mabox            = " "
-Macos            = " "
-Manjaro          = " "
-Mariner          = " "
-MidnightBSD      = " "
-Mint             = " "
-NetBSD           = " "
-NixOS            = " "
-OpenBSD          = "󰈺 "
-OracleLinux      = "󰌷 "
-Pop              = " "
-Raspbian         = " "
+Alpaquita = " "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
 RedHatEnterprise = " "
-Redhat           = " "
-Redox            = "󰀘 "
-SUSE             = " "
-Solus            = "󰠳 "
-Ubuntu           = " "
-Unknown          = " "
-Windows          = "󰍲 "
-openSUSE         = " "
+Redhat = " "
+Redox = "󰀘 "
+SUSE = " "
+Solus = "󰠳 "
+Ubuntu = " "
+Unknown = " "
+Windows = "󰍲 "
+openSUSE = " "
 
 [package]
 symbol = "󰏗 "
@@ -167,6 +165,6 @@ symbol = " "
 
 [custom.roc]
 detect_extensions = ["roc"]
-format            = "via [$symbol($output )]($style)"
-style             = "bold purple"
-symbol            = "󱗆 nightly "
+format = "via [$symbol($output )]($style)"
+style = "bold purple"
+symbol = "󱗆 nightly "
