@@ -167,6 +167,6 @@ symbol = " "
 
 [custom.roc]
 detect_extensions = ["roc"]
-format            = "[$symbol($output )]($style)"
+format            = "via [$symbol($output )]($style)"
 style             = "bold purple"
-symbol            = "via 󱗆 nightly "
+symbol            = "󱗆 nightly "
