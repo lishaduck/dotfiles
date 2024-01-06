@@ -64,6 +64,7 @@ path=(
   $HOME/Library/Android/sdk/cmake/3.22.1/bin # CMake
   $HOME/Library/Android/sdk/sdk/cmdline-tools/latest/bin # Android
   $HOME/Library/Android/sdk/platform-tools # More Android
+  $HOME/.deno/bin # deno
   $BUN_INSTALL/bin # bun
   $HOMEBREW_PREFIX/opt/python@3.12/libexec/bin # python
   $HOMEBREW_PREFIX/lib/python3.12/site-packages # python
