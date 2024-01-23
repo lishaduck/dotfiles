@@ -93,18 +93,18 @@
     - w3m
     - yt-dlp
     - zig
+    - zls
 
 - cask:
     - blender
     # - docker
     # - flutter
-    - font-monaspace
+    # - font-monaspace
     - font-caskaydia-cove-nerd-font
     # - godot-mono
-    - racket
     - utm
     - warp
-    - zed
+    # - zed
 
 - shell:
     - command: pipx install please-cli --force
