@@ -201,6 +201,13 @@ zinit lucid light-mode id-as'direnv/loader' for \
   nocompile'' \
     @zdharma-continuum/null
 
+## Hook pkgx into zsh (https://docs.pkgx.sh/shellcode)
+zinit lucid light-mode id-as'pkgx/loader' for \
+  atclone'echo "source <(pkgx --shellcode)" > init.zsh' \
+  atpull'%atclone' \
+  nocompile'' \
+    @zdharma-continuum/null
+
 ## Get completions for autodoc2, and poetry
 zinit lucid light-mode id-as'completions/ext' as'completion' for \
   atclone'poetry completions zsh > _poetry \
@@ -241,3 +248,5 @@ export ZSH_COMPDUMP="${ZI[CACHE_DIR]}/.zcompdump-$HOST-$ZSH_VERSION"
 #zicompinit_fast -d "${ZSH_COMPDUMP}"
 zicompinit -d "${ZSH_COMPDUMP}"
 zicdreplay
+
+
