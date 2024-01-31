@@ -2,7 +2,7 @@
     link:
       relink: true
       create: true
-      force: false
+      force: true
     clean:
       recursive: true
       force: true
@@ -43,6 +43,12 @@
       path: zsh/direnv.toml
     ~/.config/homebrew/brew.env:
       path: zsh/brew.env
+    ~/.warp/themes:
+      path: warp/themes
+    ~/.config/zed/settings.json:
+      path: zed/settings.json
+    ~/.nbrc:
+      path: zsh/.nbrc
 
 - tap:
     - appwrite/sdk-for-cli https://github.com/appwrite/sdk-for-cli
@@ -50,6 +56,7 @@
     - homebrew/command-not-found
     - homebrew/services
     - martido/graph
+    - pkgxdev/made
     - oven-sh/bun
 
 - brew:
@@ -103,6 +110,8 @@
     # - font-monaspace
     - font-caskaydia-cove-nerd-font
     # - godot-mono
+    - raycast
+    - spacedrive
     - utm
     - warp
     - zed

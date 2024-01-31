@@ -1,6 +1,9 @@
 # https://www.webpro.nl/articles/getting-started-with-dotfiles
 export EDITOR="code"
 export VISUAL="code"
+export BROWSER="chrome"
+export PAGER="less"
+export SHELL="/bin/zsh"
 
 # XDG Base Directory Specification (https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
 export XDG_HOME_DIR="$HOME"
