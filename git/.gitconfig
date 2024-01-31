@@ -1,13 +1,13 @@
 [user]
 	name = Eli
 	email = 88557639+lishaduck@users.noreply.github.com
-	signingkey = A5DEA67F0CC8C8A8
+	signingKey = A5DEA67F0CC8C8A8
 
 [github]
 	user = lishaduck
 
 [core]
-	excludesfile = ~/.gitignore_global
+	excludesFile = ~/.gitignore_global
 	editor = code --wait
 	ignorecase = false
 	filemode = true
@@ -16,7 +16,7 @@
 	autocrlf = false
 
 [init]
-	defaultbranch = main
+	defaultBranch = main
 
 [pull]
 	rebase = true
@@ -64,5 +64,6 @@
 
 [sequence]
 	editor = code --wait --reuse-window
+
 [commit]
-	gpgsign = true
+	gpgSign = true
