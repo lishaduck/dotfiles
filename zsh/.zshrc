@@ -161,7 +161,6 @@ export NVM_COMPLETION=true
 #export NVM_LAZY_LOAD=true
 export NVM_AUTO_USE=true
 zinit wait lucid light-mode for \
-    @MichaelAquilina/zsh-you-should-use \
     @MichaelAquilina/zsh-autoswitch-virtualenv \
   atclone'nvm install --lts' atpull'%atclone' \
     @lukechilds/zsh-nvm
@@ -215,21 +214,24 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 
     # Use starship prompt
     zinit lucid light-mode id-as'starship/loader' for \
-    atclone'echo "source <(starship init zsh --print-full-init)" > init.zsh' \
-    atpull'%atclone' \
-    nocompile'' \
+      atclone'echo "source <(starship init zsh --print-full-init)" > init.zsh' \
+      atpull'%atclone' \
+      nocompile'' \
         @zdharma-continuum/null
 
     # Use please as terminal "new tab page"
     zinit lucid light-mode id-as'please/loader' for \
-    atclone'echo "please" > init.zsh && please --show-completion zsh > _please' \
-    atpull'%atclone' \
-    nocompile'' \
+      atclone'echo "please" > init.zsh && please --show-completion zsh > _please' \
+      atpull'%atclone' \
+      nocompile'' \
         @zdharma-continuum/null
 
     # Use zsh-users tools
     zinit light-mode for \
         "@zsh-users+fast"
+
+    zinit wait lucid light-mode for \
+        "@MichaelAquilina/zsh-you-should-use"
 
 ##### WHAT YOU WANT TO DISABLE FOR WARP - ABOVE
 fi
