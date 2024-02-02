@@ -17,5 +17,9 @@ alias _eza_base='eza  --classify --hyperlink --header --group-directories-first 
 alias eza_long='_eza_base --long --all --dereference --total-size'
 alias eza_tree='_eza_base --tree --almost-all --git';
 
-# Alias
+# Aliases for brew
 alias brewgraph='brew graph --installed --highlight-leaves | fdp -T png -o graph.png'
+
+# Remove some aliases for git
+unalias gk
+unalias grv

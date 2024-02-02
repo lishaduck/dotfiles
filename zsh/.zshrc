@@ -70,11 +70,6 @@ path=(
   $HOMEBREW_PREFIX/lib/python3.12/site-packages # python
   )
 
-# Set personal aliases
-## For a full list of active aliases, run `alias`.
-source "${HOME}/aliases.zsh"
-source "${HOME}/functions.zsh"
-
 # History
 export HISTSIZE=32768
 export HISTFILESIZE="${HISTSIZE}"
@@ -146,7 +141,6 @@ setopt pushd_ignore_dups    # Don't push multiple copies directory onto the dire
 ## Install zinit plugins from OMZ
 zinit lucid light-mode for \
   OMZL::git.zsh \
-  atload"unalias grv" \
   OMZP::git \
   OMZP::python \
   OMZP::pylint \
@@ -239,6 +233,11 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 
 ##### WHAT YOU WANT TO DISABLE FOR WARP - ABOVE
 fi
+
+# Set personal aliases
+## For a full list of active aliases, run `alias`.
+source "${HOME}/aliases.zsh"
+source "${HOME}/functions.zsh"
 
 # GPG Verification
 export GPG_TTY=$(tty)
