@@ -30,6 +30,7 @@
 
 [rebase]
 	autoStash = true
+	updateRefs = true
 
 [grep]
 	lineNumber = true
