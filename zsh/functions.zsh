@@ -5,5 +5,10 @@ function mk() {
 }
 
 function bun_turbo() {
-  bunx --bun turbo "$1" --log-order=grouped --parallel
+  bunx --bun turbo "$@" --log-order=grouped --parallel
+}
+
+function check_for_dirty() {
+  local dir=${1:-~/Developer/}
+  find "$dir" -type d -name '.git' -execdir sh -c 'git -C {}/.. fetch > /dev/null 2>&1 && ([[ -n $(git status --porcelain) ]] || [[ -n $(git rev-list HEAD@{upstream}..HEAD) ]]) && pwd' "{}" \;
 }

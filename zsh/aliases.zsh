@@ -20,6 +20,10 @@ alias eza_tree='_eza_base --tree --almost-all --git';
 # Aliases for brew
 alias brewgraph='brew graph --installed --highlight-leaves | fdp -T png -o graph.png'
 
+# Aliases for Flutter
+alias clean_flutter='dart run build_runner clean && flutter clean'
+alias fresh_flutter='clean_flutter && flutter upgrade && flutter pub get --precompile && flutter run'
+
 # Remove some aliases for git
 unalias gk
 unalias grv
