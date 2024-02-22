@@ -52,8 +52,8 @@
 
 - tap:
     - appwrite/sdk-for-cli https://github.com/appwrite/sdk-for-cli
+    - withgraphite/tap
     - homebrew/cask-fonts
-    - homebrew/command-not-found
     - homebrew/services
     - martido/graph
     - pkgxdev/made
@@ -64,6 +64,7 @@
     - bash
     - bat
     - bun
+    - chrome-cli
     - cmatrix
     - cocoapods
     - coreutils
@@ -74,18 +75,17 @@
     - fd
     - gh
     - git
-    - git-absorb
     - git-lfs
     - gnupg
     - gradle
     - gradle-completion
+    - graphite
     - graphviz
     - hexyl
     - hyperfine
     - jq
     - lcov
     - llvm@16
-    # - maccy
     - nb
     - pinentry-mac
     - pipx
@@ -101,6 +101,7 @@
     - w3m
     - yt-dlp
     - zig
+    - zinit
     - zls
 
 - cask:
@@ -109,7 +110,11 @@
     # - flutter
     # - font-monaspace
     - font-caskaydia-cove-nerd-font
-    # - godot-mono
+    - github
+    - gitkraken
+    - gitkraken-cli
+    - godot
+    - notion
     - raycast
     - spacedrive
     - utm
@@ -131,6 +136,8 @@
       description: Installing godot toolkit with pipx
     - command: pipx install virtualenv
       description: Installing virtualenv with pipx
+    - command: pipx install ipython
+      description: Installing ipython with pipx
     - command: gh extension install github/gh-copilot
       description: Installing gh copilot for github cli
     - command: bun install -g readability-cli
