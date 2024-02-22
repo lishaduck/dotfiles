@@ -1,44 +1,28 @@
-# Zinit
-declare -A ZINIT
-ZINIT[NO_ALIASES]=1
-
-## Load Zinit
-ZINIT_HOME="${XDG_DATA_HOME}/zinit/zinit.git"
-if [[ ! -f $ZINIT_HOME/zinit.zsh ]]; then
-  print -P "%F{33}▓▒░ %F{160}Installing (%F{33}zdharma-continuum/zinit%F{160})…%f"
-  command mkdir -p "$(dirname $ZINIT_HOME)"
-  command git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME" && \
-    print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-    print -P "%F{160}▓▒░ The clone has failed.%f%b"
-fi
-source "${ZINIT_HOME}/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-# examples here -> https://github.com/zdharma-continuum/zinit/wiki/Recipes-for-popular-programs
-
-# homebrew
+# Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Zinit
+source $HOMEBREW_PREFIX/opt/zinit/zinit.zsh
+# examples here -> https://github.com/zdharma-continuum/zinit/wiki/Recipes-for-popular-programs
 
 if type brew &>/dev/null; then
   zinit add-fpath "$HOMEBREW_PREFIX/share/zsh/site-functions"
 fi
 
-HB_CNF_HANDLER="$HOMEBREW_REPOSITORY/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
-if [ -f "$HB_CNF_HANDLER" ]; then
-source "$HB_CNF_HANDLER";
-fi
-
-# Install stuff!
-## Install zinit annexes
+# Install Zinit annexes.
 zinit light-mode for zdharma-continuum/z-a-meta-plugins \
   "@annexes" \
   skip'zdharma-continuum/zsh-diff-so-fancy' "@zdharma" \
   skip'zdharma-continuum/zconvey' "@zdharma2"
 
+
+# Use one-dark theme for eza and completions.
 zinit wait lucid light-mode reset id-as'ls-colors' for \
-  atclone"echo 'LS_COLORS=\"$(vivid generate one-dark)\"; export LS_COLORS' >! clrs.zsh" \
+  atclone'echo "LS_COLORS=\"$(vivid generate one-dark)\"; export LS_COLORS" >! clrs.zsh' \
   atpull'%atclone' pick'clrs.zsh' nocompile'''!' \
   atload'zstyle ":completion:*:default" list-colors "${(s.:.)LS_COLORS}"' \
+  pick'clrs.zsh' \
+  nocompile \
     @zdharma-continuum/null
 
 # Flutter
@@ -136,9 +120,20 @@ setopt multios              # Implicit tees or cats when multiple redirections a
 setopt prompt_subst         # Substitution of parameters inside the prompt each time the prompt is drawn.
 setopt pushd_ignore_dups    # Don't push multiple copies directory onto the directory stack.
 
+# Functions
+autoload -Uz zmv
+autoload -Uz zcalc
+
 # More Zinit managed installations.
 
-## Install zinit plugins from OMZ
+## Set personal aliases
+### For a full list of active aliases, run `alias`.
+zinit light-mode for \
+  "${HOME}/aliases.zsh" \
+  "${HOME}/functions.zsh"
+
+## Install shell plugins
+### plugins from OMZ
 zinit lucid light-mode for \
   OMZL::git.zsh \
   OMZP::git \
@@ -152,10 +147,8 @@ zinit lucid light-mode for \
   OMZP::virtualenv \
   OMZP::web-search \
   OMZP::xcode \
-#   OMZP::macos # requires copying in spotify and music files manually
+  # OMZP::macos # requires copying in spotify and music files manually
 
-
-## Install shell plugins
 ### Nvm Config
 export NVM_COMPLETION=true
 #export NVM_LAZY_LOAD=true
@@ -209,6 +202,9 @@ zinit lucid light-mode id-as'completions/ext' as'completion' for \
   nocompile'' \
     @zdharma-continuum/null
 
+# Completions (must be last, so it can hook into everything else)
+export ZSH_COMPDUMP="${ZI[CACHE_DIR]}/.zcompdump-$HOST-$ZSH_VERSION"
+
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 ##### WHAT YOU WANT TO DISABLE FOR WARP - BELOW
 
@@ -226,28 +222,18 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
       nocompile'' \
         @zdharma-continuum/null
 
+    zinit wait lucid light-mode for \
+        "@MichaelAquilina/zsh-you-should-use"
+
     # Use zsh-users tools
     zinit light-mode for \
         "@zsh-users+fast"
 
-    zinit wait lucid light-mode for \
-        "@MichaelAquilina/zsh-you-should-use"
-
 ##### WHAT YOU WANT TO DISABLE FOR WARP - ABOVE
 fi
 
-# Set personal aliases
-## For a full list of active aliases, run `alias`.
-source "${HOME}/aliases.zsh"
-source "${HOME}/functions.zsh"
-
 # GPG Verification
-export GPG_TTY=$(tty)
-
-# Completions (must be last, so it can hook into everything else)
-export ZSH_COMPDUMP="${ZI[CACHE_DIR]}/.zcompdump-$HOST-$ZSH_VERSION"
-#zicompinit_fast -d "${ZSH_COMPDUMP}"
-zicompinit -d "${ZSH_COMPDUMP}"
-zicdreplay
-
-
+zinit wait lucid id-as'gpg' for \
+  atinit'export GPG_TTY=$(tty)' \
+  nocompile \
+    @zdharma-continuum/null
