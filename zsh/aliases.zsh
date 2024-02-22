@@ -27,3 +27,9 @@ alias fresh_flutter='clean_flutter && flutter upgrade && flutter pub get --preco
 # Remove some aliases for git
 unalias gk
 unalias grv
+
+# Navigation aliases
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias -- -="cd -"
