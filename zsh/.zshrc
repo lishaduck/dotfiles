@@ -125,13 +125,6 @@ autoload -Uz zmv
 autoload -Uz zcalc
 
 # More Zinit managed installations.
-
-## Set personal aliases
-### For a full list of active aliases, run `alias`.
-zinit light-mode for \
-  "${HOME}/aliases.zsh" \
-  "${HOME}/functions.zsh"
-
 ## Install shell plugins
 ### plugins from OMZ
 zinit lucid light-mode for \
@@ -202,8 +195,10 @@ zinit lucid light-mode id-as'completions/ext' as'completion' for \
   nocompile'' \
     @zdharma-continuum/null
 
-# Completions (must be last, so it can hook into everything else)
-export ZSH_COMPDUMP="${ZI[CACHE_DIR]}/.zcompdump-$HOST-$ZSH_VERSION"
+## Set personal aliases
+### For a full list of active aliases, run `alias`.
+source ~/aliases.zsh
+source ~/functions.zsh
 
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 ##### WHAT YOU WANT TO DISABLE FOR WARP - BELOW
