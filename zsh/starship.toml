@@ -96,6 +96,7 @@ symbol = "󰆥 "
 symbol = " "
 
 [nodejs]
+detect_files = ['!bun.lockb', '!bunfig.toml', '.node-version', 'package.json']
 symbol = " "
 
 [os]
