@@ -202,6 +202,14 @@ source ~/functions.zsh
 
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 ##### WHAT YOU WANT TO DISABLE FOR WARP - BELOW
+    # Remind me of my aliases
+    zinit wait lucid light-mode for \
+        "@MichaelAquilina/zsh-you-should-use"
+
+    # Use zsh-users tools
+    zinit light-mode for \
+        "@hlissner/zsh-autopair" \
+        "@zsh-users+fast"
 
     # Use starship prompt
     zinit lucid light-mode id-as'starship/loader' for \
@@ -216,13 +224,6 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
       atpull'%atclone' \
       nocompile'' \
         @zdharma-continuum/null
-
-    zinit wait lucid light-mode for \
-        "@MichaelAquilina/zsh-you-should-use"
-
-    # Use zsh-users tools
-    zinit light-mode for \
-        "@zsh-users+fast"
 
 ##### WHAT YOU WANT TO DISABLE FOR WARP - ABOVE
 fi
