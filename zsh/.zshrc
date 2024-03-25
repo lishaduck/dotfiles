@@ -10,14 +10,14 @@ if type brew &>/dev/null; then
 fi
 
 # Install Zinit annexes.
-zinit light-mode for zdharma-continuum/z-a-meta-plugins \
+zinit lucid for zdharma-continuum/z-a-meta-plugins \
   "@annexes" \
   skip'zdharma-continuum/zsh-diff-so-fancy' "@zdharma" \
   skip'zdharma-continuum/zconvey' "@zdharma2"
 
 
 # Use one-dark theme for eza and completions.
-zinit wait lucid light-mode reset id-as'ls-colors' for \
+zinit wait lucid reset id-as'ls-colors' for \
   atclone'echo "LS_COLORS=\"$(vivid generate one-dark)\"; export LS_COLORS" >! clrs.zsh' \
   atpull'%atclone' pick'clrs.zsh' nocompile'''!' \
   atload'zstyle ":completion:*:default" list-colors "${(s.:.)LS_COLORS}"' \
@@ -127,7 +127,7 @@ autoload -Uz zcalc
 # More Zinit managed installations.
 ## Install shell plugins
 ### plugins from OMZ
-zinit lucid light-mode for \
+zinit lucid for \
   OMZL::git.zsh \
   OMZP::git \
   OMZP::python \
@@ -146,20 +146,24 @@ zinit lucid light-mode for \
 export NVM_COMPLETION=true
 #export NVM_LAZY_LOAD=true
 export NVM_AUTO_USE=true
-zinit wait lucid light-mode for \
+zinit wait lucid for \
     @MichaelAquilina/zsh-autoswitch-virtualenv \
   atclone'nvm install --lts' atpull'%atclone' \
     @lukechilds/zsh-nvm
 
+## Install zsweep
+zinit wait lucid for \
+  sbin'bin/zsweep' @psprint/zsh-sweep
+
 ## Install Roc
-zinit wait lucid light-mode from'gh-r' nocompile'' for \
+zinit wait lucid from'gh-r' nocompile'' for \
   as'program' \
   extract'!-' \
   pick'roc' \
     @roc-lang/roc
 
 ## Install Lamdera
-zinit lucid light-mode for id-as'lamdera' \
+zinit wait lucid for id-as'lamdera' \
   as'program' \
   dl'https://static.lamdera.com/bin/lamdera-1.2.1-macos-arm64 -> lamdera' \
   pick'lamdera' \
@@ -167,28 +171,28 @@ zinit lucid light-mode for id-as'lamdera' \
     @zdharma-continuum/null
 
 ## Install Pnpm shell completions
-zinit wait lucid light-mode for \
+zinit wait lucid for \
   atload"zpcdreplay" \
   atclone"./zplug.zsh" \
   atpull"%atclone" \
     @g-plane/pnpm-shell-completion
 
 ## Hook direnv into zsh
-zinit lucid light-mode id-as'direnv/loader' for \
+zinit lucid id-as'direnv/loader' for \
   atclone'echo "source <(direnv hook zsh)" > init.zsh' \
   atpull'%atclone' \
   nocompile'' \
     @zdharma-continuum/null
 
 ## Hook pkgx into zsh (https://docs.pkgx.sh/shellcode)
-zinit lucid light-mode id-as'pkgx/loader' for \
+zinit lucid id-as'pkgx/loader' for \
   atclone'echo "source <(pkgx --shellcode)" > init.zsh' \
   atpull'%atclone' \
   nocompile'' \
     @zdharma-continuum/null
 
 ## Get completions for autodoc2, and poetry
-zinit lucid light-mode id-as'completions/ext' as'completion' for \
+zinit lucid id-as'completions/ext' as'completion' for \
   atclone'poetry completions zsh > _poetry \
     && autodoc2 --show-completion > _autodoc2' \
   atpull'%atclone' \
@@ -203,23 +207,23 @@ source ~/functions.zsh
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 ##### WHAT YOU WANT TO DISABLE FOR WARP - BELOW
     # Remind me of my aliases
-    zinit wait lucid light-mode for \
+    zinit wait lucid for \
         "@MichaelAquilina/zsh-you-should-use"
 
     # Use zsh-users tools
-    zinit light-mode for \
+    zinit lucid for \
         "@hlissner/zsh-autopair" \
         "@zsh-users+fast"
 
     # Use starship prompt
-    zinit lucid light-mode id-as'starship/loader' for \
+    zinit lucid id-as'starship/loader' for \
       atclone'echo "source <(starship init zsh --print-full-init)" > init.zsh' \
       atpull'%atclone' \
       nocompile'' \
         @zdharma-continuum/null
 
     # Use please as terminal "new tab page"
-    zinit lucid light-mode id-as'please/loader' for \
+    zinit lucid id-as'please/loader' for \
       atclone'echo "please" > init.zsh && please --show-completion zsh > _please' \
       atpull'%atclone' \
       nocompile'' \
