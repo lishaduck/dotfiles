@@ -13,7 +13,7 @@ alias gforce='git push --force-with-lease';
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome';
 
 # Aliases for 'eza'
-alias _eza_base='eza  --classify --hyperlink --header --group-directories-first -I .git --icons --git --git-ignore --no-permissions'
+alias _eza_base='eza --classify --hyperlink --header --group-directories-first -I .git --icons --git --git-ignore --no-permissions'
 alias eza_long='_eza_base --long --all --dereference --total-size'
 alias eza_tree='_eza_base --tree --almost-all --git';
 
