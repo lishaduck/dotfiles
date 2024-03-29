@@ -59,12 +59,17 @@
 
 [alias]
 	amend = commit --amend --reuse-message=HEAD
+	pushall = !git remote | xargs -L1 git push --all
+	graph = log --decorate --oneline --graph --shortstat
 
 [color]
 	ui = true
 
 [sequence]
 	editor = code --wait --reuse-window
+
+[gpg]
+	format = openpgp
 
 [commit]
 	gpgSign = true
@@ -74,3 +79,6 @@
 
 [rerere]
 	enabled = true
+
+[feature]
+	manyfiles = true
