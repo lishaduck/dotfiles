@@ -108,7 +108,7 @@ setopt hist_ignore_space      # Do not record an Event Starting With A Space.
 setopt hist_reduce_blanks     # Remove superfluous blanks from history items.
 setopt hist_save_no_dups      # Do not write a duplicate event to the history file.
 setopt hist_verify            # Do not execute immediately upon history expansion.
-setopt inc_append_history     # Write to the history file immediately, not when the shell exits.
+setopt share_history          # Write to the history file immediately, not when the shell exits.
 
 # Zinit's recommended tweaks
 setopt auto_cd              # Use cd by typing directory name if it's not a command.
