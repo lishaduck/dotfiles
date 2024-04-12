@@ -14,8 +14,7 @@ export XDG_DATA_HOME="$ZPFX/share"
 export XDG_STATE_HOME="$ZPFX/state"
 
 # Prefer US English and use UTF-8
-export LC_ALL="en_US.UTF-8"
-export LANG="en_US"
+export LANG="en_US.UTF-8"
 
 # Highlight section titles in man pages
 export LESS_TERMCAP_md=$'\e[1;36m'
