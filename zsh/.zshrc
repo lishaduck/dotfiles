@@ -25,9 +25,6 @@ zinit wait lucid reset id-as'ls-colors' for \
   nocompile \
     @zdharma-continuum/null
 
-# Flutter
-export FLUTTER_ROOT="${HOME}/development/flutter"
-
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f $XDG_CONFIG_HOME/.dart-cli-completion/zsh-config.zsh ]] && . $XDG_CONFIG_HOME/.dart-cli-completion/zsh-config.zsh || true
@@ -43,7 +40,6 @@ path=(
   "." # current directory
   "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" # vscode
   $CARGO_HOME/bin # cargo
-  $FLUTTER_ROOT/bin # Flutter
   $HOME/.pub-cache/bin # Dart
   $HOME/Library/Android/sdk/cmake/3.22.1/bin # CMake
   $HOME/Library/Android/sdk/sdk/cmdline-tools/latest/bin # Android

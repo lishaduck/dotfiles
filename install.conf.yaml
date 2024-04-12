@@ -56,13 +56,13 @@
     - homebrew/cask-fonts
     - homebrew/services
     - martido/graph
-    - pkgxdev/made
     - oven-sh/bun
 
 - brew:
     - appwrite --HEAD
     - bash
     - bat
+    - btop
     - bun
     - chrome-cli
     - cmatrix
@@ -83,37 +83,42 @@
     - graphviz
     - hexyl
     - hyperfine
+    - jj
     - jq
+    - kotlin
     - lcov
-    - llvm@16
     - nb
     - pinentry-mac
     - pipx
-    - pkgx
     - pkg-config
     - python@3.12
     - python-tk@3.12
     - qemu
-    - ranger
     - rustup-init
     - starship
     - vivid
     - w3m
     - yt-dlp
+    - z3
     - zig
     - zinit
     - zls
+    - zstd
 
 - cask:
+    - arc
     - blender
     # - docker
-    # - flutter
-    # - font-monaspace
+    - flutter
     - font-caskaydia-cove-nerd-font
+    - font-monaspace-nerd-font
+    - font-noto-nerd-font
+    - font-raleway
     - github
     - gitkraken
     - gitkraken-cli
     - godot
+    - loungy
     - notion
     - raycast
     - spacedrive
