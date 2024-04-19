@@ -29,8 +29,6 @@
       path: git/.gitattributes
     ~/.gitignore_global:
       path: git/.gitignore_global
-    ~/.editorconfig:
-      path: .editorconfig
     ~/aliases.zsh:
       path: zsh/aliases.zsh
     ~/functions.zsh:
