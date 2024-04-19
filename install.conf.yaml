@@ -116,10 +116,12 @@
     - gitkraken
     - gitkraken-cli
     - godot
+    - jetbrains-toolbox
     - loungy
     - notion
     - raycast
     - spacedrive
+    - unity-hub
     - utm
     - warp
     - zed
@@ -145,3 +147,5 @@
       description: Installing gh copilot for github cli
     - command: bun install -g readability-cli
       description: Installing readable with bun
+    - command: git lfs install
+      description: Initializing git-lfs
