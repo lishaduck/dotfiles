@@ -24,9 +24,10 @@ alias brewgraph='brew graph --installed --highlight-leaves | fdp -T png -o graph
 alias clean_flutter='dart run build_runner clean && flutter clean'
 alias fresh_flutter='clean_flutter && flutter upgrade && flutter pub get --precompile && flutter run'
 
-# Remove some aliases for git
+# Remove some aliases from Oh My Zsh
 unalias gk
 unalias grv
+unalias wiki
 
 # Navigation aliases
 alias ...="cd ../.."
