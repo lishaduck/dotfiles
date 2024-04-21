@@ -92,6 +92,7 @@
     - python@3.12
     - python-tk@3.12
     - qemu
+    - ripgrep
     - rustup-init
     - starship
     - vivid
