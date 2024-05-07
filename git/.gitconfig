@@ -13,7 +13,7 @@
 	filemode = true
 	repositoryformatversion = 1
 	logAllRefUpdates = true
-	autocrlf = false
+	autoCrlf = false
 
 [init]
 	defaultBranch = main
@@ -24,19 +24,33 @@
 [push]
 	default = upstream
 	followTags = true
+	autoSetUpRemote = true
 
 [fetch]
+	fsckObjects = true
 	prune = true
+	pruneTags = true
 
 [rebase]
 	autoStash = true
+	autoSquash = true
 	updateRefs = true
+	missingCommitsCheck = error
+
+[status]
+	submoduleSummary = true
+
+[branch]
+	sort = -committerdate
 
 [grep]
 	lineNumber = true
 
 [diff]
+	algorithm = histogram
+	colorMoved = default
 	guitool = vscode
+	submodule = log
 
 [diff "lockb"]
 	textconv = bun
@@ -46,6 +60,8 @@
     cmd = code --wait --diff $LOCAL $REMOTE
 
 [merge]
+	conflictStyle = zdiff3
+	keepBackup = false
 	guitool = vscode
 
 [mergetool "vscode"]
@@ -80,5 +96,14 @@
 [rerere]
 	enabled = true
 
+[submodule]
+	recurse = true
+
 [feature]
-	manyfiles = true
+	manyFiles = true
+
+[transfer]
+	fsckObjects = true
+
+[receive]
+	fsckObjects = true
