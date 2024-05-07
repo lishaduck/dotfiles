@@ -30,8 +30,11 @@ zinit wait lucid reset id-as'ls-colors' for \
 [[ -f $XDG_CONFIG_HOME/.dart-cli-completion/zsh-config.zsh ]] && . $XDG_CONFIG_HOME/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
-# Bun.sh
+# Bun
 export BUN_INSTALL="$HOME/.bun"
+
+# Deno
+export DENO_FUTURE=1
 
 # Update path
 path=(
