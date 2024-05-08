@@ -110,9 +110,9 @@
     - blender
     # - docker
     - flutter
-    - font-caskaydia-cove-nerd-font
+    - font-cascadia-code-nf
     - font-monaspace-nerd-font
-    - font-noto-nerd-font
+    - font-noto-sans
     - font-raleway
     - github
     - gitkraken
