@@ -15,7 +15,6 @@ zinit lucid for zdharma-continuum/z-a-meta-plugins \
   skip'zdharma-continuum/zsh-diff-so-fancy' "@zdharma" \
   skip'zdharma-continuum/zconvey' "@zdharma2"
 
-
 # Use one-dark theme for eza and completions.
 zinit wait lucid reset id-as'ls-colors' for \
   atclone'echo "LS_COLORS=\"$(vivid generate one-dark)\"; export LS_COLORS" >! clrs.zsh' \
@@ -206,6 +205,7 @@ source ~/functions.zsh
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 ##### WHAT YOU WANT TO DISABLE FOR WARP - BELOW
     # Remind me of my aliases
+    export YSU_IGNORED_ALIASES=("zi" "zplg" "zpl" "zini")
     zinit wait lucid for \
         "@MichaelAquilina/zsh-you-should-use"
 
