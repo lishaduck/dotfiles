@@ -125,6 +125,3 @@ iOSInjectionProject/
 
 # Vestigial merge files
 *.orig
-
-
-.idea/*
