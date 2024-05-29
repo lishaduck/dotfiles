@@ -9,7 +9,6 @@
 [core]
 	excludesFile = ~/.gitignore_global
 	editor = code --wait
-	ignorecase = false
 	filemode = true
 	repositoryformatversion = 1
 	logAllRefUpdates = true
