@@ -13,6 +13,7 @@
 	repositoryformatversion = 1
 	logAllRefUpdates = true
 	autoCrlf = false
+	fsMonitor = true
 
 [init]
 	defaultBranch = main
