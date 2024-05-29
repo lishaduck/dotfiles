@@ -15,6 +15,9 @@
 	autoCrlf = false
 	fsMonitor = true
 
+[include]
+	path = ~/.local.gitconfig
+
 [init]
 	defaultBranch = main
 
