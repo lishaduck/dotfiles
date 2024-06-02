@@ -29,6 +29,9 @@ zinit wait lucid reset id-as'ls-colors' for \
 [[ -f $XDG_CONFIG_HOME/.dart-cli-completion/zsh-config.zsh ]] && . $XDG_CONFIG_HOME/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
+# Oils
+OILS_HIJACK_SHEBANG=osh
+
 # Bun
 export BUN_INSTALL="$HOME/.bun"
 

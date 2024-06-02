@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
-
 set -e;
+shopt -s strict:all 2>/dev/null || true
 
 CONFIG="install.conf.yaml";
 DOTBOT_DIR="dotbot";
 
 DOTBOT_BIN="bin/dotbot";
-BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)";
+declare BASEDIR_
+BASEDIR_="$(dirname "${BASH_SOURCE[0]}")"
+declare BASEDIR
+BASEDIR="$(cd "${BASEDIR}" && pwd)";
 
 cd "${BASEDIR}";
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive;
