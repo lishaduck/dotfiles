@@ -8,3 +8,9 @@ My dotfiles, set up using [Dotbot](https://github.com/anishathalye/dotbot).
 1. Install [homebrew](https://brew.sh/).
 1. Clone repo - `git clone https://github.com/lishaduck/dotfiles && cd dotfiles`
 1. Run the bootstrapper - `./install`.
+
+## Idempotence
+
+Once you've made updates, run `osh install` to reinstall everything.
+You can safely run this as many times you want,
+and it shouldn't need any intervention, i.e., there're no `sudo` prompts.
