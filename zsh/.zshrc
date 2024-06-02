@@ -185,13 +185,6 @@ zinit lucid id-as'direnv/loader' for \
   nocompile'' \
     @zdharma-continuum/null
 
-## Hook pkgx into zsh (https://docs.pkgx.sh/shellcode)
-zinit lucid id-as'pkgx/loader' for \
-  atclone'echo "source <(pkgx --shellcode)" > init.zsh' \
-  atpull'%atclone' \
-  nocompile'' \
-    @zdharma-continuum/null
-
 ## Get completions for autodoc2, and poetry
 zinit lucid id-as'completions/ext' as'completion' for \
   atclone'poetry completions zsh > _poetry \
