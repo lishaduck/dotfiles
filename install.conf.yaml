@@ -87,6 +87,7 @@
     - kotlin
     - lcov
     - nb
+    # - oils-for-unix # awaiting Homebrew/homebrew-core#173461
     - pinentry-mac
     - pipx
     - pkg-config
