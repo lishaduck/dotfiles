@@ -13,7 +13,7 @@
 	repositoryformatversion = 1
 	logAllRefUpdates = true
 	autoCrlf = false
-	fsMonitor = true
+	fsMonitor = false
 
 [include]
 	path = ~/.local.gitconfig
