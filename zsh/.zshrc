@@ -193,6 +193,13 @@ zinit lucid id-as'completions/ext' as'completion' for \
   nocompile'' \
     @zdharma-continuum/null
 
+## GH Copilot
+zinit lucid id-as'ghcopilot/loader' for \
+  atclone'gh copilot alias -- zsh > init.zsh' \
+  atpull'%atclone' \
+  nocompile'' \
+    @zdharma-continuum/null
+
 ## Set personal aliases
 ### For a full list of active aliases, run `alias`.
 source ~/aliases.zsh
