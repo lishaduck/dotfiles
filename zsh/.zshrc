@@ -17,7 +17,7 @@ zinit lucid for zdharma-continuum/z-a-meta-plugins \
 
 # Use one-dark theme for eza and completions.
 zinit wait lucid reset id-as'ls-colors' for \
-  atclone'echo "LS_COLORS=\"$(vivid generate one-dark)\"; export LS_COLORS" >! clrs.zsh' \
+  atclone'echo "export LS_COLORS=\"$(vivid generate one-dark)\"" >! clrs.zsh' \
   atpull'%atclone' pick'clrs.zsh' nocompile'''!' \
   atload'zstyle ":completion:*:default" list-colors "${(s.:.)LS_COLORS}"' \
   pick'clrs.zsh' \
@@ -180,7 +180,7 @@ zinit wait lucid for \
 
 ## Hook direnv into zsh
 zinit lucid id-as'direnv/loader' for \
-  atclone'echo "source <(direnv hook zsh)" > init.zsh' \
+  atclone'direnv hook zsh > init.zsh' \
   atpull'%atclone' \
   nocompile'' \
     @zdharma-continuum/null
@@ -205,10 +205,10 @@ zinit lucid id-as'ghcopilot/loader' for \
 source ~/aliases.zsh
 source ~/functions.zsh
 
-if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
+if [[ $TERM_PROGRAM != "WarpTerminal" ]] && [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]]; then
 ##### WHAT YOU WANT TO DISABLE FOR WARP - BELOW
     # Remind me of my aliases
-    export YSU_IGNORED_ALIASES=("zi" "zplg" "zpl" "zini")
+    export YSU_IGNORED_ALIASES=("zi" "zplg" "zpl" "zini") # Ignore zplug and zi aliases
     zinit wait lucid for \
         "@MichaelAquilina/zsh-you-should-use"
 
@@ -219,15 +219,16 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 
     # Use starship prompt
     zinit lucid id-as'starship/loader' for \
-      atclone'echo "source <(starship init zsh --print-full-init)" > init.zsh' \
+      atclone'starship init zsh --print-full-init > init.zsh' \
       atpull'%atclone' \
       nocompile'' \
         @zdharma-continuum/null
 
     # Use please as terminal "new tab page"
     zinit lucid id-as'please/loader' for \
-      atclone'echo "please" > init.zsh && please --show-completion zsh > _please' \
+      atclone'please --show-completion zsh > _please' \
       atpull'%atclone' \
+      atload'please' \
       nocompile'' \
         @zdharma-continuum/null
 
