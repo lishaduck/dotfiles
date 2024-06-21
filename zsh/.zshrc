@@ -143,15 +143,6 @@ zinit lucid for \
   OMZP::xcode \
   # OMZP::macos # requires copying in spotify and music files manually
 
-### Nvm Config
-export NVM_COMPLETION=true
-#export NVM_LAZY_LOAD=true
-export NVM_AUTO_USE=true
-zinit wait lucid for \
-    @MichaelAquilina/zsh-autoswitch-virtualenv \
-  atclone'nvm install --lts' atpull'%atclone' \
-    @lukechilds/zsh-nvm
-
 ## Install zsweep
 zinit wait lucid for \
   sbin'bin/zsweep' @psprint/zsh-sweep
@@ -234,6 +225,15 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]] && [[ $TERMINAL_EMULATOR != "JetBrains-
 
 ##### WHAT YOU WANT TO DISABLE FOR WARP - ABOVE
 fi
+
+### Nvm Config
+export NVM_COMPLETION=true
+#export NVM_LAZY_LOAD=true
+export NVM_AUTO_USE=true
+zinit lucid for \
+    @MichaelAquilina/zsh-autoswitch-virtualenv \
+  atclone'nvm install --lts' atpull'%atclone' \
+    @lukechilds/zsh-nvm
 
 # GPG Verification
 zinit wait lucid id-as'gpg' for \
