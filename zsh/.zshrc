@@ -38,22 +38,24 @@ export BUN_INSTALL="$HOME/.bun"
 # Deno
 export DENO_FUTURE=1
 
+# Android
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+
 # Update path
 path=(
   $HOMEBREW_PREFIX/opt/ruby/bin # ruby
   $path
   "." # current directory
-  "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" # vscode
-  $CARGO_HOME/bin # cargo
+  "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" # VS Code
+  $CARGO_HOME/bin # Cargo
   $HOME/.pub-cache/bin # Dart
-  $HOME/Library/Android/sdk/cmake/3.22.1/bin # CMake
-  $HOME/Library/Android/sdk/sdk/cmdline-tools/latest/bin # Android
-  $HOME/Library/Android/sdk/platform-tools # More Android
-  $HOME/.deno/bin # deno
-  $BUN_INSTALL/bin # bun
-  $HOMEBREW_PREFIX/opt/python@3.12/libexec/bin # python
-  $HOMEBREW_PREFIX/lib/python3.12/site-packages # python
-  )
+  $ANDROID_HOME/tools/bin # Android
+  $ANDROID_HOME/cmdline-tools/latest/bin # More Android
+  $ANDROID_HOME/platform-tools # Yet more Android
+  $HOME/.deno/bin # Deno
+  $BUN_INSTALL/bin # Bun
+  $HOMEBREW_PREFIX/opt/python@3.12/libexec/bin # Python
+)
 
 # History
 export HISTSIZE=32768
