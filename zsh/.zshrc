@@ -207,8 +207,8 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]] && [[ $TERMINAL_EMULATOR != "JetBrains-
 
     # Use zsh-users tools
     zinit lucid for \
-        "@hlissner/zsh-autopair" \
-        "@zsh-users+fast"
+        "@zsh-users+fast" \
+        "@hlissner/zsh-autopair"
 
     # Use starship prompt
     zinit lucid id-as'starship/loader' for \
