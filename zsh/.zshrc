@@ -153,6 +153,7 @@ zinit wait lucid from'gh-r' nocompile'' for \
   as'program' \
   extract'!-' \
   pick'roc' \
+  pick'roc_language_server' \
     @roc-lang/roc
 
 ## Install Lamdera
