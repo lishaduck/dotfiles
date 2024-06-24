@@ -43,7 +43,6 @@ export ANDROID_HOME="$HOME/Library/Android/sdk"
 
 # Update path
 path=(
-  $HOMEBREW_PREFIX/opt/ruby/bin # ruby
   $path
   "." # current directory
   "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" # VS Code
@@ -233,9 +232,19 @@ export NVM_COMPLETION=true
 #export NVM_LAZY_LOAD=true
 export NVM_AUTO_USE=true
 zinit lucid for \
-    @MichaelAquilina/zsh-autoswitch-virtualenv \
   atclone'nvm install --lts' atpull'%atclone' \
     @lukechilds/zsh-nvm
+
+### Python Virtualenvs
+zinit lucid for \
+    @MichaelAquilina/zsh-autoswitch-virtualenv
+
+# Rbenv
+zinit lucid id-as'rbenv' for \
+  atclone'rbenv init - zsh > init.zsh' \
+  atpull'%atclone' \
+  nocompile'' \
+    @zdharma-continuum/null
 
 # GPG Verification
 zinit wait lucid id-as'gpg' for \
