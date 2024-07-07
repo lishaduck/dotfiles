@@ -9,7 +9,7 @@ DOTBOT_BIN="bin/dotbot";
 declare BASEDIR_
 BASEDIR_="$(dirname "${BASH_SOURCE[0]}")"
 declare BASEDIR
-BASEDIR="$(cd "${BASEDIR}" && pwd)";
+BASEDIR="$(cd "${BASEDIR_}" && pwd)";
 
 cd "${BASEDIR}";
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive;
