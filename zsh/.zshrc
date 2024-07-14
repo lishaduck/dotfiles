@@ -30,7 +30,7 @@ zinit wait lucid reset id-as'ls-colors' for \
 ## [/Completion]
 
 # Oils
-OILS_HIJACK_SHEBANG=osh
+export OILS_HIJACK_SHEBANG="osh"
 
 # Deno
 export DENO_FUTURE=1
