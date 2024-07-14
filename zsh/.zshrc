@@ -32,9 +32,6 @@ zinit wait lucid reset id-as'ls-colors' for \
 # Oils
 OILS_HIJACK_SHEBANG=osh
 
-# Bun
-export BUN_INSTALL="$HOME/.bun"
-
 # Deno
 export DENO_FUTURE=1
 
@@ -52,7 +49,6 @@ path=(
   $ANDROID_HOME/cmdline-tools/latest/bin # More Android
   $ANDROID_HOME/platform-tools # Yet more Android
   $HOME/.deno/bin # Deno
-  $BUN_INSTALL/bin # Bun
   $HOMEBREW_PREFIX/opt/python@3.12/libexec/bin # Python
 )
 

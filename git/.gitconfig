@@ -55,10 +55,6 @@
 	guitool = vscode
 	submodule = log
 
-[diff "lockb"]
-	textconv = bun
-	binary = true
-
 [difftool "vscode"]
     cmd = code --wait --diff $LOCAL $REMOTE
 

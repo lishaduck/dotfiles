@@ -55,14 +55,12 @@
     - withgraphite/tap
     - homebrew/services
     - martido/graph
-    - oven-sh/bun
 
 - brew:
     - appwrite --HEAD
     - bash
     - bat
     - btop
-    - bun
     - chrome-cli
     - cmatrix
     - cocoapods
@@ -153,7 +151,9 @@
       description: Installing ipython with pipx
     - command: gh extension install github/gh-copilot
       description: Installing gh copilot for github cli
-    - command: bun install -g readability-cli
-      description: Installing readable with bun
+    - command: pnpm install -g readability-cli
+      description: Installing readable with PNPM
+    - command: pnpm install -g turbo
+      description: Installing Turborepo with PNPM
     - command: git lfs install
       description: Initializing git-lfs
