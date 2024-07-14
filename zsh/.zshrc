@@ -167,6 +167,15 @@ zinit wait lucid for \
   atpull"%atclone" \
     @g-plane/pnpm-shell-completion
 
+## Add PNPM scripts to path
+# pnpm
+export PNPM_HOME="/Users/dukese01/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
 ## Hook direnv into zsh
 zinit lucid id-as'direnv/loader' for \
   atclone'direnv hook zsh > init.zsh' \
