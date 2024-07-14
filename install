@@ -6,10 +6,8 @@ CONFIG="install.conf.yaml";
 DOTBOT_DIR="dotbot";
 
 DOTBOT_BIN="bin/dotbot";
-declare BASEDIR_
-BASEDIR_="$(dirname "${BASH_SOURCE[0]}")"
-declare BASEDIR
-BASEDIR="$(cd "${BASEDIR_}" && pwd)";
+DIRNAME="$(dirname "${BASH_SOURCE[0]}")"
+BASEDIR="$(cd "${DIRNAME}" && pwd)";
 
 cd "${BASEDIR}";
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive;
