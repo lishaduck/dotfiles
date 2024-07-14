@@ -43,13 +43,13 @@ path=(
   $path
   "." # current directory
   "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" # VS Code
-  $CARGO_HOME/bin # Cargo
-  $HOME/.pub-cache/bin # Dart
-  $ANDROID_HOME/tools/bin # Android
-  $ANDROID_HOME/cmdline-tools/latest/bin # More Android
-  $ANDROID_HOME/platform-tools # Yet more Android
-  $HOME/.deno/bin # Deno
-  $HOMEBREW_PREFIX/opt/python@3.12/libexec/bin # Python
+  "$CARGO_HOME/bin" # Cargo
+  "$HOME/.pub-cache/bin" # Dart
+  "$ANDROID_HOME/tools/bin" # Android
+  "$ANDROID_HOME/cmdline-tools/latest/bin" # More Android
+  "$ANDROID_HOME/platform-tools" # Yet more Android
+  "$HOME/.deno/bin" # Deno
+  "$HOMEBREW_PREFIX/opt/python@3.12/libexec/bin" # Python
 )
 
 # History
