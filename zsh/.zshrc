@@ -94,6 +94,7 @@ zstyle ":completion:*" rehash true
 ## Menu
 zstyle ":completion:*" menu yes select
 ## Colors
+# shellcheck disable=SC2296
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # Zinit's recommended "history optimization" techniques
@@ -200,7 +201,9 @@ zinit lucid id-as'ghcopilot/loader' for \
 
 ## Set personal aliases
 ### For a full list of active aliases, run `alias`.
+# shellcheck source=./aliases.zsh
 source ~/aliases.zsh
+# shellcheck source=./functions.zsh
 source ~/functions.zsh
 
 if [[ $TERM_PROGRAM != "WarpTerminal" ]] && [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]]; then
