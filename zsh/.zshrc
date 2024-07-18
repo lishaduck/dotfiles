@@ -1,8 +1,9 @@
+# shellcheck disable=SC2016
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Zinit
-source $HOMEBREW_PREFIX/opt/zinit/zinit.zsh
+source "$HOMEBREW_PREFIX/opt/zinit/zinit.zsh"
 # examples here -> https://github.com/zdharma-continuum/zinit/wiki/Recipes-for-popular-programs
 
 if type brew &>/dev/null; then
