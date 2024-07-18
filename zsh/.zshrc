@@ -252,7 +252,7 @@ zinit lucid for \
 
 # Rbenv
 zinit lucid id-as'rbenv' for \
-  atclone'rbenv init - zsh > init.zsh' \
+  atclone'rbenv init - --no-rehash zsh > init.zsh' \
   atpull'%atclone' \
   nocompile'' \
     @zdharma-continuum/null
