@@ -5,6 +5,15 @@ function mk() {
 }
 
 function check_for_dirty() {
-  local dir=${1:-~/Developer/}
-  find "$dir" -type d -name '.git' -execdir sh -c 'git -C {}/.. fetch > /dev/null 2>&1 && ([[ -n $(git status --porcelain) ]] || [[ -n $(git rev-list HEAD@{upstream}..HEAD) ]]) && pwd' "{}" \;
+  local dir=${1:-"$HOME/Developer"}
+  find "$dir" -maxdepth 2 -type d -name '.git' -execdir sh -c '
+    git fetch &> /dev/null &&
+    ( [[ -n $(git status --porcelain) ]] ||
+      [[ -n $(git rev-list HEAD@{upstream}..HEAD) ]] ) &&
+    pwd' \;
+}
+
+function check_for_gitless() {
+  local dir=${1:-"$HOME/Developer"}
+  find "$dir" -maxdepth 1 -type d ! -exec test -d '{}/.git' \; -print
 }
