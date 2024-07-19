@@ -204,9 +204,9 @@ zinit lucid id-as'ghcopilot/loader' for \
 ## Set personal aliases
 ### For a full list of active aliases, run `alias`.
 # shellcheck source=./aliases.zsh
-source ~/aliases.zsh
+source ~/.local/share/aliases.zsh
 # shellcheck source=./functions.zsh
-source ~/functions.zsh
+source ~/.local/share/functions.zsh
 
 if [[ $TERM_PROGRAM != "WarpTerminal" ]] && [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]]; then
 ##### WHAT YOU WANT TO DISABLE FOR WARP - BELOW

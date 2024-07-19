@@ -7,7 +7,7 @@
 	user = lishaduck
 
 [core]
-	excludesFile = ~/.gitignore_global
+	excludesFile = ~/.config/git/ignore_global
 	editor = code --wait
 	filemode = true
 	repositoryformatversion = 1
@@ -16,7 +16,7 @@
 	fsMonitor = false
 
 [include]
-	path = ~/.local.gitconfig
+	path = ~/.config/git/local.config
 
 [init]
 	defaultBranch = main

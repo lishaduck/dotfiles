@@ -18,25 +18,25 @@
     ~/.dotfiles:
       path: ""
     ~/.zshrc:
-      path: zsh/.zshrc
+      path: zsh/zshrc
       force: false
     ~/.zshenv:
-      path: zsh/.zshenv
+      path: zsh/zshenv
       force: false
-    ~/.gitconfig:
+    ~/.config/git/config:
       path: git/.gitconfig
-    ~/.local.gitconfig:
+    ~/.config/git/local.config:
       path: git/.local.gitconfig
-    ~/.gitattributes:
+    ~/.config/git/attributes:
       path: git/.gitattributes
-    ~/.gitignore_global:
+    ~/.config/git/ignore_global:
       path: git/.gitignore_global
-    ~/aliases.zsh:
+    ~/.local/share/aliases.zsh:
       path: zsh/aliases.zsh
-    ~/functions.zsh:
+    ~/.local/share/functions.zsh:
       path: zsh/functions.zsh
     ~/.inputrc:
-      path: zsh/.inputrc
+      path: zsh/inputrc
     ~/.config/starship.toml:
       path: zsh/starship.toml
     ~/.config/direnv/direnv.toml:
@@ -48,7 +48,7 @@
     ~/.config/zed/settings.json:
       path: zed/settings.json
     ~/.nbrc:
-      path: zsh/.nbrc
+      path: zsh/nbrc
 
 - tap:
     - appwrite/sdk-for-cli https://github.com/appwrite/sdk-for-cli
