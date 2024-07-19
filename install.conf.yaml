@@ -62,37 +62,45 @@
     - bat
     - btop
     - chrome-cli
+    # - cmake # Not needed by default.
     - cmatrix
     - cocoapods
     - coreutils
+    - curl
     - deno
     - direnv
     - dotnet
     - eza
     - fd
+    # - ffmpeg # Heavy dependency, not needed by default.
     - gh
     - git
     - git-absorb
     - git-lfs
     - gnupg
+    - gource # This is a cool visualizer for Git repos.
     - gradle
     - gradle-completion
     - graphite
     - graphviz
     - hexyl
     - hyperfine
+    # - imagemagick # For image processing.
     - jj
     - jq
     - kotlin
     - lcov
+    - nano # I prefer nano over vim, but macOS only comes with Pico (& Vim).
     - nb
     - oils-for-unix
+    # - openjdk@17 # For Godot Android exports.
     - pinentry-mac
     - pipx
     - pkg-config
     - python@3.12
     - python-tk@3.12
     - qemu
+    - rbenv
     - ripgrep
     - rustup-init
     - shellcheck
@@ -112,6 +120,7 @@
     - arc
     - blender
     # - docker
+    - dropshelf # I need to write my own one of these.
     - flutter
     - font-cascadia-code-nf
     - font-monaspace-nerd-font
@@ -128,6 +137,7 @@
     - raycast
     - spacedrive
     - unity-hub
+    - visual-studio-code
     - utm
     - warp
     - zed
