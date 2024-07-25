@@ -1,13 +1,13 @@
 [user]
 	name = Eli
 	email = 88557639+lishaduck@users.noreply.github.com
-	signingKey = 8B519052EC19B519D4A41EB052EC979CFC20CA70
+	signingKey = 1BC4FC9EF0CD60D85BE3EF3A80B1E7655F4DF911
 
 [github]
 	user = lishaduck
 
 [core]
-	excludesFile = ~/.config/git/ignore_global
+	excludesFile = ~/.gitignore_global
 	editor = code --wait
 	filemode = true
 	repositoryformatversion = 1
@@ -16,7 +16,7 @@
 	fsMonitor = false
 
 [include]
-	path = ~/.config/git/local.config
+	path = ~/.local.gitconfig
 
 [init]
 	defaultBranch = main
@@ -85,6 +85,7 @@
 
 [gpg]
 	format = openpgp
+	program = C:\\Program Files (x86)\\GnuPG\\bin\\gpg.exe
 
 [commit]
 	gpgSign = true
