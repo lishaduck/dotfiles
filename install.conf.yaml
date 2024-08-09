@@ -51,13 +51,12 @@
       path: zsh/nbrc
 
 - tap:
-    - appwrite/sdk-for-cli https://github.com/appwrite/sdk-for-cli
     - withgraphite/tap
     - homebrew/services
     - martido/graph
 
 - brew:
-    - appwrite --HEAD
+    - appwrite
     - bash
     - bat
     - btop
@@ -66,7 +65,6 @@
     - cmatrix
     - cocoapods
     - coreutils
-    - curl
     - deno
     - direnv
     - dotnet
@@ -85,12 +83,12 @@
     - graphviz
     - hexyl
     - hyperfine
-    # - imagemagick # For image processing.
     - jj
     - jq
     - kotlin
     - lcov
-    - nano # I prefer nano over vim, but macOS only comes with Pico (& Vim).
+    # - libvips # For image processing.
+    - nano # I prefer nano over Vim, but macOS only comes with Pico (& Vim).
     - nb
     - oils-for-unix
     # - openjdk@17 # For Godot Android exports.
@@ -102,12 +100,13 @@
     - qemu
     - rbenv
     - ripgrep
-    - rustup-init
+    - rustup
     - shellcheck
     - shfmt
     - starship
     - vivid
     - w3m
+    - wcurl
     - wiki
     - yt-dlp
     - z3

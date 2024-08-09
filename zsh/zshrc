@@ -45,6 +45,7 @@ path=(
   $path
   "." # current directory
   "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" # VS Code
+  "$HOMEBREW_PREFIX/opt/rustup/bin" # Rustup
   "$CARGO_HOME/bin" # Cargo
   "$HOME/.pub-cache/bin" # Dart
   "$ANDROID_HOME/tools/bin" # Android
