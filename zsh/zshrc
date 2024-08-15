@@ -221,7 +221,14 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]] && [[ $TERMINAL_EMULATOR != "JetBrains-
         "@zsh-users+fast" \
         "@hlissner/zsh-autopair"
 
-    # Use starship prompt
+    # Use Atuin
+    zinit lucid as"command" from"gh-r" for \
+      bpick"atuin-*.tar.gz" mv"atuin*/atuin -> atuin" \
+      atclone"./atuin init zsh > init.zsh; ./atuin gen-completions --shell zsh > _atuin" \
+      atpull"%atclone" src"init.zsh" \
+        atuinsh/atuin
+
+    # Use Starship prompt
     zinit lucid id-as'starship/loader' for \
       atclone'starship init zsh --print-full-init > init.zsh' \
       atpull'%atclone' \
