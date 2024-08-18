@@ -68,6 +68,7 @@
     - deno
     - direnv
     - dotnet
+    - dua-cli
     - eza
     - fd
     # - ffmpeg # Heavy dependency, not needed by default.
@@ -76,7 +77,7 @@
     - git-absorb
     - git-lfs
     - gnupg
-    - gource # This is a cool visualizer for Git repos.
+    # - gource # This is a cool visualizer for Git repos. Very heavy though, so not needed by default.
     - gradle
     - gradle-completion
     - graphite
