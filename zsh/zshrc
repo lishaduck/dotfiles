@@ -27,7 +27,9 @@ zinit wait lucid reset id-as'ls-colors' for \
 
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
-[[ -f $XDG_CONFIG_HOME/.dart-cli-completion/zsh-config.zsh ]] && . $XDG_CONFIG_HOME/.dart-cli-completion/zsh-config.zsh || true
+if [[ -f "$XDG_CONFIG_HOME/.dart-cli-completion/zsh-config.zsh" ]]
+then source "$XDG_CONFIG_HOME/.dart-cli-completion/zsh-config.zsh"
+fi
 ## [/Completion]
 
 # Oils
