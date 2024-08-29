@@ -51,9 +51,9 @@
       path: zsh/nbrc
 
 - tap:
-    - withgraphite/tap
     - homebrew/services
     - martido/graph
+    - withgraphite/tap
 
 - brew:
     - appwrite
@@ -70,6 +70,7 @@
     - dotnet
     - dua-cli
     - eza
+    - fastfetch
     - fd
     # - ffmpeg # Heavy dependency, not needed by default.
     - gh
@@ -117,6 +118,7 @@
     - zstd
 
 - cask:
+    - affine
     - arc
     - blender
     # - docker
@@ -133,7 +135,6 @@
     - jetbrains-toolbox
     - loungy
     - netnewswire
-    - notion
     - raycast
     - spacedrive
     - unity-hub
