@@ -11,11 +11,16 @@
   "buffer_font_size": 16,
   "assistant": {
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-20240620"
+      "provider": "copilot_chat",
+      "model": "gpt-4o"
     },
     "version": "2",
     "dock": "bottom"
   },
-  "buffer_font_family": "Cascadia Code NF"
+  "buffer_font_family": "Cascadia Code NF",
+  "languages": {
+    "Python": {
+      "language_servers": ["pyright", "ruff"]
+    }
+  }
 }
