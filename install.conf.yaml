@@ -73,6 +73,7 @@
     - fastfetch
     - fd
     # - ffmpeg # Heavy dependency, not needed by default.
+    # - fzf # TODO: Install + configure this.
     - gh
     - git
     - git-absorb
@@ -92,6 +93,7 @@
     # - libvips # For image processing.
     - nano # I prefer nano over Vim, but macOS only comes with Pico (& Vim).
     - nb
+    - numbat # Calculator
     - oils-for-unix
     # - openjdk@17 # For Godot Android exports.
     - pinentry-mac
