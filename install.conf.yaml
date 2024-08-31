@@ -97,7 +97,6 @@
     - oils-for-unix
     # - openjdk@17 # For Godot Android exports.
     - pinentry-mac
-    - pipx
     - pkg-config
     - python@3.12
     - python-tk@3.12
@@ -108,6 +107,7 @@
     - shellcheck
     - shfmt
     - starship
+    - uv
     - vivid
     - w3m
     - wcurl
@@ -146,22 +146,20 @@
     - zed
 
 - shell:
-    - command: pipx install please-cli --force
-      description: Installing please with pipx
-    - command: pipx install rich-cli --force
-      description: Installing rich with pipx
-    - command: pipx install textualize-see --force
-      description: Installing see with pipx
-    - command: pipx install poetry --force
-      description: Installing poetry with pipx
-    - command: pipx install "sphinx-autodoc2[cli]"
-      description: Installing sphinx-autodoc2 with pipx
-    - command: pipx install gdtoolkit
-      description: Installing godot toolkit with pipx
-    - command: pipx install virtualenv
-      description: Installing virtualenv with pipx
-    - command: pipx install ipython
-      description: Installing ipython with pipx
+    - command: uv tool install please-cli
+      description: Installing please with uv
+    - command: uv tool install rich-cli
+      description: Installing rich with uv
+    - command: uv tool install textualize-see
+      description: Installing see with uv
+    - command: uv tool install poetry
+      description: Installing poetry with uv
+    - command: uv tool install "sphinx-autodoc2[cli]"
+      description: Installing sphinx-autodoc2 with uv
+    - command: uv tool install gdtoolkit
+      description: Installing godot toolkit with uv
+    - command: uv tool install ipython
+      description: Installing ipython with uv
     - command: gh extension install github/gh-copilot
       description: Installing gh copilot for github cli
     - command: pnpm install -g readability-cli
