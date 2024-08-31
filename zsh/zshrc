@@ -189,10 +189,11 @@ zinit lucid id-as'direnv/loader' for \
   nocompile'' \
     @zdharma-continuum/null
 
-## Get completions for autodoc2, and poetry
+## Get completions for autodoc2, poetry, and turborepo
 zinit lucid id-as'completions/ext' as'completion' for \
   atclone'poetry completions zsh > _poetry \
-    && autodoc2 --show-completion > _autodoc2' \
+    && autodoc2 --show-completion > _autodoc2 \
+    && turbo completion zsh > _turbo' \
   atpull'%atclone' \
   nocompile'' \
     @zdharma-continuum/null
