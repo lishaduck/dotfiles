@@ -198,6 +198,9 @@ zinit lucid id-as'completions/ext' as'completion' for \
   nocompile'' \
     @zdharma-continuum/null
 
+### Enable the Turborpo TUI
+export TURBO_UI=1
+
 ## GH Copilot
 zinit lucid id-as'ghcopilot/loader' for \
   atclone'gh copilot alias -- zsh > init.zsh' \
