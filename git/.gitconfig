@@ -53,18 +53,14 @@
 	algorithm = histogram
 	colorMoved = default
 	guitool = vscode
+	guiDefault = true
 	submodule = log
-
-[difftool "vscode"]
-    cmd = code --wait --diff $LOCAL $REMOTE
 
 [merge]
 	conflictStyle = zdiff3
 	keepBackup = false
 	guitool = vscode
-
-[mergetool "vscode"]
-	cmd = code --wait $MERGED
+	guiDefault = true
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
