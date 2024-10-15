@@ -146,6 +146,8 @@
     - zed
 
 - shell:
+    - command: rm -r ~/.local/share/uv/tools/
+      description: Clearing uv cache
     - command: uv tool install please-cli
       description: Installing please with uv
     - command: uv tool install rich-cli
