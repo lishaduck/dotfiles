@@ -146,21 +146,19 @@
     - zed
 
 - shell:
-    - command: rm -r ~/.local/share/uv/tools/
-      description: Clearing uv cache
-    - command: uv tool install please-cli
+    - command: uv tool install --force please-cli
       description: Installing please with uv
-    - command: uv tool install rich-cli
+    - command: uv tool install --force rich-cli
       description: Installing rich with uv
-    - command: uv tool install textualize-see
+    - command: uv tool install --force textualize-see
       description: Installing see with uv
-    - command: uv tool install poetry
+    - command: uv tool install --force poetry
       description: Installing poetry with uv
-    - command: uv tool install "sphinx-autodoc2[cli]"
+    - command: uv tool install --force "sphinx-autodoc2[cli]"
       description: Installing sphinx-autodoc2 with uv
-    - command: uv tool install gdtoolkit
+    - command: uv tool install --force gdtoolkit
       description: Installing godot toolkit with uv
-    - command: uv tool install ipython
+    - command: uv tool install --force ipython
       description: Installing ipython with uv
     - command: gh extension install github/gh-copilot
       description: Installing gh copilot for github cli
