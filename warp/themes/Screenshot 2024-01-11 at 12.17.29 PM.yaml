@@ -3,7 +3,7 @@ background: "#000000"
 accent: "#5eb641"
 foreground: "#ffffff"
 background_image:
-  path: /Users/dukese01/.warp/themes/Screenshot 2024-01-11 at 12.17.29 PM.png
+  path: ~/.warp/themes/Screenshot 2024-01-11 at 12.17.29 PM.png
   opacity: 30
 details: darker
 terminal_colors:
