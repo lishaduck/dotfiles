@@ -135,7 +135,6 @@ zinit lucid for \
   OMZL::git.zsh \
   OMZP::git \
   OMZP::python \
-  OMZP::pylint \
   OMZP::swiftpm \
   OMZP::safe-paste \
   OMZP::man \
