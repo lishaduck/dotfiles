@@ -97,7 +97,7 @@
     - oils-for-unix
     # - openjdk@17 # For Godot Android exports.
     - pinentry-mac
-    - pkg-config
+    - pkgconf
     - python@3.12
     - python-tk@3.12
     - qemu
