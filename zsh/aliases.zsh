@@ -6,9 +6,6 @@ alias count='find . -type f | wc -l';
 # Recursively remove .DS_Store files
 alias cleanupds="find . -type f -name '\*.DS_Store' -ls -delete";
 
-# Alias to make safe force-pushing easier
-alias gforce='git push --force-with-lease';
-
 # Alias to launch chrome from terminal
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome';
 
