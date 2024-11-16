@@ -73,6 +73,10 @@
 	pushall = !git remote | xargs -L1 git push --all
 	graph = log --decorate --oneline --graph --shortstat
 
+	# I keep messing up my muscle memory, but I found this, which helps.
+	# <https://adamj.eu/tech/2022/10/27/git-how-to-alias-master-as-main/>.
+	master-as-main = !git symbolic-ref refs/heads/main refs/heads/master && git symbolic-ref refs/remotes/origin/main refs/remotes/origin/master && git switch main
+
 [color]
 	ui = true
 
