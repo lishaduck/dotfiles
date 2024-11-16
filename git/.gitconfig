@@ -28,6 +28,7 @@
 	default = upstream
 	followTags = true
 	autoSetUpRemote = true
+	useForceIfIncludes = true
 
 [fetch]
 	fsckObjects = true
