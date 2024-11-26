@@ -2,7 +2,7 @@
 export EDITOR="code"
 export VISUAL="code"
 export BROWSER="chrome"
-export PAGER="less"
+export PAGER="less -FRX"
 export SHELL="/bin/zsh"
 
 # XDG Base Directory Specification (https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
