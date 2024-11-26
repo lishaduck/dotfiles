@@ -29,7 +29,7 @@
       path: git/.local.gitconfig
     ~/.config/git/attributes:
       path: git/.gitattributes
-    ~/.config/git/ignore_global:
+    ~/.config/git/ignore:
       path: git/.gitignore_global
     ~/.config/jj/config.toml:
       path: jj/config.toml

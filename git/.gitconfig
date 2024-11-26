@@ -7,7 +7,7 @@
 	user = lishaduck
 
 [core]
-	excludesFile = ~/.config/git/ignore_global
+	excludesFile = ~/.config/git/ignore
 	editor = code --wait
 	filemode = true
 	repositoryformatversion = 1
