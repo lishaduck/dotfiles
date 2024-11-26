@@ -11,6 +11,7 @@ register_snapshot_trigger = true
 [ui]
 editor = "code --wait"
 pager = ":builtin"
+default-command = "log"
 
 [git]
 push-bookmark-prefix = "lishaduck/push-"
