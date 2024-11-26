@@ -1,0 +1,18 @@
+[user]
+email = "88557639+lishaduck@users.noreply.github.com"
+name = "Eli"
+
+[core]
+fsmonitor = "watchman"
+
+[ui]
+editor = "code --wait"
+pager = ":builtin"
+
+[git]
+push-bookmark-prefix = "lishaduck/push-"
+
+[signing]
+backend = "gpg"
+key = "8B519052EC19B519D4A41EB052EC979CFC20CA70"
+sign-all = true

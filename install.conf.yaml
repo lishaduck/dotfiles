@@ -31,6 +31,8 @@
       path: git/.gitattributes
     ~/.config/git/ignore_global:
       path: git/.gitignore_global
+    ~/.config/jj/config.toml:
+      path: jj/config.toml
     ~/.local/share/aliases.zsh:
       path: zsh/aliases.zsh
     ~/.local/share/functions.zsh:

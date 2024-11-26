@@ -57,6 +57,8 @@ path=(
   "$HOMEBREW_PREFIX/opt/python@3.12/libexec/bin" # Python
 )
 
+export JJ_CONFIG="$XDG_CONFIG_HOME/jj/config.toml"
+
 # History
 export HISTSIZE=32768
 export HISTFILESIZE="${HISTSIZE}"
