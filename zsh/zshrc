@@ -149,7 +149,6 @@ zinit lucid for \
   OMZP::web-search \
   OMZP::xcode \
   OMZP::ssh-agent \
-  # OMZP::macos # requires copying in spotify and music files manually
 
 ## Install zsweep
 zinit wait lucid for \
