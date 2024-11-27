@@ -130,6 +130,9 @@ setopt pushd_ignore_dups    # Don't push multiple copies directory onto the dire
 autoload -Uz zmv
 autoload -Uz zcalc
 
+# SSH
+zstyle :omz:plugins:ssh-agent ssh-add-args --apple-load-keychain
+
 # More Zinit managed installations.
 ## Install shell plugins
 ### plugins from OMZ
@@ -145,6 +148,7 @@ zinit lucid for \
   OMZP::virtualenv \
   OMZP::web-search \
   OMZP::xcode \
+  OMZP::ssh-agent \
   # OMZP::macos # requires copying in spotify and music files manually
 
 ## Install zsweep
