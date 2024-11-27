@@ -9,9 +9,10 @@ fsmonitor = "watchman"
 register_snapshot_trigger = true
 
 [ui]
+default-command = "log"
+diff-editor = ":builtin"
 editor = "code --wait"
 pager = ":builtin"
-default-command = "log"
 
 [git]
 push-bookmark-prefix = "lishaduck/push-"
