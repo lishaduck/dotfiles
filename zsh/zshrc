@@ -186,14 +186,14 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-## Hook direnv into zsh
+## Hook Direnv into zsh
 zinit lucid id-as'direnv/loader' for \
   atclone'direnv hook zsh > init.zsh' \
   atpull'%atclone' \
   nocompile'' \
     @zdharma-continuum/null
 
-## Get completions for autodoc2, poetry, and turborepo
+## Get completions for autodoc2, Poetry, and Turborepo
 zinit lucid id-as'completions/ext' as'completion' for \
   atclone'poetry completions zsh > _poetry \
     && autodoc2 --show-completion > _autodoc2 \
@@ -202,7 +202,7 @@ zinit lucid id-as'completions/ext' as'completion' for \
   nocompile'' \
     @zdharma-continuum/null
 
-### Enable the Turborpo TUI
+### Enable the Turborepo TUI
 export TURBO_UI=1
 
 ## GH Copilot
