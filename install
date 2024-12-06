@@ -2,6 +2,10 @@
 set -e
 shopt -s strict:all 2>/dev/null || true
 
+if [[ -z $OILS_VERSION && -x "$(command -v osh)" ]]; then
+    exec osh "$0" "$@"
+fi
+
 CONFIG="install.conf.yaml"
 DOTBOT_DIR="dotbot"
 
