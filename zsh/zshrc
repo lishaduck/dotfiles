@@ -27,8 +27,8 @@ zinit wait lucid reset id-as'ls-colors' for \
 
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
-if [[ -f "$XDG_CONFIG_HOME/.dart-cli-completion/zsh-config.zsh" ]]
-then source "$XDG_CONFIG_HOME/.dart-cli-completion/zsh-config.zsh"
+if [[ -f "$XDG_CONFIG_HOME/.dart-cli-completion/zsh-config.zsh" ]]; then
+  source "$XDG_CONFIG_HOME/.dart-cli-completion/zsh-config.zsh"
 fi
 ## [/Completion]
 
@@ -81,7 +81,7 @@ setopt dot_glob
 ## Fuzzy
 zstyle ":completion:*" completer _complete _match _approximate
 zstyle ":completion:*:match:*" original only
-zstyle -e ":completion:*:approximate:*" max-errors "reply=($((($#PREFIX+$#SUFFIX)/3>7?7:($#PREFIX+$#SUFFIX)/3))numeric)"
+zstyle -e ":completion:*:approximate:*" max-errors "reply=($((($#PREFIX + $#SUFFIX) / 3 > 7 ? 7 : ($#PREFIX + $#SUFFIX) / 3))numeric)"
 ## Pretty
 zstyle ":completion:*:matches" group "yes"
 zstyle ":completion:*:options" description "yes"
@@ -148,7 +148,7 @@ zinit lucid for \
   OMZP::virtualenv \
   OMZP::web-search \
   OMZP::xcode \
-  OMZP::ssh-agent \
+  OMZP::ssh-agent
 
 ## Install zsweep
 zinit wait lucid for \
@@ -220,38 +220,38 @@ source ~/.local/share/aliases.zsh
 source ~/.local/share/functions.zsh
 
 if [[ $TERM_PROGRAM != "WarpTerminal" ]] && [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]]; then
-##### WHAT YOU WANT TO DISABLE FOR WARP - BELOW
-    # Remind me of my aliases
-    export YSU_IGNORED_ALIASES=("zi" "zplg" "zpl" "zini") # Ignore zplug and zi aliases
-    zinit wait lucid for \
-        "@MichaelAquilina/zsh-you-should-use"
+  ##### WHAT YOU WANT TO DISABLE FOR WARP - BELOW
+  # Remind me of my aliases
+  export YSU_IGNORED_ALIASES=("zi" "zplg" "zpl" "zini") # Ignore zplug and zi aliases
+  zinit wait lucid for \
+      "@MichaelAquilina/zsh-you-should-use"
 
-    # Use zsh-users tools
-    zinit lucid for \
-        "@zsh-users+fast" \
-        "@hlissner/zsh-autopair"
+  # Use zsh-users tools
+  zinit lucid for \
+      "@zsh-users+fast" \
+      "@hlissner/zsh-autopair"
 
-    # Use Atuin
-    zinit lucid as"command" from"gh-r" for \
-      bpick"atuin-*.tar.gz" mv"atuin*/atuin -> atuin" \
-      atclone"./atuin init zsh > init.zsh; ./atuin gen-completions --shell zsh > _atuin" \
-      atpull"%atclone" src"init.zsh" \
-        atuinsh/atuin
+  # Use Atuin
+  zinit lucid as"command" from"gh-r" for \
+    bpick"atuin-*.tar.gz" mv"atuin*/atuin -> atuin" \
+    atclone"./atuin init zsh > init.zsh; ./atuin gen-completions --shell zsh > _atuin" \
+    atpull"%atclone" src"init.zsh" \
+      atuinsh/atuin
 
-    # Use Starship prompt
-    zinit lucid id-as'starship/loader' for \
-      atclone'starship init zsh --print-full-init > init.zsh' \
-      atpull'%atclone' \
-      nocompile'' \
-        @zdharma-continuum/null
+  # Use Starship prompt
+  zinit lucid id-as'starship/loader' for \
+    atclone'starship init zsh --print-full-init > init.zsh' \
+    atpull'%atclone' \
+    nocompile'' \
+      @zdharma-continuum/null
 
-    # Use please as terminal "new tab page"
-    zinit lucid id-as'please/loader' for \
-      atclone'please --show-completion zsh > _please' \
-      atpull'%atclone' \
-      atload'please' \
-      nocompile'' \
-        @zdharma-continuum/null
+  # Use please as terminal "new tab page"
+  zinit lucid id-as'please/loader' for \
+    atclone'please --show-completion zsh > _please' \
+    atpull'%atclone' \
+    atload'please' \
+    nocompile'' \
+      @zdharma-continuum/null
 
 ##### WHAT YOU WANT TO DISABLE FOR WARP - ABOVE
 fi
