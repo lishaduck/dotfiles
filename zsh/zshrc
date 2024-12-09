@@ -6,9 +6,11 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 source "$HOMEBREW_PREFIX/opt/zinit/zinit.zsh"
 # examples here -> https://github.com/zdharma-continuum/zinit/wiki/Recipes-for-popular-programs
 
-if type brew &>/dev/null; then
-  zinit add-fpath "$HOMEBREW_PREFIX/share/zsh/site-functions"
-fi
+# Zsh ships enhanced completions, while Brew installs the defaults.
+zinit add-fpath -f /usr/share/zsh/5.9/functions
+
+# An escape hatch for completing local projects.
+zinit add-fpath ~/.zfunc
 
 # Install Zinit annexes.
 zinit lucid for zdharma-continuum/z-a-meta-plugins \

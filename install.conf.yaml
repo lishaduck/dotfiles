@@ -149,6 +149,8 @@
     - zed
 
 - shell:
+    - command: brew completions link
+      description: Enable completions for Homebrew-installed commands
     - command: uv tool install --force please-cli
       description: Installing please with uv
     - command: uv tool install --force rich-cli
