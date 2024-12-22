@@ -48,7 +48,7 @@ export ANDROID_HOME="$HOME/Library/Android/sdk"
 path=(
   $path
   "." # current directory
-  "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" # VS Code
+  "$HOME/Library/Application Support/JetBrains/Toolbox/scripts" # IntelliJ
   "$HOMEBREW_PREFIX/opt/rustup/bin" # Rustup
   "$CARGO_HOME/bin" # Cargo
   "$HOME/.pub-cache/bin" # Dart
