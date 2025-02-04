@@ -56,7 +56,7 @@ path=(
   "$ANDROID_HOME/cmdline-tools/latest/bin" # More Android
   "$ANDROID_HOME/platform-tools" # Yet more Android
   "$HOME/.deno/bin" # Deno
-  "$HOMEBREW_PREFIX/opt/python@3.12/libexec/bin" # Python
+  "$HOMEBREW_PREFIX/opt/python@3.13/libexec/bin" # Python
 )
 
 export JJ_CONFIG="$XDG_CONFIG_HOME/jj/config.toml"
@@ -234,11 +234,11 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]] && [[ $TERMINAL_EMULATOR != "JetBrains-
       "@hlissner/zsh-autopair"
 
   # Use Atuin
-  zinit lucid as"command" from"gh-r" for \
-    bpick"atuin-*.tar.gz" mv"atuin*/atuin -> atuin" \
-    atclone"./atuin init zsh > init.zsh; ./atuin gen-completions --shell zsh > _atuin" \
+  zinit lucid id-as'atuinsh/atuin' for \
+    atclone"atuin init zsh > init.zsh; atuin gen-completions --shell zsh > _atuin" \
     atpull"%atclone" src"init.zsh" \
-      atuinsh/atuin
+    nocompile'' \
+      @zdharma-continuum/null
 
   # Use Starship prompt
   zinit lucid id-as'starship/loader' for \

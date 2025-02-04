@@ -54,11 +54,13 @@
 
 - tap:
     - homebrew/services
+    # - FelixKratz/formulae
     - martido/graph
     - withgraphite/tap
 
 - brew:
     - appwrite
+    - atuin
     - bash
     - bat
     - btop
@@ -75,11 +77,13 @@
     - fastfetch
     - fd
     # - ffmpeg # Heavy dependency, not needed by default.
+    - frizbee
     # - fzf # TODO: Install + configure this.
     - gh
     - git
     - git-absorb
     - git-lfs
+    - git-trim
     - gnupg
     # - gource # This is a cool visualizer for Git repos. Very heavy though, so not needed by default.
     - gradle
@@ -93,6 +97,7 @@
     - kotlin
     - lcov
     # - libvips # For image processing.
+    - lychee
     - nano # I prefer nano over Vim, but macOS only comes with Pico (& Vim).
     - nb
     - numbat # Calculator
@@ -100,25 +105,29 @@
     # - openjdk@17 # For Godot Android exports.
     - pinentry-mac
     - pkgconf
-    - python@3.12
-    - python-tk@3.12
+    - python@3.13
+    - python-tk@3.13
     - qemu
     - rbenv
     - ripgrep
     - rustup
     - shellcheck
     - shfmt
+    # - sketchybar
     - starship
+    - swiftdefaultappsprefpane
     - uv
     - vivid
     - w3m
     - watchman
     - wcurl
+    - wget
     - wiki
     - yt-dlp
     - z3
     - zig
     - zinit
+    - zizmor
     - zls
     - zstd
 
@@ -126,6 +135,8 @@
     - affine
     - arc
     - blender
+    - chatgpt
+    - crystalfetch
     # - docker
     - dropshelf # I need to write my own one of these.
     - flutter
@@ -133,6 +144,7 @@
     - font-monaspace-nerd-font
     - font-noto-sans
     - font-raleway
+    - ghostty
     - github
     - gitkraken
     - gitkraken-cli
@@ -141,16 +153,20 @@
     - loungy
     - netnewswire
     - raycast
+    # - rustdesk
     - spacedrive
     - unity-hub
-    - visual-studio-code
     - utm
+    - visual-studio-code
     - warp
     - zed
+    - zen-browser
 
 - shell:
     - command: brew completions link
       description: Enable completions for Homebrew-installed commands
+    - command: brew services start atuin
+      description: Start Atuin daemon
     - command: uv tool install --force please-cli
       description: Installing please with uv
     - command: uv tool install --force rich-cli
