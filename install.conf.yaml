@@ -45,6 +45,8 @@
       path: zsh/direnv.toml
     ~/.config/homebrew/brew.env:
       path: zsh/brew.env
+    ~/.config/atuin/config.toml:
+      path: zsh/atuin.toml
     ~/.warp/themes:
       path: warp/themes
     ~/.config/zed/settings.json:
