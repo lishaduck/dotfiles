@@ -118,6 +118,7 @@
     # - sketchybar
     - starship
     - swiftdefaultappsprefpane
+    - typos-cli
     - uv
     - vivid
     - w3m
@@ -157,10 +158,12 @@
     - raycast
     # - rustdesk
     - spacedrive
+    - typst # For MD → PDF
     - unity-hub
     - utm
     - visual-studio-code
     - warp
+    # - wireshark
     - zed
     - zen-browser
 
