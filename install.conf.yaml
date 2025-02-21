@@ -61,6 +61,7 @@
     - withgraphite/tap
 
 - brew:
+    - apparency
     - appwrite
     - atuin
     - bash
@@ -93,13 +94,16 @@
     - graphite
     - graphviz
     - hexyl
+    - httpie
     - hyperfine
     - jj
     - jq
     - kotlin
     - lcov
+    - less
     # - libvips # For image processing.
     - lychee
+    - most
     - nano # I prefer nano over Vim, but macOS only comes with Pico (& Vim).
     - nb
     - numbat # Calculator
@@ -119,6 +123,7 @@
     - starship
     - swiftdefaultappsprefpane
     - typos-cli
+    - typst # For MD → PDF
     - uv
     - vivid
     - w3m
@@ -152,13 +157,13 @@
     - gitkraken
     - gitkraken-cli
     - godot
+    - httpie
     - jetbrains-toolbox
     - loungy
     - netnewswire
     - raycast
     # - rustdesk
     - spacedrive
-    - typst # For MD → PDF
     - unity-hub
     - utm
     - visual-studio-code
