@@ -102,7 +102,9 @@
     - lcov
     - less
     # - libvips # For image processing.
+    - links
     - lychee
+    - micro
     - most
     - nano # I prefer nano over Vim, but macOS only comes with Pico (& Vim).
     - nb
@@ -131,6 +133,7 @@
     - wcurl
     - wget
     - wiki
+    - yazi
     - yt-dlp
     - z3
     - zig
