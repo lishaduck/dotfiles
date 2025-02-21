@@ -80,6 +80,7 @@
     - fastfetch
     - fd
     # - ffmpeg # Heavy dependency, not needed by default.
+    - fnm
     - frizbee
     # - fzf # TODO: Install + configure this.
     - gh
