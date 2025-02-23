@@ -13,7 +13,7 @@ zinit add-fpath -f /usr/share/zsh/5.9/functions
 zinit add-fpath ~/.zfunc
 
 # Install Zinit annexes.
-zinit lucid for zdharma-continuum/z-a-meta-plugins \
+zinit for zdharma-continuum/z-a-meta-plugins \
   "@annexes" \
   skip'zdharma-continuum/zsh-diff-so-fancy' "@zdharma" \
   skip'zdharma-continuum/zconvey' "@zdharma2"
@@ -141,7 +141,7 @@ zstyle :omz:plugins:ssh-agent ssh-add-args --apple-load-keychain
 # More Zinit managed installations.
 ## Install shell plugins
 ### plugins from OMZ
-zinit lucid for \
+zinit for \
   OMZL::git.zsh \
   OMZP::git \
   OMZP::python \
@@ -192,14 +192,14 @@ esac
 # pnpm end
 
 ## Hook Direnv into zsh
-zinit lucid id-as'direnv/loader' for \
+zinit id-as'direnv/loader' for \
   atclone'direnv hook zsh > init.zsh' \
   atpull'%atclone' \
   nocompile'' \
     @zdharma-continuum/null
 
 ## Get completions for autodoc2, Poetry, and Turborepo
-zinit lucid id-as'completions/ext' as'completion' for \
+zinit id-as'completions/ext' as'completion' for \
   atclone'poetry completions zsh > _poetry \
     && autodoc2 --show-completion > _autodoc2 \
     && turbo completion zsh > _turbo' \
@@ -211,7 +211,7 @@ zinit lucid id-as'completions/ext' as'completion' for \
 export TURBO_UI=1
 
 ## GH Copilot
-zinit lucid id-as'ghcopilot/loader' for \
+zinit id-as'ghcopilot/loader' for \
   atclone'gh copilot alias -- zsh > init.zsh' \
   atpull'%atclone' \
   nocompile'' \
@@ -249,26 +249,26 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]] && [[ $TERMINAL_EMULATOR != "JetBrains-
       "@MichaelAquilina/zsh-you-should-use"
 
   # Use zsh-users tools
-  zinit lucid for \
+  zinit for \
       "@zsh-users+fast" \
       "@hlissner/zsh-autopair"
 
   # Use Atuin
-  zinit lucid id-as'atuinsh/atuin' for \
+  zinit id-as'atuinsh/atuin' for \
     atclone"atuin init zsh > init.zsh; atuin gen-completions --shell zsh > _atuin" \
     atpull"%atclone" src"init.zsh" \
     nocompile'' \
       @zdharma-continuum/null
 
   # Use Starship prompt
-  zinit lucid id-as'starship/loader' for \
+  zinit id-as'starship/loader' for \
     atclone'starship init zsh --print-full-init > init.zsh' \
     atpull'%atclone' \
     nocompile'' \
       @zdharma-continuum/null
 
   # Use please as terminal "new tab page"
-  zinit lucid id-as'please/loader' for \
+  zinit id-as'please/loader' for \
     atclone'please --show-completion zsh > _please' \
     atpull'%atclone' \
     atload'please' \
@@ -279,18 +279,18 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]] && [[ $TERMINAL_EMULATOR != "JetBrains-
 fi
 
 ### Node
-zinit lucid id-as'fnm' for \
+zinit id-as'fnm' for \
   atclone'fnm env --use-on-cd --version-file-strategy=recursive --corepack-enabled > init.zsh && fnm install --corepack-enabled --lts && fnm default lts-latest' \
   atpull'%atclone' \
   nocompile'' \
     @zdharma-continuum/null
 
 ### Python Virtualenvs
-zinit lucid for \
+zinit for \
     @MichaelAquilina/zsh-autoswitch-virtualenv
 
 # Rbenv
-zinit lucid id-as'rbenv' for \
+zinit id-as'rbenv' for \
   atclone'rbenv init - --no-rehash zsh > init.zsh' \
   atpull'%atclone' \
   nocompile'' \
