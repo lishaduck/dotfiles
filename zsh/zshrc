@@ -19,12 +19,11 @@ zinit lucid for zdharma-continuum/z-a-meta-plugins \
   skip'zdharma-continuum/zconvey' "@zdharma2"
 
 # Use one-dark theme for eza and completions.
-zinit wait lucid reset id-as'ls-colors' for \
+zinit reset id-as'ls-colors' for \
   atclone'echo "export LS_COLORS=\"$(vivid generate one-dark)\"" >! clrs.zsh' \
-  atpull'%atclone' pick'clrs.zsh' nocompile'''!' \
-  atload'zstyle ":completion:*:default" list-colors "${(s.:.)LS_COLORS}"' \
+  atpull'%atclone' \
   pick'clrs.zsh' \
-  nocompile \
+  nocompile'' \
     @zdharma-continuum/null
 
 ## [Completion]
