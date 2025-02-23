@@ -82,7 +82,7 @@
     # - ffmpeg # Heavy dependency, not needed by default.
     - fnm
     - frizbee
-    # - fzf # TODO: Install + configure this.
+    - fzf
     - gh
     - git
     - git-absorb

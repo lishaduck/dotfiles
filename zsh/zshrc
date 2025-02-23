@@ -88,12 +88,11 @@ zstyle -e ":completion:*:approximate:*" max-errors "reply=($((($#PREFIX + $#SUFF
 zstyle ":completion:*:matches" group "yes"
 zstyle ":completion:*:options" description "yes"
 zstyle ":completion:*:options" auto-description "%d"
-zstyle ":completion:*:corrections" format " %F{green}-- %d (errors: %e) --%f"
-zstyle ":completion:*:descriptions" format " %F{yellow}-- %d --%f"
-zstyle ":completion:*:messages" format " %F{purple} -- %d --%f"
+zstyle ":completion:*:corrections" format "%d (errors: %e)"
+zstyle ":completion:*:descriptions" format "%d"
+zstyle ":completion:*:messages" format " %d"
 zstyle ":completion:*:warnings" format " %F{red}-- no matches found --%f"
 zstyle ":completion:*:default" list-prompt "%S%M matches%s"
-zstyle ":completion:*" format " %F{yellow}-- %d --%f"
 zstyle ":completion:*" group-name ""
 zstyle ":completion:*" verbose yes
 zstyle ":completion:*" matcher-list "m:{a-zA-Z}={A-Za-z}" "r:|[._-]=* r:|=*" "l:|=* r:|=*"
@@ -101,10 +100,16 @@ zstyle ":completion:*:functions" ignored-patterns "(_*|pre(cmd|exec))"
 zstyle ":completion:*" use-cache true
 zstyle ":completion:*" rehash true
 ## Menu
-zstyle ":completion:*" menu yes select
+zstyle ":completion:*" menu no
 ## Colors
-# shellcheck disable=SC2296
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+# shellcheck disable=SC2086,SC2296
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+zstyle ':fzf-tab:*' fzf-flags --style=full --height=90%
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:eza:*' fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:bat:*' fzf-preview 'bat --color=always --theme=base16 $realpath'
+zstyle ':fzf-tab:*' switch-group '<' '>'
 
 # Zinit's recommended "history optimization" techniques
 setopt append_history         # Allow multiple sessions to append to one Zsh command history.
@@ -214,6 +219,23 @@ zinit lucid id-as'ghcopilot/loader' for \
   nocompile'' \
     @zdharma-continuum/null
 
+## fzf
+export FZF_DEFAULT_OPTS="--style=full"
+zinit wait lucid id-as'fzf' for \
+  atclone'fzf --zsh > init.zsh' \
+  atpull'%atclone' \
+  nocompile'' \
+    @zdharma-continuum/null
+
+## forgit
+zinit wait lucid for wfxr/forgit
+
+## fzf-tab
+zinit wait lucid for \
+  atclone'build-fzf-tab-module' \
+  atpull'%atclone' \
+    Aloxaf/fzf-tab
+
 ## Set personal aliases
 ### For a full list of active aliases, run `alias`.
 # shellcheck source=./aliases.zsh
@@ -262,6 +284,7 @@ fi
 zinit lucid id-as'fnm' for \
   atclone'fnm env --use-on-cd --version-file-strategy=recursive --corepack-enabled > init.zsh && fnm install --corepack-enabled --lts && fnm default lts-latest' \
   atpull'%atclone' \
+  nocompile'' \
     @zdharma-continuum/null
 
 ### Python Virtualenvs
