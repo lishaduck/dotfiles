@@ -46,7 +46,6 @@ export ANDROID_HOME="$HOME/Library/Android/sdk"
 # Update path
 path=(
   $path
-  "." # current directory
   "$HOME/Library/Application Support/JetBrains/Toolbox/scripts" # IntelliJ
   "$HOMEBREW_PREFIX/opt/rustup/bin" # Rustup
   "$CARGO_HOME/bin" # Cargo
