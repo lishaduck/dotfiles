@@ -104,11 +104,22 @@ zstyle ":completion:*" menu no
 # shellcheck disable=SC2086,SC2296
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
+## fzf
 zstyle ':fzf-tab:*' fzf-flags --style=full --height=90%
+zstyle ':fzf-tab:*' switch-group '<' '>'
+
+## Disable sorted completions for presorted completions
+zstyle ':completion:complete:git-commit:option--fixup-1' sort false
+
+## Preview
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 zstyle ':fzf-tab:complete:eza:*' fzf-preview 'eza -1 --color=always $realpath'
 zstyle ':fzf-tab:complete:bat:*' fzf-preview 'bat --color=always --theme=base16 $realpath'
-zstyle ':fzf-tab:*' switch-group '<' '>'
+zstyle ':fzf-tab:complete:nano:*' fzf-preview 'bat --color=always --theme=base16 $realpath'
+zstyle ':fzf-tab:complete:micro:*' fzf-preview 'bat --color=always --theme=base16 $realpath'
+zstyle ':fzf-tab:complete:git:*' fzf-preview 'git log --color=always --pretty=oneline --abbrev-commit --graph $realpath 2>/dev/null || eza -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:kill:*' fzf-preview 'ps -f -p $word'
+zstyle ':fzf-tab:complete:(diff|rm|cp|mv):*' fzf-preview 'eza -1 --color=always $realpath'
 
 # Zinit's recommended tweaks
 setopt auto_cd              # Use cd by typing directory name if it's not a command.
