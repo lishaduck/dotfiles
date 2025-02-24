@@ -57,6 +57,12 @@ path=(
   "$HOMEBREW_PREFIX/opt/python@3.13/libexec/bin" # Python
 )
 
+cdpath=(
+  "$HOME/Developer"
+  "$HOME"
+)
+
+# JJ
 export JJ_CONFIG="$XDG_CONFIG_HOME/jj/config.toml"
 
 # History

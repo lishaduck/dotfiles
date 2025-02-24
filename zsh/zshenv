@@ -3,7 +3,6 @@ export EDITOR="code"
 export VISUAL="code"
 export BROWSER="chrome"
 export PAGER="less -FRX"
-export SHELL="/bin/zsh"
 
 # XDG Base Directory Specification (https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
 export XDG_HOME_DIR="$HOME"
@@ -22,5 +21,6 @@ export LESS_TERMCAP_md=$'\e[1;36m'
 # Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
-# Configure rust
+# Configure Rust
+# shellcheck source=../../.cargo/env
 source "$HOME/.cargo/env"
