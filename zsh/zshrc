@@ -49,6 +49,7 @@ path=(
   "$HOME/Library/Application Support/JetBrains/Toolbox/scripts" # IntelliJ
   "$HOMEBREW_PREFIX/opt/rustup/bin" # Rustup
   "$CARGO_HOME/bin" # Cargo
+  $HOMEBREW_CELLAR/zigup/*/bin # Zig
   "$HOME/.pub-cache/bin" # Dart
   "$ANDROID_HOME/tools/bin" # Android
   "$ANDROID_HOME/cmdline-tools/latest/bin" # More Android
