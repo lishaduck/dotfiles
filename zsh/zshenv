@@ -11,15 +11,10 @@ export XDG_CACHE_HOME="$XDG_HOME_DIR/.cache"
 export XDG_CONFIG_HOME="$XDG_HOME_DIR/.config"
 export XDG_DATA_HOME="$ZPFX/share"
 export XDG_STATE_HOME="$ZPFX/state"
+export XDG_BIN_HOME="$ZPFX/bin"
 
 # Prefer US English and use UTF-8
 export LANG="en_US.UTF-8"
-
-# Highlight section titles in man pages
-export LESS_TERMCAP_md=$'\e[1;36m'
-
-# Tell grep to highlight matches
-export GREP_OPTIONS='--color=auto'
 
 # Configure Rust
 # shellcheck source=../../.cargo/env

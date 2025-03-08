@@ -1,0 +1,130 @@
+#
+# This is not sourced during shell startup, and it's only used to configure the
+# zimfw plugin manager.
+#
+
+#
+# Modules
+#
+
+# Applies brew shellenv to Zsh.
+eval "$(/opt/homebrew/bin/brew shellenv)" # Allow using Homebrew in zmodule invocations
+zmodule homebrew
+# Applies Mise environment to Zsh.
+zmodule joke/zim-mise
+# Sets sane Zsh built-in environment options.
+zmodule environment
+# Provides handy git aliases and functions.
+zmodule git
+# Applies correct bindkeys for input events.
+zmodule input
+# Utility aliases and functions. Adds colour to ls, grep and less.
+zmodule utility
+# Source per-directory environment variables.
+zmodule direnv
+
+# Set color scheme
+zmodule ls-colors \
+  --use mkdir \
+  --on-pull 'echo "export LS_COLORS=\"$(vivid generate one-dark)\"; export ZLS_COLORS=$LS_COLORS" > init.zsh'
+
+# Set aliases
+zmodule ohmyzsh/ohmyzsh --root plugins/python
+zmodule ohmyzsh/ohmyzsh --root plugins/safe-paste
+zmodule ohmyzsh/ohmyzsh --root plugins/man
+zmodule ohmyzsh/ohmyzsh --root plugins/aliases
+zmodule ohmyzsh/ohmyzsh --root plugins/alias-finder
+zmodule ohmyzsh/ohmyzsh --root plugins/virtualenv
+zmodule ohmyzsh/ohmyzsh --root plugins/web-search
+zmodule ohmyzsh/ohmyzsh --root plugins/xcode
+zmodule ohmyzsh/ohmyzsh --root plugins/gpg-agent
+zmodule ohmyzsh/ohmyzsh --root plugins/ssh-agent
+
+# ZSH Linter
+zmodule psprint/zsh-sweep
+
+# Extra completions
+zmodule completions \
+  --use mkdir \
+  --on-pull 'poetry completions zsh > _poetry \
+    && autodoc2 --show-completion > _autodoc2 \
+    && turbo completion zsh > _turbo \
+    && please --show-completion zsh > _please' \
+  --fpath .
+
+# GitHub Copilot
+zmodule ghcopilot \
+  --use mkdir \
+  --on-pull 'gh copilot alias -- zsh > init.zsh'
+
+# fzf
+zmodule fzf \
+  --use mkdir \
+  --on-pull 'fzf --zsh > init.zsh'
+
+# forgit
+zmodule wfxr/forgit
+
+# Remind me of my aliases
+zmodule MichaelAquilina/zsh-you-should-use \
+  --if '[[ $TERM_PROGRAM != "WarpTerminal" ]] && [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]]'
+
+# Manage Node.js installations
+zmodule fnm \
+  --use mkdir \
+  --on-pull 'fnm env --use-on-cd --version-file-strategy=recursive --corepack-enabled > init.zsh && fnm install --corepack-enabled --lts && fnm default lts-latest'
+
+# Python Virtualenvs
+zmodule MichaelAquilina/zsh-autoswitch-virtualenv \
+  --source 'autoswitch_virtualenv.plugin.zsh'
+
+# Ruby
+zmodule rbenv \
+  --use mkdir \
+  --on-pull 'rbenv init - --no-rehash zsh > init.zsh'
+
+#
+# Prompt
+#
+
+# Use Starship prompt.
+# I use Starship instead of p10k because I also use Windows.
+zmodule joke/zim-starship \
+  --if '[[ $TERM_PROGRAM != "WarpTerminal" ]]'
+
+#
+# Completion
+#
+
+# Additional completion definitions for Zsh.
+zmodule zsh-users/zsh-completions --fpath src
+# Enables and configures smart and extensive tab completion.
+# completion must be sourced after all modules that add completion definitions.
+zmodule completion
+
+# Tab completion
+zmodule Aloxaf/fzf-tab \
+  --on-pull 'source ./fzf-tab.plugin.zsh && build-fzf-tab-module'
+
+# Git aliases and functions
+zmodule ohmyzsh/ohmyzsh --root plugins/git
+
+# More PNPM completions
+zmodule g-plane/pnpm-shell-completion --on-pull './zplug.zsh'
+
+#
+# Modules that must be initialized last
+#
+
+# Fancy history
+zmodule atuin \
+  --use mkdir \
+  --on-pull 'atuin init zsh > init.zsh && atuin gen-completions --shell zsh > _atuin'
+
+# Fish-like syntax highlighting for Zsh.
+# zsh-users/zsh-syntax-highlighting must be sourced after completion
+zmodule zsh-users/zsh-syntax-highlighting
+# Autopair brackets and quotes.
+zmodule hlissner/zsh-autopair
+# Fish-like autosuggestions for Zsh.
+zmodule zsh-users/zsh-autosuggestions

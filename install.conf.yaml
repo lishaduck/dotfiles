@@ -23,6 +23,9 @@
     ~/.zshenv:
       path: zsh/zshenv
       force: false
+    ~/.zimrc:
+      path: zsh/zimrc
+      force: false
     ~/.config/git/config:
       path: git/.gitconfig
     ~/.config/git/local.config:
@@ -106,6 +109,7 @@
     - links
     - lychee
     - micro
+    - mise
     - most
     - nano # I prefer nano over Vim, but macOS only comes with Pico (& Vim).
     - nb
@@ -137,14 +141,12 @@
     - yazi
     - yt-dlp
     - z3
-    - zigup
-    - zinit
+    - zimfw
     - zizmor
     - zstd
 
 - cask:
     - affine
-    - arc
     - blender
     - chatgpt
     - crystalfetch
@@ -194,6 +196,12 @@
       description: Installing godot toolkit with uv
     - command: uv tool install --force ipython
       description: Installing ipython with uv
+    - command: dart pub global activate melos
+      description: Installing Melos with pub
+    - command: dart pub global activate very_good_cli
+      description: Installing Very Good CLI with pub
+    - command: dart pub global activate mason_cli
+      description: Installing Mason CLI with pub
     - command: gh extension install github/gh-copilot
       description: Installing gh copilot for github cli
     - command: pnpm install -g readability-cli

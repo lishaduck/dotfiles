@@ -1,31 +1,179 @@
-# shellcheck disable=SC1091,SC2016
-# Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# User configuration sourced by interactive shells
+#
 
-# Zinit
-source "$HOMEBREW_PREFIX/opt/zinit/zinit.zsh"
-# examples here -> https://github.com/zdharma-continuum/zinit/wiki/Recipes-for-popular-programs
+# -----------------
+# Update path, pt.1
+# -----------------
 
-# Zsh ships enhanced completions, while Brew installs the defaults.
-zinit add-fpath -f /usr/share/zsh/5.9/functions
+path+=($XDG_BIN_HOME)
 
-# An escape hatch for completing local projects.
-zinit add-fpath ~/.zfunc
+# pnpm
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PATH:$PNPM_HOME" ;;
+esac
+# pnpm end
 
-# Install Zinit annexes.
-zinit for zdharma-continuum/z-a-meta-plugins \
-  "@annexes" \
-  skip'zdharma-continuum/zsh-diff-so-fancy' "@zdharma" \
-  skip'zdharma-continuum/zconvey' "@zdharma2"
+# -----------------
+# Zsh configuration
+# -----------------
 
-# Use one-dark theme for eza and completions.
-zinit reset id-as'ls-colors' for \
-  atclone'echo "export LS_COLORS=\"$(vivid generate one-dark)\"" >! clrs.zsh' \
-  atpull'%atclone' \
-  pick'clrs.zsh' \
-  nocompile'' \
-    @zdharma-continuum/null
+#
+# Input/output
+#
 
+# Set editor default keymap to emacs
+bindkey -e
+
+# Prompt for spelling correction of commands.
+setopt CORRECT
+
+# Customize spelling correction prompt.
+export SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [Nyae]? '
+
+# Remove path separator from WORDCHARS.
+WORDCHARS=${WORDCHARS//[\/]/}
+
+# -----------------
+# Zim configuration
+# -----------------
+
+# Use degit instead of git as the default tool to install and update modules.
+zstyle ':zim:zmodule' use 'degit'
+zstyle ':zim' disable-version-check yes
+
+# --------------------
+# Module configuration
+# --------------------
+
+#
+# git
+#
+
+# Set a custom prefix for the generated aliases. The default prefix is 'G'.
+#zstyle ':zim:git' aliases-prefix 'g'
+
+#
+# input
+#
+
+# Append `../` to your input for each `.` you type after an initial `..`
+zstyle ':zim:input' double-dot-expand yes
+
+#
+# gpg-agent
+#
+
+# GPG Verification
+export GPG_TTY=$TTY
+
+#
+# ssh-agent
+#
+
+# SSH
+zstyle :omz:plugins:ssh-agent ssh-add-args --apple-load-keychain
+
+#
+# fzf
+#
+
+zstyle ':fzf-tab:*' fzf-flags --style=full --height=-2
+zstyle ':fzf-tab:*' switch-group '<' '>'
+
+#
+# completions
+#
+
+# Fuzzy
+zstyle ':completion::complete:*' cache-path $XDG_CACHE_HOME/zsh/zcompcache
+zstyle ":completion:*" completer _complete _match _approximate
+zstyle ":completion:*:match:*" original only
+zstyle -e ":completion:*:approximate:*" max-errors "reply=($((($#PREFIX + $#SUFFIX) / 3 > 7 ? 7 : ($#PREFIX + $#SUFFIX) / 3))numeric)"
+
+# Pretty
+zstyle ":completion:*" matcher-list "m:{a-zA-Z}={A-Za-z}" "r:|[._-]=* r:|=*" "l:|=* r:|=*"
+zstyle ":completion:*" list-separator ""
+zstyle ":completion:*" rehash true
+zstyle ":completion:*" format '%d'
+zstyle ":completion:*:options" auto-description "%d"
+
+# Disable sorted completions for presorted completions
+zstyle ":completion:*:git-checkout:*" sort false
+zstyle ':completion:complete:git-commit:option--fixup-1' sort false
+zstyle ':completion:*:eza' sort false
+zstyle ':completion:files' sort false
+
+#
+# fzf-tab
+#
+
+# Previews
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:eza:*' fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:bat:*' fzf-preview 'bat --color=always --theme=base16 $realpath'
+zstyle ':fzf-tab:complete:nano:*' fzf-preview 'bat --color=always --theme=base16 $realpath'
+zstyle ':fzf-tab:complete:micro:*' fzf-preview 'bat --color=always --theme=base16 $realpath'
+zstyle ':fzf-tab:complete:git:*' fzf-preview 'git log --color=always --pretty=oneline --abbrev-commit --graph $realpath 2>/dev/null || eza -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:kill:*' fzf-preview 'ps -f -p $word'
+zstyle ':fzf-tab:complete:(diff|rm|cp|mv):*' fzf-preview 'eza -1 --color=always $realpath'
+
+#
+# zsh-autosuggestions
+#
+
+# Disable automatic widget re-binding on each precmd. This can be set when
+# zsh-users/zsh-autosuggestions is the last module in your ~/.zimrc.
+export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
+# Set suggestion strategy to history with fallback to completions.
+export ZSH_AUTOSUGGEST_STRATEGY=(completion) # Atuin automatically adds itself.
+
+#
+# zsh-syntax-highlighting
+#
+
+# Set what highlighters will be used.
+export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets cursor)
+
+# ------------------
+# Initialize modules
+# ------------------
+
+autoload -z compinit
+
+ZIM_HOME=~/.zim
+# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
+if [[ ! $ZIM_HOME/init.zsh -nt ~/.zimrc ]]; then
+  source ${HOMEBREW_PREFIX:-'/opt/homebrew'}/opt/zimfw/share/zimfw.zsh init
+fi
+# Initialize modules.
+source $ZIM_HOME/init.zsh
+
+# ------------------------------
+# Post-init module configuration
+# ------------------------------
+
+fpath=(
+  /usr/share/zsh/5.9/functions # Put zsh-specific completions before Homebrew.
+  $fpath
+  ~/.zfunc # An escape hatch for completing local projects.
+)
+
+# # Override some settings from the completion module in favor of fzf-tab.
+zstyle ":completion:*" menu no
+zstyle ":completion:*:corrections" format "%d (errors: %e)"
+zstyle ":completion:*:messages" format "%d"
+zstyle ":completion:*:warnings" format "%F{red}-- no matches found --%f"
+zstyle ":completion:*:default" list-prompt "%S%M matches%s"
+zstyle -d ":completion:*" format
+zstyle -d ":completion:*:descriptions" format
+zstyle ":completion:*:descriptions" format "%d"
+# shellcheck disable=SC2086,SC2296
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # On macOS, don't use `:default` for this.
+
+# Completions for Dart CLIs via `pkg:pub/cli_completion`:
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
 if [[ -f "$XDG_CONFIG_HOME/.dart-cli-completion/zsh-config.zsh" ]]; then
@@ -43,34 +191,23 @@ export DENO_FUTURE=1
 # Android
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 
-# Update path
-path=(
-  $path
+# Update path, pt.2
+path+=(
   "$HOME/Library/Application Support/JetBrains/Toolbox/scripts" # IntelliJ
-  "$HOMEBREW_PREFIX/opt/rustup/bin" # Rustup
-  "$CARGO_HOME/bin" # Cargo
-  $HOMEBREW_CELLAR/zigup/*/bin # Zig
-  "$HOME/.pub-cache/bin" # Dart
-  "$ANDROID_HOME/tools/bin" # Android
-  "$ANDROID_HOME/cmdline-tools/latest/bin" # More Android
-  "$ANDROID_HOME/platform-tools" # Yet more Android
-  "$HOME/.deno/bin" # Deno
-  "$HOMEBREW_PREFIX/opt/python@3.13/libexec/bin" # Python
+  $HOMEBREW_PREFIX/opt/rustup/bin                               # Rustup
+  $CARGO_HOME/bin                                               # Cargo
+  $HOME/.pub-cache/bin                                          # Dart
+  $ANDROID_HOME/tools/bin                                       # Android
+  $ANDROID_HOME/cmdline-tools/latest/bin                        # More Android
+  $ANDROID_HOME/platform-tools                                  # Yet more Android
+  $HOME/.deno/bin                                               # Deno
+  $HOMEBREW_PREFIX/opt/python@3.13/libexec/bin                  # Python
 )
 
-cdpath=(
-  "$HOME/Developer"
-  "$HOME"
-)
+cdpath+=("$HOME/Developer")
 
 # JJ
 export JJ_CONFIG="$XDG_CONFIG_HOME/jj/config.toml"
-
-# History
-export HISTSIZE=32768
-export HISTFILESIZE="${HISTSIZE}"
-export SAVEHIST=4096
-export HISTCONTROL=ignoredups:erasedups
 
 # Enable colors
 export CLICOLOR=1
@@ -80,54 +217,12 @@ zmodload -a colors
 zmodload -a autocomplete
 zmodload -a complist
 
-# Globbing
+# Globbing and completions
 setopt extended_glob
 setopt dot_glob
+setopt complete_in_word
 
-# Completions
-## Fuzzy
-zstyle ":completion:*" completer _complete _match _approximate
-zstyle ":completion:*:match:*" original only
-zstyle -e ":completion:*:approximate:*" max-errors "reply=($((($#PREFIX + $#SUFFIX) / 3 > 7 ? 7 : ($#PREFIX + $#SUFFIX) / 3))numeric)"
-## Pretty
-zstyle ":completion:*:matches" group "yes"
-zstyle ":completion:*:options" description "yes"
-zstyle ":completion:*:options" auto-description "%d"
-zstyle ":completion:*:corrections" format "%d (errors: %e)"
-zstyle ":completion:*:descriptions" format "%d"
-zstyle ":completion:*:messages" format " %d"
-zstyle ":completion:*:warnings" format " %F{red}-- no matches found --%f"
-zstyle ":completion:*:default" list-prompt "%S%M matches%s"
-zstyle ":completion:*" group-name ""
-zstyle ":completion:*" verbose yes
-zstyle ":completion:*" matcher-list "m:{a-zA-Z}={A-Za-z}" "r:|[._-]=* r:|=*" "l:|=* r:|=*"
-zstyle ":completion:*:functions" ignored-patterns "(_*|pre(cmd|exec))"
-zstyle ":completion:*" use-cache true
-zstyle ":completion:*" rehash true
-## Menu
-zstyle ":completion:*" menu no
-## Colors
-# shellcheck disable=SC2086,SC2296
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-
-## fzf
-zstyle ':fzf-tab:*' fzf-flags --style=full --height=90%
-zstyle ':fzf-tab:*' switch-group '<' '>'
-
-## Disable sorted completions for presorted completions
-zstyle ':completion:complete:git-commit:option--fixup-1' sort false
-
-## Preview
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
-zstyle ':fzf-tab:complete:eza:*' fzf-preview 'eza -1 --color=always $realpath'
-zstyle ':fzf-tab:complete:bat:*' fzf-preview 'bat --color=always --theme=base16 $realpath'
-zstyle ':fzf-tab:complete:nano:*' fzf-preview 'bat --color=always --theme=base16 $realpath'
-zstyle ':fzf-tab:complete:micro:*' fzf-preview 'bat --color=always --theme=base16 $realpath'
-zstyle ':fzf-tab:complete:git:*' fzf-preview 'git log --color=always --pretty=oneline --abbrev-commit --graph $realpath 2>/dev/null || eza -1 --color=always $realpath'
-zstyle ':fzf-tab:complete:kill:*' fzf-preview 'ps -f -p $word'
-zstyle ':fzf-tab:complete:(diff|rm|cp|mv):*' fzf-preview 'eza -1 --color=always $realpath'
-
-# Zinit's recommended tweaks
+# Nice tweaks
 setopt auto_cd              # Use cd by typing directory name if it's not a command.
 setopt auto_list            # Automatically list choices on ambiguous completion.
 setopt auto_pushd           # Make cd push the old directory onto the directory stack.
@@ -137,108 +232,35 @@ setopt multios              # Implicit tees or cats when multiple redirections a
 setopt prompt_subst         # Substitution of parameters inside the prompt each time the prompt is drawn.
 setopt pushd_ignore_dups    # Don't push multiple copies directory onto the directory stack.
 
-# Functions
-autoload -Uz zmv
-autoload -Uz zcalc
+# Shhhh…
+setopt no_beep
 
-# SSH
-zstyle :omz:plugins:ssh-agent ssh-add-args --apple-load-keychain
+# Functions
+autoload -Uz zmv zcalc
 
 # More Zinit managed installations.
-## Install shell plugins
-### plugins from OMZ
-zinit for \
-  OMZL::git.zsh \
-  OMZP::git \
-  OMZP::python \
-  OMZP::swiftpm \
-  OMZP::safe-paste \
-  OMZP::man \
-  OMZP::aliases \
-  OMZP::alias-finder \
-  OMZP::virtualenv \
-  OMZP::web-search \
-  OMZP::xcode \
-  OMZP::ssh-agent
 
-## Install zsweep
-zinit wait lucid for \
-  sbin'bin/zsweep' @psprint/zsh-sweep
+# ## Install Roc
+# zinit wait lucid from'gh-r' nocompile'' for \
+#   as'program' \
+#   extract'!-' \
+#   pick'roc' \
+#   pick'roc_language_server' \
+#   @roc-lang/roc
 
-## Install Roc
-zinit wait lucid from'gh-r' nocompile'' for \
-  as'program' \
-  extract'!-' \
-  pick'roc' \
-  pick'roc_language_server' \
-    @roc-lang/roc
-
-## Install Lamdera
-zinit wait lucid for id-as'lamdera' \
-  as'program' \
-  dl'https://static.lamdera.com/bin/lamdera-1.2.1-macos-arm64 -> lamdera' \
-  pick'lamdera' \
-  nocompile'' \
-    @zdharma-continuum/null
-
-## Install Pnpm shell completions
-zinit wait lucid for \
-  atload"zpcdreplay" \
-  atclone"./zplug.zsh" \
-  atpull"%atclone" \
-    @g-plane/pnpm-shell-completion
-
-## Add PNPM scripts to path
-# pnpm
-export PNPM_HOME="$XDG_DATA_HOME/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-## Hook Direnv into zsh
-zinit id-as'direnv/loader' for \
-  atclone'direnv hook zsh > init.zsh' \
-  atpull'%atclone' \
-  nocompile'' \
-    @zdharma-continuum/null
-
-## Get completions for autodoc2, Poetry, and Turborepo
-zinit id-as'completions/ext' as'completion' for \
-  atclone'poetry completions zsh > _poetry \
-    && autodoc2 --show-completion > _autodoc2 \
-    && turbo completion zsh > _turbo' \
-  atpull'%atclone' \
-  nocompile'' \
-    @zdharma-continuum/null
+# ## Install Lamdera
+# zinit wait lucid for id-as'lamdera' \
+#   as'program' \
+#   dl'https://static.lamdera.com/bin/lamdera-1.3.2-macos-arm64 -> lamdera' \
+#   pick'lamdera' \
+#   nocompile'' \
+#   @zdharma-continuum/null
 
 ### Enable the Turborepo TUI
 export TURBO_UI=1
 
-## GH Copilot
-zinit id-as'ghcopilot/loader' for \
-  atclone'gh copilot alias -- zsh > init.zsh' \
-  atpull'%atclone' \
-  nocompile'' \
-    @zdharma-continuum/null
-
 ## fzf
 export FZF_DEFAULT_OPTS="--style=full"
-zinit wait lucid id-as'fzf' for \
-  atclone'fzf --zsh > init.zsh' \
-  atpull'%atclone' \
-  nocompile'' \
-    @zdharma-continuum/null
-
-## forgit
-zinit wait lucid for wfxr/forgit
-
-## fzf-tab
-zinit wait lucid for \
-  atclone'build-fzf-tab-module' \
-  atpull'%atclone' \
-    Aloxaf/fzf-tab
 
 ## Set personal aliases
 ### For a full list of active aliases, run `alias`.
@@ -248,62 +270,7 @@ source ~/.local/share/aliases.zsh
 source ~/.local/share/functions.zsh
 
 if [[ $TERM_PROGRAM != "WarpTerminal" ]] && [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]]; then
-  ##### WHAT YOU WANT TO DISABLE FOR WARP - BELOW
-  # Remind me of my aliases
-  export YSU_IGNORED_ALIASES=("zi" "zplg" "zpl" "zini") # Ignore zplug and zi aliases
-  zinit wait lucid for \
-      "@MichaelAquilina/zsh-you-should-use"
-
-  # Use zsh-users tools
-  zinit for \
-      "@zsh-users+fast" \
-      "@hlissner/zsh-autopair"
-
-  # Use Atuin
-  zinit id-as'atuinsh/atuin' for \
-    atclone"atuin init zsh > init.zsh; atuin gen-completions --shell zsh > _atuin" \
-    atpull"%atclone" src"init.zsh" \
-    nocompile'' \
-      @zdharma-continuum/null
-
-  # Use Starship prompt
-  zinit id-as'starship/loader' for \
-    atclone'starship init zsh --print-full-init > init.zsh' \
-    atpull'%atclone' \
-    nocompile'' \
-      @zdharma-continuum/null
-
-  # Use please as terminal "new tab page"
-  zinit id-as'please/loader' for \
-    atclone'please --show-completion zsh > _please' \
-    atpull'%atclone' \
-    atload'please' \
-    nocompile'' \
-      @zdharma-continuum/null
-
-##### WHAT YOU WANT TO DISABLE FOR WARP - ABOVE
+  please
 fi
 
-### Node
-zinit id-as'fnm' for \
-  atclone'fnm env --use-on-cd --version-file-strategy=recursive --corepack-enabled > init.zsh && fnm install --corepack-enabled --lts && fnm default lts-latest' \
-  atpull'%atclone' \
-  nocompile'' \
-    @zdharma-continuum/null
-
-### Python Virtualenvs
-zinit for \
-    @MichaelAquilina/zsh-autoswitch-virtualenv
-
-# Rbenv
-zinit id-as'rbenv' for \
-  atclone'rbenv init - --no-rehash zsh > init.zsh' \
-  atpull'%atclone' \
-  nocompile'' \
-    @zdharma-continuum/null
-
-# GPG Verification
-zinit wait lucid id-as'gpg' for \
-  atinit'export GPG_TTY=$(tty)' \
-  nocompile \
-    @zdharma-continuum/null
+export YSU_IGNORED_ALIASES=("zi" "zplg" "zpl" "zini") # Ignore zplug and zi aliases

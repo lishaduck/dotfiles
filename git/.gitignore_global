@@ -125,3 +125,6 @@ iOSInjectionProject/
 
 # Vestigial merge files
 *.orig
+
+# Toolchain management
+mise.local.toml
