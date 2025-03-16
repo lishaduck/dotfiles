@@ -58,7 +58,6 @@
       path: zsh/nbrc
 
 - tap:
-    - homebrew/services
     # - FelixKratz/formulae
     - martido/graph
     - withgraphite/tap
