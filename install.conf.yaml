@@ -58,6 +58,7 @@
       path: zsh/nbrc
 
 - tap:
+    - lishaduck/formulae
     # - FelixKratz/formulae
     - martido/graph
     - withgraphite/tap
@@ -82,6 +83,7 @@
     - fastfetch
     - fd
     # - ffmpeg # Heavy dependency, not needed by default.
+    - flow-control
     - fnm
     - frizbee
     - fzf
@@ -96,6 +98,7 @@
     - gradle-completion
     - graphite
     - graphviz
+    - help2man
     - hexyl
     - httpie
     - hyperfine
@@ -128,6 +131,7 @@
     # - sketchybar
     - starship
     - swiftdefaultappsprefpane
+    - texinfo
     - typos-cli
     - typst # For MD → PDF
     - uv
