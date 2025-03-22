@@ -78,11 +78,6 @@ zmodule fnm \
 zmodule MichaelAquilina/zsh-autoswitch-virtualenv \
   --source 'autoswitch_virtualenv.plugin.zsh'
 
-# Ruby
-zmodule rbenv \
-  --use mkdir \
-  --on-pull 'rbenv init - --no-rehash zsh > init.zsh'
-
 #
 # Prompt
 #
