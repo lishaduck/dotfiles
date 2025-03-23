@@ -209,6 +209,9 @@ cdpath+=("$HOME/Developer")
 # JJ
 export JJ_CONFIG="$XDG_CONFIG_HOME/jj/config.toml"
 
+# Mise
+export MISE_NODE_COREPACK=1
+
 # Enable colors
 export CLICOLOR=1
 

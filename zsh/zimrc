@@ -69,11 +69,6 @@ zmodule wfxr/forgit
 zmodule MichaelAquilina/zsh-you-should-use \
   --if '[[ $TERM_PROGRAM != "WarpTerminal" ]] && [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]]'
 
-# Manage Node.js installations
-zmodule fnm \
-  --use mkdir \
-  --on-pull 'fnm env --use-on-cd --version-file-strategy=recursive --corepack-enabled > init.zsh && fnm install --corepack-enabled --lts && fnm default lts-latest'
-
 # Python Virtualenvs
 zmodule MichaelAquilina/zsh-autoswitch-virtualenv \
   --source 'autoswitch_virtualenv.plugin.zsh'

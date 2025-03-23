@@ -84,7 +84,6 @@
     - fd
     # - ffmpeg # Heavy dependency, not needed by default.
     - flow-control
-    - fnm
     - frizbee
     - fzf
     - gh
