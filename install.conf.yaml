@@ -86,6 +86,7 @@
     - flow-control
     - frizbee
     - fzf
+    - gdtoolkit
     - gh
     - git
     - git-absorb
@@ -122,6 +123,7 @@
     - python@3.13
     - python-tk@3.13
     - qemu
+    - rich-cli
     - ripgrep
     - rustup
     - shellcheck
@@ -185,16 +187,12 @@
       description: Start Atuin daemon
     - command: uv tool install --force please-cli
       description: Installing please with uv
-    - command: uv tool install --force rich-cli
-      description: Installing rich with uv
     - command: uv tool install --force textualize-see
       description: Installing see with uv
     - command: uv tool install --force poetry
       description: Installing poetry with uv
     - command: uv tool install --force "sphinx-autodoc2[cli]"
       description: Installing sphinx-autodoc2 with uv
-    - command: uv tool install --force gdtoolkit
-      description: Installing godot toolkit with uv
     - command: uv tool install --force ipython
       description: Installing ipython with uv
     - command: dart pub global activate melos
