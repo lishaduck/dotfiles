@@ -11,7 +11,6 @@ register_snapshot_trigger = true
 [ui]
 conflict-marker-style = "git"
 default-command = "log"
-diff-editor = "vscode"
 editor = "code --wait"
 merge-editor = "vscode"
 pager = ":builtin"
