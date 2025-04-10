@@ -6,7 +6,7 @@ name = "Eli"
 fsmonitor = "watchman"
 
 [core.watchman]
-register_snapshot_trigger = true
+register-snapshot-trigger = true
 
 [ui]
 conflict-marker-style = "git"
@@ -20,5 +20,4 @@ push-bookmark-prefix = "lishaduck/push-"
 
 [signing]
 backend = "gpg"
-key = "8B519052EC19B519D4A41EB052EC979CFC20CA70" # TODO: Remove, will be inferred in 0.28.0
 signing.behavior = "own"
