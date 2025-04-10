@@ -71,6 +71,7 @@
     - bat
     - btop
     - chrome-cli
+    - clang-format
     # - cmake # Not needed by default.
     - cmatrix
     - cocoapods
@@ -132,6 +133,7 @@
     - starship
     - swiftdefaultappsprefpane
     - texinfo
+    - tree
     - typos-cli
     - typst # For MD → PDF
     - uv
