@@ -192,7 +192,9 @@ export DENO_FUTURE=1
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 
 # Update path, pt.2
-path+=(
+path=(
+  $HOMEBREW_PREFIX/opt/curl/bin                                 # Curl
+  $path
   "$HOME/Library/Application Support/JetBrains/Toolbox/scripts" # IntelliJ
   $HOMEBREW_PREFIX/opt/rustup/bin                               # Rustup
   $CARGO_HOME/bin                                               # Cargo
