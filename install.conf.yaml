@@ -71,7 +71,6 @@
     - bat
     - btop
     - chrome-cli
-    - clang-format
     # - cmake # Not needed by default.
     - cmatrix
     - cocoapods
@@ -104,6 +103,7 @@
     - httpie
     - hyperfine
     - jj
+    # - john # SentinelOne doesn't like this lol.
     - jq
     - kotlin
     - lcov
@@ -118,6 +118,7 @@
     - nb
     - numbat # Calculator
     - oils-for-unix
+    - openjdk
     # - openjdk@17 # For Godot Android exports.
     - pinentry-mac
     - pkgconf
@@ -152,10 +153,11 @@
 
 - cask:
     - affine
+    # - arc # I test Arc for Zen people on occasion.
     - blender
     - chatgpt
     - crystalfetch
-    # - docker
+    # - docker # Needs admin, so I can't brew it.
     - dropshelf # I need to write my own one of these.
     - flutter
     - font-cascadia-code-nf
@@ -167,19 +169,20 @@
     - gitkraken
     - gitkraken-cli
     - godot
-    - httpie
+    # - httpie # I mostly just use curl.
     - jetbrains-toolbox
-    - loungy
+    # - loungy # I mostly use Raycast.
     - netnewswire
     - raycast
     # - rustdesk
     - spacedrive
-    - unity-hub
+    - tidal # I ❤️ Music!
+    # - unity-hub # Heavy dependency, not needed by default.
     - utm
     - visual-studio-code
-    - warp
-    # - wireshark
-    - zed
+    # - warp # I mostly use Ghostty.
+    # - wireshark # Needs admin, so I can't brew it.
+    # - zed # I mostly use VS Code.
     - zen-browser
 
 - shell:
