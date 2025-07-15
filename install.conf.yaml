@@ -212,8 +212,6 @@
       description: Installing readable with PNPM
     - command: pnpm install -g turbo
       description: Installing Turborepo with PNPM
-    - command: deno install -Agf --name molt jsr:@molt/cli
-      description: Installing Molt with Deno
     - command: deno install -Agf --name=biome npm:@biomejs/biome
       description: Installing Biome with Deno
     - command: deno install -Agf jsr:@deno/deployctl
