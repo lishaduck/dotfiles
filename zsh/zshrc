@@ -146,7 +146,14 @@ autoload -z compinit
 ZIM_HOME=~/.zim
 # Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
 if [[ ! $ZIM_HOME/init.zsh -nt ~/.zimrc ]]; then
-  source ${HOMEBREW_PREFIX:-'/opt/homebrew'}/opt/zimfw/share/zimfw.zsh init
+  local HOMEBREW_ZIM="${HOMEBREW_PREFIX:-'/opt/homebrew'}/opt/zimfw/share/zimfw.zsh"
+  local LOCAL_ZIM="${HOME}/.zim/zimfw.zsh"
+
+  if [[ -f $HOMEBREW_ZIM ]]; then
+    source $HOMEBREW_ZIM init
+  elif [[ -f $LOCAL_ZIM ]]; then
+    source $LOCAL_ZIM init
+  fi
 fi
 # Initialize modules.
 source $ZIM_HOME/init.zsh
