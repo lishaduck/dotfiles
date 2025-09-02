@@ -221,6 +221,9 @@ export JJ_CONFIG="$XDG_CONFIG_HOME/jj/config.toml"
 # Mise
 export MISE_NODE_COREPACK=1
 
+# Node Compile Cache
+export NODE_COMPILE_CACHE="$XDG_CACHE_HOME/nodejs-compile-cache"
+
 # Enable colors
 export CLICOLOR=1
 
