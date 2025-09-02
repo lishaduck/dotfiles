@@ -82,6 +82,15 @@ zmodule MichaelAquilina/zsh-autoswitch-virtualenv \
 zmodule joke/zim-starship \
   --if '[[ $TERM_PROGRAM != "WarpTerminal" ]]'
 
+# Set the transient prompt.
+zmodule starship-transience \
+  --use mkdir \
+  --on-pull 'echo "export TRANSIENT_PROMPT_TRANSIENT_PROMPT=\"%B%(?.%F{green}❯.%F{red}❯)%f%b \"" > init.zsh'
+
+# Hack together transience.
+zmodule olets/zsh-transient-prompt \
+  --source 'transient-prompt.zsh-theme'
+
 #
 # Completion
 #
