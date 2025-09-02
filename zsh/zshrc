@@ -285,4 +285,8 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]] && [[ $TERMINAL_EMULATOR != "JetBrains-
   please
 fi
 
+# Work around starship/starship#560
+precmd() { precmd() { echo "" } }
+alias clear="precmd() { precmd() { echo } } && clear"
+
 export YSU_IGNORED_ALIASES=("zi" "zplg" "zpl" "zini") # Ignore zplug and zi aliases
