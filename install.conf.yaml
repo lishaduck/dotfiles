@@ -1,3 +1,6 @@
+- plugins:
+    - dotbot-brew/
+
 - defaults:
     link:
       relink: true
@@ -11,7 +14,6 @@
     "~":
       recursive: false
     "~/.config":
-    "~/.etc":
     "~/.local":
 
 - link:
@@ -54,6 +56,8 @@
       path: warp/themes
     ~/.config/zed/settings.json:
       path: zed/settings.json
+    ~/Library/Application Support/com.mitchellh.ghostty/config:
+      path: ghostty/config
     ~/.nbrc:
       path: zsh/nbrc
 
@@ -61,12 +65,12 @@
     - lishaduck/formulae
     # - FelixKratz/formulae
     - martido/graph
-    - withgraphite/tap
+    - TheBoredTeam/boring-notch
 
 - brew:
-    - apparency
     - appwrite
     - atuin
+    - autoconf
     - bash
     - bat
     - btop
@@ -96,14 +100,13 @@
     # - gource # This is a cool visualizer for Git repos. Very heavy though, so not needed by default.
     - gradle
     - gradle-completion
-    - graphite
     - graphviz
     - help2man
     - hexyl
     - httpie
     - hyperfine
     - jj
-    # - john # SentinelOne doesn't like this lol.
+    - john
     - jq
     - kotlin
     - lcov
@@ -134,6 +137,7 @@
     - starship
     - swiftdefaultappsprefpane
     - texinfo
+    - tlrc
     - tree
     - typos-cli
     - typst # For MD → PDF
@@ -153,29 +157,33 @@
 
 - cask:
     - affine
+    - apparency
     # - arc # I test Arc for Zen people on occasion.
+    - beeper # For testing Matrix apps.
     - blender
+    - boring-notch@rc
     - chatgpt
     - crystalfetch
     # - docker # Needs admin, so I can't brew it.
-    - dropshelf # I need to write my own one of these.
     - flutter
     - font-cascadia-code-nf
     - font-monaspace-nerd-font
     - font-noto-sans
     - font-raleway
-    - ghostty
+    # - gauntlet # I mostly use Raycast.
+    - ghostty@tip
     - github
     - gitkraken
     - gitkraken-cli
     - godot
+    - gramps
     # - httpie # I mostly just use curl.
     - jetbrains-toolbox
+    # - jordanbaird-ice
     # - loungy # I mostly use Raycast.
     - netnewswire
     - raycast
     # - rustdesk
-    - spacedrive
     - tidal # I ❤️ Music!
     # - unity-hub # Heavy dependency, not needed by default.
     - utm
@@ -183,23 +191,21 @@
     # - warp # I mostly use Ghostty.
     # - wireshark # Needs admin, so I can't brew it.
     # - zed # I mostly use VS Code.
-    - zen-browser
+    - zen@twilight
 
 - shell:
     - command: brew completions link
       description: Enable completions for Homebrew-installed commands
     - command: brew services start atuin
       description: Start Atuin daemon
-    - command: uv tool install --force please-cli
-      description: Installing please with uv
     - command: uv tool install --force textualize-see
       description: Installing see with uv
     - command: uv tool install --force poetry
-      description: Installing poetry with uv
+      description: Installing Poetry with uv
     - command: uv tool install --force "sphinx-autodoc2[cli]"
       description: Installing sphinx-autodoc2 with uv
     - command: uv tool install --force ipython
-      description: Installing ipython with uv
+      description: Installing IPython with uv
     - command: dart pub global activate melos
       description: Installing Melos with pub
     - command: dart pub global activate very_good_cli
@@ -207,14 +213,16 @@
     - command: dart pub global activate mason_cli
       description: Installing Mason CLI with pub
     - command: gh extension install github/gh-copilot
-      description: Installing gh copilot for github cli
+      description: Installing GH Copilot for GitHub CLI
+    - command: corepack enable
+      description: Enable corepack
     - command: pnpm install -g readability-cli
       description: Installing readable with pnpm
     - command: pnpm install -g turbo
       description: Installing Turborepo with pnpm
-    - command: deno install -Agf --name=biome npm:@biomejs/biome
-      description: Installing Biome with Deno
-    - command: deno install -Agf jsr:@deno/deployctl
+    - command: pnpm install -g @biomejs/biome
+      description: Installing Biome with pnpm
+    - command: deno install -gArf jsr:@deno/deployctl
       description: Installing deployctl with Deno
     - command: git lfs install
       description: Initializing git-lfs

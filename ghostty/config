@@ -1,0 +1,14 @@
+font-family = Cascadia Code NF
+theme = Dark Modern
+
+window-padding-x = 8
+window-padding-y = 6
+window-padding-balance = true
+
+macos-titlebar-style = tabs
+window-save-state = never
+
+background-blur-radius = 20
+background-opacity = 0.95
+
+shell-integration-features = true

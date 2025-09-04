@@ -15,6 +15,8 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+HOMEBREW_DOWNLOAD_CONCURRENCY=auto
+
 # -----------------
 # Zsh configuration
 # -----------------
@@ -81,6 +83,7 @@ zstyle :omz:plugins:ssh-agent ssh-add-args --apple-load-keychain
 
 zstyle ':fzf-tab:*' fzf-flags --style=full --height=-2
 zstyle ':fzf-tab:*' switch-group '<' '>'
+zstyle ':fzf-tab:*' prefix ''
 
 #
 # completions
@@ -110,14 +113,22 @@ zstyle ':completion:files' sort false
 #
 
 # Previews
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
-zstyle ':fzf-tab:complete:eza:*' fzf-preview 'eza -1 --color=always $realpath'
-zstyle ':fzf-tab:complete:bat:*' fzf-preview 'bat --color=always --theme=base16 $realpath'
-zstyle ':fzf-tab:complete:nano:*' fzf-preview 'bat --color=always --theme=base16 $realpath'
-zstyle ':fzf-tab:complete:micro:*' fzf-preview 'bat --color=always --theme=base16 $realpath'
-zstyle ':fzf-tab:complete:git:*' fzf-preview 'git log --color=always --pretty=oneline --abbrev-commit --graph $realpath 2>/dev/null || eza -1 --color=always $realpath'
-zstyle ':fzf-tab:complete:kill:*' fzf-preview 'ps -f -p $word'
-zstyle ':fzf-tab:complete:(diff|rm|cp|mv):*' fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:(cd|eza|diff|rm|cp|mv):*' \
+  fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:(cat|bat|nano|micro):*' \
+  fzf-preview 'bat --color=always --theme=base16 $realpath'
+zstyle ':fzf-tab:complete:git:*' \
+  fzf-preview 'git log --color=always --pretty=oneline --abbrev-commit --graph $realpath 2>/dev/null || eza -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' \
+	fzf-preview 'echo ${(P)word}'
+zstyle ':fzf-tab:complete:kill:*' \
+  fzf-preview 'ps -f -p $word'
+zstyle ':fzf-tab:complete:brew-(install|uninstall|search|info):*-argument-rest' \
+  fzf-preview 'brew info $word'
+zstyle ':fzf-tab:complete:tldr:argument-1' \
+  fzf-preview 'tldr --color always $word'
+ zstyle ':fzf-tab:complete:-command-:*' \
+  fzf-preview '(out=$(tldr --color always "$word") 2>/dev/null && echo $out) || (out=$(MANWIDTH=$FZF_PREVIEW_COLUMNS man "$word") 2>/dev/null && echo $out) || (out=$(which "$word") && echo $out) || echo "${(P)word}"'
 
 #
 # zsh-autosuggestions
@@ -283,10 +294,6 @@ export FZF_DEFAULT_OPTS="--style=full"
 source ~/.local/share/aliases.zsh
 # shellcheck source=./functions.zsh
 source ~/.local/share/functions.zsh
-
-if [[ $TERM_PROGRAM != "WarpTerminal" ]] && [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]]; then
-  please
-fi
 
 # Work around starship/starship#560
 precmd() { precmd() { echo "" } }

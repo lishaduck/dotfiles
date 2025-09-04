@@ -38,7 +38,7 @@ zmodule ohmyzsh/ohmyzsh --root plugins/virtualenv
 zmodule ohmyzsh/ohmyzsh --root plugins/web-search
 zmodule ohmyzsh/ohmyzsh --root plugins/xcode
 zmodule ohmyzsh/ohmyzsh --root plugins/gpg-agent
-zmodule ohmyzsh/ohmyzsh --root plugins/ssh-agent
+# zmodule ohmyzsh/ohmyzsh --root plugins/ssh-agent
 
 # ZSH Linter
 zmodule psprint/zsh-sweep
@@ -48,8 +48,7 @@ zmodule completions \
   --use mkdir \
   --on-pull 'poetry completions zsh > _poetry \
     && autodoc2 --show-completion > _autodoc2 \
-    && turbo completion zsh > _turbo \
-    && please --show-completion zsh > _please' \
+    && turbo completion zsh > _turbo' \
   --fpath .
 
 # GitHub Copilot
