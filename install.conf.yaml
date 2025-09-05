@@ -135,7 +135,6 @@
     - shfmt
     # - sketchybar
     - starship
-    - swiftdefaultappsprefpane
     - texinfo
     - tlrc
     - tree
@@ -167,7 +166,7 @@
     # - docker # Needs admin, so I can't brew it.
     - flutter
     - font-cascadia-code-nf
-    - font-monaspace-nerd-font
+    - font-monaspice-nerd-font
     - font-noto-sans
     - font-raleway
     # - gauntlet # I mostly use Raycast.
@@ -184,6 +183,7 @@
     - netnewswire
     - raycast
     # - rustdesk
+    - swiftdefaultappsprefpane
     - tidal # I ❤️ Music!
     # - unity-hub # Heavy dependency, not needed by default.
     - utm
