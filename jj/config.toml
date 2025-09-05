@@ -2,10 +2,10 @@
 email = "88557639+lishaduck@users.noreply.github.com"
 name = "Eli"
 
-[core]
-fsmonitor = "watchman"
+[fsmonitor]
+backend = "watchman"
 
-[core.watchman]
+[fsmonitor.watchman]
 register-snapshot-trigger = true
 
 [ui]
@@ -15,8 +15,8 @@ editor = "code --wait"
 merge-editor = "vscode"
 pager = ":builtin"
 
-[git]
-push-bookmark-prefix = "lishaduck/push-"
+[templates]
+git_push_bookmark = '"lishaduck/push-" ++ change_id.short()'
 
 [signing]
 backend = "gpg"
