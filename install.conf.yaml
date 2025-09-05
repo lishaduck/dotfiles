@@ -87,7 +87,7 @@
     - fastfetch
     - fd
     # - ffmpeg # Heavy dependency, not needed by default.
-    - flow-control
+    # - flow-control # Blocked on Homebrew/homebrew-core#236230.
     - frizbee
     - fzf
     - gdtoolkit
