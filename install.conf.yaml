@@ -186,7 +186,7 @@
     - swiftdefaultappsprefpane
     - tidal # I ❤️ Music!
     # - unity-hub # Heavy dependency, not needed by default.
-    - utm
+    - utm@beta
     - visual-studio-code
     # - warp # I mostly use Ghostty.
     # - wireshark # Needs admin, so I can't brew it.

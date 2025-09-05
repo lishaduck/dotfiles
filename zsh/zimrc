@@ -9,7 +9,7 @@
 
 # Applies brew shellenv to Zsh.
 eval "$(/opt/homebrew/bin/brew shellenv)" # Allow using Homebrew in zmodule invocations
-zmodule homebrew
+zmodule homebrew # See zimfw/homebrew#11
 # Applies Mise environment to Zsh.
 zmodule joke/zim-mise
 # Sets sane Zsh built-in environment options.
