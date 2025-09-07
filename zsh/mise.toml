@@ -1,0 +1,6 @@
+[settings]
+experimental = true
+idiomatic_version_file_enable_tools = ["node"]
+
+[tools]
+"github:lishaduck/please2" = "0.1.0"

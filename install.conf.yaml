@@ -8,7 +8,6 @@
       force: true
     clean:
       recursive: true
-      force: true
 
 - clean:
     "~":
@@ -52,6 +51,8 @@
       path: zsh/brew.env
     ~/.config/atuin/config.toml:
       path: zsh/atuin.toml
+    ~/.config/mise/config.toml:
+      path: zsh/mise.toml
     ~/.warp/themes:
       path: warp/themes
     ~/.config/zed/settings.json:
