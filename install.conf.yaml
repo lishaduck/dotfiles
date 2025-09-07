@@ -63,7 +63,6 @@
       path: zsh/nbrc
 
 - tap:
-    - lishaduck/formulae
     # - FelixKratz/formulae
     - martido/graph
     - TheBoredTeam/boring-notch
