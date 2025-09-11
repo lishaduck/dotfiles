@@ -9,7 +9,7 @@
 
 # Applies brew shellenv to Zsh.
 eval "$(/opt/homebrew/bin/brew shellenv)" # Allow using Homebrew in zmodule invocations
-zmodule homebrew # See zimfw/homebrew#11
+zmodule homebrew
 # Applies Mise environment to Zsh.
 zmodule joke/zim-mise
 # Sets sane Zsh built-in environment options.
@@ -26,7 +26,7 @@ zmodule direnv
 # Set color scheme
 zmodule ls-colors \
   --use mkdir \
-  --on-pull 'echo "export LS_COLORS=\"$(vivid generate one-dark)\"; export ZLS_COLORS=$LS_COLORS" > init.zsh'
+  --on-pull 'echo "export LS_COLORS=\"$(vivid generate one-dark)\"; export ZLS_COLORS=\"\$LS_COLORS\"" > init.zsh'
 
 # Set aliases
 zmodule ohmyzsh/ohmyzsh --root plugins/python
