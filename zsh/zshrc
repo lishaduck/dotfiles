@@ -191,7 +191,7 @@ zstyle ":completion:*:descriptions" format "%d"
 # shellcheck disable=SC2086,SC2296
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # On macOS, don't use `:default` for this.
 
-# Completions for Dart CLIs via `pkg:pub/cli_completion`:
+# Completions for Dart CLIs via `package:cli_completion`:
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
 if [[ -f "$XDG_CONFIG_HOME/.dart-cli-completion/zsh-config.zsh" ]]; then
