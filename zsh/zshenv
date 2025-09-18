@@ -1,6 +1,10 @@
 # https://www.webpro.nl/articles/getting-started-with-dotfiles
-export EDITOR="code"
-export VISUAL="code"
+
+# Use code by default, but don't override if already exists
+: "${EDITOR:=code}"
+: "${VISUAL:=${EDITOR}}"
+export EDITOR VISUAL
+
 export BROWSER="chrome"
 export PAGER="less -FRX"
 

@@ -7,8 +7,24 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "git_panel": {
+    "sort_by_path": true
+  },
+  "edit_predictions": {
+    "mode": "subtle",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null,
+      "enterprise_uri": null
+    },
+    "enabled_in_text_threads": false
+  },
+  "icon_theme": "Material Icon Theme",
+  "scrollbar": {
+    "show": "always"
+  },
   "minimap": {
-    "show": "auto"
+    "show": "always"
   },
   "inlay_hints": {
     "enabled": true,
@@ -36,7 +52,15 @@
     "dark": "One Dark"
   },
   "features": {
-    "edit_prediction_provider": "zed"
+    "edit_prediction_provider": "copilot"
+  },
+  "terminal": {
+    "line_height": "standard",
+    "env": {
+      "EDITOR": "zed",
+      "GIT_EDITOR": "zed --wait",
+      "JJ_EDITOR": "zed --wait"
+    }
   },
   "ui_font_size": 16,
   "buffer_font_size": 16,
@@ -49,9 +73,19 @@
     "dock": "bottom"
   },
   "buffer_font_family": "Cascadia Code NF",
+  "buffer_font_weight": 300,
   "languages": {
     "Python": {
       "language_servers": ["pyright", "ruff"]
+    }
+  },
+  "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        "check": {
+          "command": "clippy"
+        }
+      }
     }
   }
 }
