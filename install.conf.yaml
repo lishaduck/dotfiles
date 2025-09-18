@@ -13,7 +13,7 @@
     "~":
       recursive: false
     "~/.config":
-    "~/.local":
+    "~/.local/bin":
 
 - link:
     ~/.dotfiles:
@@ -178,6 +178,7 @@
     # - httpie # I mostly just use curl.
     - jetbrains-toolbox
     # - jordanbaird-ice
+    - lagrange # For browsing the Geminispace when I'm bored.
     # - loungy # I mostly use Raycast.
     - netnewswire
     - raycast
@@ -189,7 +190,7 @@
     - visual-studio-code
     # - warp # I mostly use Ghostty.
     # - wireshark # Needs admin, so I can't brew it.
-    # - zed # I mostly use VS Code.
+    - zed # I mostly use VS Code.
     - zen@twilight
 
 - shell:
