@@ -20,6 +20,7 @@ git_push_bookmark = '"lishaduck/push-" ++ change_id.short()'
 
 [signing]
 backend = "gpg"
+key = "A8D589F533725B67"
 signing.behavior = "own"
 
 [git]
