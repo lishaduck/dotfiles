@@ -1,6 +1,7 @@
 [user]
 	name = Eli
 	email = 88557639+lishaduck@users.noreply.github.com
+	signingKey = A8D589F533725B67
 
 [github]
 	user = lishaduck
@@ -93,7 +94,7 @@
 	gpgSign = true
 
 [tag]
-	forceSignAnnotated = true
+	gpgSign = true
 
 [rerere]
 	enabled = true
