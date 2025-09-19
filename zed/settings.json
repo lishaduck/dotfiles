@@ -48,7 +48,7 @@
   },
   "theme": {
     "mode": "system",
-    "light": "One Light",
+    "light": "One Dark",
     "dark": "One Dark"
   },
   "features": {
@@ -68,7 +68,7 @@
     "play_sound_when_agent_done": true,
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4o"
+      "model": "gpt-5"
     },
     "dock": "bottom"
   },
