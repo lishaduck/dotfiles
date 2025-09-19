@@ -63,6 +63,7 @@
       path: zsh/nbrc
 
 - tap:
+    - PlayCover/playcover
     # - FelixKratz/formulae
     - martido/graph
     - TheBoredTeam/boring-notch
@@ -74,6 +75,7 @@
     - bash
     - bat
     - btop
+    - cargo-shear
     - chrome-cli
     # - cmake # Not needed by default.
     - cmatrix
@@ -181,6 +183,7 @@
     - lagrange # For browsing the Geminispace when I'm bored.
     # - loungy # I mostly use Raycast.
     - netnewswire
+    - playcover-community
     - raycast
     # - rustdesk
     - swiftdefaultappsprefpane
