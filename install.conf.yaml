@@ -72,11 +72,11 @@
     - appwrite
     - atuin
     - autoconf
+    - bacon
     - bash
     - bat
     - btop
     - cargo-shear
-    - chrome-cli
     # - cmake # Not needed by default.
     - cmatrix
     - cocoapods
@@ -92,8 +92,8 @@
     - flow-control
     - frizbee
     - fzf
-    - gdtoolkit
     - gh
+    - ghcup
     - git
     - git-absorb
     - git-lfs
@@ -127,6 +127,7 @@
     # - openjdk@17 # For Godot Android exports.
     - pinentry-mac
     - pkgconf
+    - podman
     - python@3.13
     - python-tk@3.13
     - qemu
@@ -148,7 +149,6 @@
     - watchman
     - wcurl
     - wget
-    - wiki
     - yazi
     - yt-dlp
     - z3
@@ -160,12 +160,13 @@
     - affine
     - apparency
     # - arc # I test Arc for Zen people on occasion.
-    - beeper # For testing Matrix apps.
+    # - beeper # For testing Matrix apps.
     - blender
     - boring-notch@rc
     - chatgpt
     - crystalfetch
     # - docker # Needs admin, so I can't brew it.
+    # - emacs-app # ’cause it’s funny.
     - flutter
     - font-cascadia-code-nf
     - font-monaspice-nerd-font
@@ -183,10 +184,11 @@
     - lagrange # For browsing the Geminispace when I'm bored.
     # - loungy # I mostly use Raycast.
     - netnewswire
+    - ollama-app # For tinkering with stuff locally.
     - playcover-community
+    # - podman-desktop # Unlike Docker, works without admin.
     - raycast
     # - rustdesk
-    - swiftdefaultappsprefpane
     - tidal # I ❤️ Music!
     # - unity-hub # Heavy dependency, not needed by default.
     - utm@beta

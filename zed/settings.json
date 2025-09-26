@@ -7,6 +7,15 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "context_servers": {
+    "mcp-server-context7": {
+      "source": "extension",
+      "enabled": true,
+      "settings": {
+        "context7_api_key": ""
+      }
+    }
+  },
   "git_panel": {
     "sort_by_path": true
   },
@@ -70,7 +79,7 @@
       "provider": "copilot_chat",
       "model": "gpt-5-mini"
     },
-    "play_sound_when_agent_done": true,
+    "play_sound_when_agent_done": false,
     "default_model": {
       "provider": "copilot_chat",
       "model": "gpt-5-mini"
