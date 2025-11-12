@@ -15,8 +15,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-HOMEBREW_DOWNLOAD_CONCURRENCY=auto
-
 # -----------------
 # Zsh configuration
 # -----------------
