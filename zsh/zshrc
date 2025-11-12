@@ -224,6 +224,9 @@ path=(
 
 cdpath+=("$HOME/Developer")
 
+# Homebrew Command Not Found
+source "$HOMEBREW_REPOSITORY/Library/Homebrew/command-not-found/handler.sh"
+
 # JJ
 export JJ_CONFIG="$XDG_CONFIG_HOME/jj/config.toml"
 
