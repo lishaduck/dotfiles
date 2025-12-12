@@ -9,7 +9,7 @@ macos-titlebar-style = tabs
 window-save-state = never
 
 background-blur-radius = 20
-background-opacity = 0.95
+background-opacity = 0.92
 
 shell-integration-features = true
 
