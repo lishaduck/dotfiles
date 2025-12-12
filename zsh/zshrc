@@ -103,6 +103,7 @@ zstyle ":completion:*:options" auto-description "%d"
 # Disable sorted completions for presorted completions
 zstyle ":completion:*:git-checkout:*" sort false
 zstyle ':completion:complete:git-commit:option--fixup-1' sort false
+zstyle ':completion:complete:git-commit:option--squash-1' sort false
 zstyle ':completion:*:eza' sort false
 zstyle ':completion:files' sort false
 
