@@ -7,6 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "disable_ai": true,
   "context_servers": {
     "mcp-server-context7": {
       "source": "extension",
