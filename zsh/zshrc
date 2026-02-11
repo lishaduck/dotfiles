@@ -113,7 +113,7 @@ zstyle ':completion:files' sort false
 
 # Previews
 zstyle ':fzf-tab:complete:(cd|eza|diff|rm|cp|mv):*' \
-  fzf-preview 'eza -1 --color=always $realpath'
+  fzf-preview 'eza -1 --color=always --icons=always $realpath'
 zstyle ':fzf-tab:complete:(cat|bat|nano|micro):*' \
   fzf-preview 'bat --color=always --theme=base16 $realpath'
 zstyle ':fzf-tab:complete:git:*' \
