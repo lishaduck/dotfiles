@@ -6,7 +6,7 @@
 export EDITOR VISUAL
 
 export BROWSER="chrome"
-export PAGER="less -FRX"
+export PAGER="less -FR"
 
 # XDG Base Directory Specification (https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
 export XDG_HOME_DIR="$HOME"
@@ -24,8 +24,7 @@ export CARGO_HOME="$XDG_HOME_DIR/.cargo"
 
 # Configure Rust
 case ":${PATH}:" in
-  *:"{CARGO_HOME/bin}":*)
-    ;;
+  *:"{CARGO_HOME/bin}":*) ;;
   *)
     export PATH="{CARGO_HOME/bin}:$PATH"
     ;;
