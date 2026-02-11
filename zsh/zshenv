@@ -30,3 +30,6 @@ case ":${PATH}:" in
     export PATH="{CARGO_HOME/bin}:$PATH"
     ;;
 esac
+
+# Ensure Sharp uses prebuilt binaries
+export SHARP_IGNORE_GLOBAL_LIBVIPS=1
