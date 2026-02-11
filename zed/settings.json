@@ -7,17 +7,33 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "disable_ai": true,
-  "context_servers": {
-    "mcp-server-context7": {
-      "source": "extension",
-      "enabled": true,
-      "settings": {
-        "context7_api_key": ""
-      }
+  "tabs": {
+    "show_diagnostics": "all"
+  },
+  "agent_servers": {
+    "opencode": {
+      "type": "extension",
+      "favorite_models": [
+        "opencode/big-pickle",
+        "github-copilot/gemini-3-pro-preview",
+        "github-copilot/claude-sonnet-4.5",
+        "github-copilot/gpt-5-codex",
+        "github-copilot/oswe-vscode-prime",
+        "github-copilot/claude-haiku-4.5",
+        "github-copilot/claude-opus-4.5"
+      ],
+      "default_config_options": {},
+      "favorite_config_option_values": {}
     }
   },
+  "git": {
+    "path_style": "file_path_first"
+  },
+  "project_panel": {
+    "hide_root": true
+  },
   "git_panel": {
+    "tree_view": true,
     "sort_by_path": true
   },
   "edit_predictions": {
@@ -31,7 +47,7 @@
   },
   "icon_theme": "Material Icon Theme",
   "scrollbar": {
-    "show": "always"
+    "show": "system"
   },
   "minimap": {
     "show": "always"
@@ -56,11 +72,7 @@
   "telemetry": {
     "metrics": false
   },
-  "theme": {
-    "mode": "system",
-    "light": "One Dark",
-    "dark": "One Dark"
-  },
+  "theme": "One Dark",
   "features": {
     "edit_prediction_provider": "copilot"
   },
@@ -91,9 +103,27 @@
   "languages": {
     "Python": {
       "language_servers": ["pyright", "ruff"]
+    },
+    "TypeScript": {
+      "language_servers": ["eslint", "vtsls"]
     }
   },
   "lsp": {
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
+        }
+      },
+      "enable_lsp_tasks": true
+    },
     "rust-analyzer": {
       "initialization_options": {
         "check": {
