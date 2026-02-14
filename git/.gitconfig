@@ -8,7 +8,7 @@
 
 [core]
 	excludesFile = ~/.config/git/ignore
-	editor = code --wait
+	editor = code --wait --reuse-window
 	filemode = true
 	repositoryformatversion = 1
 	logAllRefUpdates = true
@@ -80,9 +80,6 @@
 [color]
 	ui = true
 
-[sequence]
-	editor = code --wait --reuse-window
-
 [gpg]
 	format = openpgp
 
@@ -106,3 +103,5 @@
 
 [receive]
 	fsckObjects = true
+[url "https://github.com/"]
+	insteadOf = git@github.com:
