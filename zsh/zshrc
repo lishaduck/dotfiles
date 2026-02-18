@@ -221,6 +221,7 @@ path=(
   $ANDROID_HOME/platform-tools                                  # Yet more Android
   $HOME/.deno/bin                                               # Deno
   $HOMEBREW_PREFIX/opt/python@3.13/libexec/bin                  # Python
+  $HOME/.ghcup/bin                                              # Haskell (GHCup)
 )
 
 cdpath+=("$HOME/Developer")
