@@ -7,6 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "semantic_tokens": "combined",
   "tabs": {
     "show_diagnostics": "all"
   },
@@ -37,6 +38,7 @@
     "sort_by_path": true
   },
   "edit_predictions": {
+    "provider": "copilot",
     "mode": "subtle",
     "copilot": {
       "proxy": null,
@@ -73,9 +75,6 @@
     "metrics": false
   },
   "theme": "One Dark",
-  "features": {
-    "edit_prediction_provider": "copilot"
-  },
   "terminal": {
     "line_height": "standard",
     "env": {
@@ -87,7 +86,9 @@
   "ui_font_size": 16,
   "buffer_font_size": 12,
   "agent": {
-    "always_allow_tool_actions": true,
+    "tool_permissions": {
+      "default": "allow"
+    },
     "inline_assistant_model": {
       "provider": "copilot_chat",
       "model": "gpt-5-mini"
