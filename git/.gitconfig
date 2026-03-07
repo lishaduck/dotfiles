@@ -12,7 +12,6 @@
 	filemode = true
 	logAllRefUpdates = true
 	autoCrlf = false
-	fsMonitor = true
 
 [include]
 	path = ~/.config/git/local.config
