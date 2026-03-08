@@ -212,16 +212,17 @@ export ANDROID_HOME="$HOME/Library/Android/sdk"
 path=(
   $HOMEBREW_PREFIX/opt/curl/bin                                 # Curl
   $path
-  "$HOME/Library/Application Support/JetBrains/Toolbox/scripts" # IntelliJ
-  $HOMEBREW_PREFIX/opt/rustup/bin                               # Rustup
-  $CARGO_HOME/bin                                               # Cargo
-  $HOME/.pub-cache/bin                                          # Dart
-  $ANDROID_HOME/tools/bin                                       # Android
-  $ANDROID_HOME/cmdline-tools/latest/bin                        # More Android
-  $ANDROID_HOME/platform-tools                                  # Yet more Android
-  $HOME/.deno/bin                                               # Deno
-  $HOMEBREW_PREFIX/opt/python@3.13/libexec/bin                  # Python
-  $HOME/.ghcup/bin                                              # Haskell (GHCup)
+  $HOME/Library/Application Support/JetBrains/Toolbox/scripts # IntelliJ
+  $HOMEBREW_PREFIX/opt/rustup/bin                             # Rustup
+  $HOME/Applications/OrbStack.app/Contents/MacOS/xbin/        # Containers
+  $CARGO_HOME/bin                                             # Cargo
+  $HOME/.pub-cache/bin                                        # Dart
+  $ANDROID_HOME/tools/bin                                     # Android
+  $ANDROID_HOME/cmdline-tools/latest/bin                      # More Android
+  $ANDROID_HOME/platform-tools                                # Yet more Android
+  $HOME/.deno/bin                                             # Deno
+  $HOMEBREW_PREFIX/opt/python/libexec/bin                     # Python
+  $HOME/.ghcup/bin                                            # Haskell (GHCup)
 )
 
 cdpath+=("$HOME/Developer")

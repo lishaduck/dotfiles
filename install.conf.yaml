@@ -63,109 +63,134 @@
       path: zsh/nbrc
 
 - tap:
-    - PlayCover/playcover
+    - ampcode/tap
     # - FelixKratz/formulae
     - martido/graph
+    - PlayCover/playcover
     - TheBoredTeam/boring-notch
 
 - brew:
+    - ampcode # If I’m going to use LLMs, I might as well do it well.
+    # - apktool # For reverse engineering Android apps; not needed by default.
     - appwrite
+    - ast-grep
     - atuin
     - autoconf
     - bacon
     - bash
     - bat
+    # - binutils # For reverse engineering; not needed by default.
     - btop
     - cargo-shear
-    # - cmake # Not needed by default.
+    # - cloudflared # Tunneling is useful on occasion.
+    - cmake
     - cmatrix
     - cocoapods
     - coreutils
+    # - cpanminus # Perl package manager; for John dependencies.
     - deno
     - direnv
     - dotnet
     - dua-cli
+    - exiftool # View file metadata.
     - eza
-    - fastfetch
+    - fastfetch # Neofetch... but faster.
     - fd
-    # - ffmpeg # Heavy dependency, not needed by default.
-    - flow-control
-    - frizbee
+    # - ffmpeg # Heavy dependency; not needed by default.
+    - flow-control # Only the best editor!
+    - frizbee # Tag → checksum.
     - fzf
+    - gcc
     - gh
-    - ghcup
+    - ghcup # Haskell.
     - git
     - git-absorb
     - git-lfs
     - git-trim
     - gnupg
-    # - gource # This is a cool visualizer for Git repos. Very heavy though, so not needed by default.
+    # - gource # This is a cool visualizer for Git repos; very heavy, not needed by default.
     - gradle
     - gradle-completion
     - graphviz
+    - grep
+    # - hashcat # For password cracking; not needed by default.
+    - helix # Did I hear Vim? No? Good.
     - help2man
     - hexyl
     - httpie
     - hyperfine
-    - jj
-    - john
-    - jq
+    - icdiff
+    - img2pdf
+    # - jadx # For reverse engineering Android apps; not needed by default.
+    - jj # Simply a better VCS.
+    # - john-jumbo # For password cracking; not needed by default.
+    - jq # JSON JSON JSON
     - kotlin
-    - lcov
+    - lazygit # b/c GitLens effectively shut down the edu plan.
+    - lcov # For test coverage reports.
     - less
-    # - libvips # For image processing.
+    - vips # For image processing.
     - links
-    - lychee
-    - micro
-    - mise
-    - most
+    - lychee # Link checker.
+    - markdownlint-cli2
+    # - micro # It’s bigger than nano, who would’ve guessed? I like Flow better though.
+    - mise # Package manager.
+    - mole # macOS cleanup tool.
+    - most # More is less.
     - nano # I prefer nano over Vim, but macOS only comes with Pico (& Vim).
-    - nb
-    - numbat # Calculator
+    - nb # Markdown notebooks in the terminal.
+    - numbat # Calculator.
     - oils-for-unix
+    # - opencode # I prefer Amp. Also, LLMs are opt-in.
     - openjdk
     # - openjdk@17 # For Godot Android exports.
+    # - p7zip # Archive extractor; macOS native support usually works instead, not needed by default.
+    # - pdfrip # For ripping text from PDFs; not needed by default.
     - pinentry-mac
+    - pkg-config
     - pkgconf
-    - podman
     - python@3.13
     - python-tk@3.13
-    - qemu
+    - qemu # Playing with bare-metal stuff.
     - rich-cli
     - ripgrep
     - rustup
     - shellcheck
     - shfmt
-    # - sketchybar
+    # - sketchybar # Maybe someday I’ll spend the time to make something beautiful.
     - starship
-    - texinfo
-    - tlrc
-    - tree
+    - texinfo # GNU documentation.
+    - tlrc # Man. I wish I knew what this does.
+    - tree # Why isn’t this built into macOS?
     - typos-cli
-    - typst # For MD → PDF
+    - typst # For MD → PDF.
     - uv
     - vivid
     - w3m
-    - watchman
-    - wcurl
+    - watchman # For the jj daemon.
+    - wcurl # wget but it’s curl.
     - wget
-    - yazi
-    - yt-dlp
+    - yazi # For those days when you don’t want to open Finder.app.
+    - yt-dlp # Useful for saving notes videos for offline.
     - z3
-    - zimfw
+    - zimfw # Zsh framework of preference
     - zizmor
     - zstd
 
 - cask:
-    - affine
+    # - affine # Local-first notion alternative; used for outlining sometimes.
     - apparency
     # - arc # I test Arc for Zen people on occasion.
     # - beeper # For testing Matrix apps.
     - blender
-    - boring-notch@rc
-    - chatgpt
-    - crystalfetch
-    # - docker # Needs admin, so I can't brew it.
+    - boring-notch
+    # - chatgpt # LLMs are opt-in.
+    # - claude # LLMs are opt-in.
+    # - cloudflare-warp # LLMs are opt-in.
+    # - codex # LLMs are opt-in.
+    # - codex-app # LLMs are opt-in.
+    # - copilot-cli # LLMs are opt-in.
+    - crystalfetch # Windows
     # - emacs-app # ’cause it’s funny.
     - flutter
     - font-cascadia-code-nf
@@ -174,29 +199,34 @@
     - font-raleway
     # - gauntlet # I mostly use Raycast.
     - ghostty@tip
-    - gitkraken
-    - gitkraken-cli
     - godot
-    - gramps
+    # - gramps # Genealogy software; not needed by default.
+    - helium-browser
     # - httpie # I mostly just use curl.
     - jetbrains-toolbox
-    # - jordanbaird-ice
-    - lagrange # For browsing the Geminispace when I'm bored.
+    # - lagrange # For browsing the Geminispace when I’m bored.
     # - loungy # I mostly use Raycast.
+    - microsoft-edge@dev
+    # - miniconda # For projects that need Conda; not needed by default.
+    # - mstystudio # b/c Ollma sucks, but LLMs are opt-in.
     - netnewswire
-    - ollama-app # For tinkering with stuff locally.
-    - playcover-community
-    # - podman-desktop # Unlike Docker, works without admin.
+    # - ollama-app # For tinkering with stuff locally, but LLMs are opt-in.
+    # - opencode-desktop # I prefer Amp. Also, LLMs are opt-in.
+    - orbstack # Docker/Podman replacement.
+    - pgadmin4
+    # - playcover-community # Be productive please.
+    - postgres-unofficial
+    # - prismlauncher # Be productive please.
     - raycast
-    # - rustdesk
+    # - rustdesk # RDP client; not needed by default.
+    # - thaw # Menu bar manager, needs a11y though.
     - tidal # I ❤️ Music!
-    # - unity-hub # Heavy dependency, not needed by default.
-    - utm@beta
-    - visual-studio-code
-    # - warp # I mostly use Ghostty.
-    # - wireshark # Needs admin, so I can't brew it.
+    # - unity-hub # Heavy dependency; not needed by default.
+    - utm@beta # The betas are usually stable.
+    - visual-studio-code@insiders # Stable is broken and I’m too lazy to fix it.
+    # - wireshark # Needs admin, so I can’t brew it.
     - zed # I mostly use VS Code.
-    - zen@twilight
+    - zen@twilight # For latest Firefox.
 
 - shell:
     - command: brew completions link
@@ -219,12 +249,18 @@
       description: Installing Mason CLI with pub
     - command: corepack enable
       description: Enable corepack
+    - command: pnpm install -g @biomejs/biome
+      description: Installing Biome with pnpm
+    - command: pnpm install -g @getgrit/cli
+      description: Installing grit with pnpm
+    - command: pnpm install -g jj-stack
+      description: Installing jj-stack with pnpm
     - command: pnpm install -g readability-cli
       description: Installing readable with pnpm
     - command: pnpm install -g turbo
       description: Installing Turborepo with pnpm
-    - command: pnpm install -g @biomejs/biome
-      description: Installing Biome with pnpm
+    - command: pnpm install -g uti-cli
+      description: Installing uti-cli with pnpm
     - command: deno install -gArf jsr:@deno/deployctl
       description: Installing deployctl with Deno
     - command: git lfs install
