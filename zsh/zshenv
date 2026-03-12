@@ -20,9 +20,10 @@ export XDG_BIN_HOME="$ZPFX/bin"
 # Prefer US English and use UTF-8
 export LANG="en_US.UTF-8"
 
-export CARGO_HOME="$XDG_HOME_DIR/.cargo"
 
 # Configure Rust
+export CARGO_HOME="$XDG_HOME_DIR/.cargo"
+
 case ":${PATH}:" in
   *:"{CARGO_HOME/bin}":*) ;;
   *)
@@ -32,3 +33,6 @@ esac
 
 # Ensure Sharp uses prebuilt binaries
 export SHARP_IGNORE_GLOBAL_LIBVIPS=1
+
+# Set the transient prompt
+export TRANSIENT_PROMPT_TRANSIENT_PROMPT="%B%(?.%F{green}❯.%F{red}❯)%f%b "
