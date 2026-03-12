@@ -145,7 +145,7 @@ export ZSH_AUTOSUGGEST_STRATEGY=(completion) # Atuin automatically adds itself.
 #
 
 # Set what highlighters will be used.
-export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets cursor)
+export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
 # ------------------
 # Initialize modules
