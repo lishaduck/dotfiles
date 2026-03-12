@@ -36,5 +36,10 @@
     "zplug",
     "zstyle",
     "zsweep"
-  ]
+  ],
+  "files.associations": {
+    "inputrc": "shellscript",
+    "nbrc": "shellscript",
+    "zimrc": "shellscript"
+  }
 }
