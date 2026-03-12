@@ -61,7 +61,7 @@ zmodule wfxr/forgit
 
 # Remind me of my aliases
 zmodule MichaelAquilina/zsh-you-should-use \
-  --if '[[ $TERM_PROGRAM != "WarpTerminal" ]] && [[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]]'
+  --if '[[ $TERMINAL_EMULATOR != "JetBrains-JediTerm" ]]'
 
 # Python Virtualenvs
 zmodule MichaelAquilina/zsh-autoswitch-virtualenv \
@@ -73,8 +73,7 @@ zmodule MichaelAquilina/zsh-autoswitch-virtualenv \
 
 # Use Starship prompt.
 # I use Starship instead of p10k because I also use Windows.
-zmodule joke/zim-starship \
-  --if '[[ $TERM_PROGRAM != "WarpTerminal" ]]'
+zmodule joke/zim-starship
 
 # Hack together transience.
 zmodule olets/zsh-transient-prompt \

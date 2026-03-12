@@ -53,8 +53,6 @@
       path: zsh/atuin.toml
     ~/.config/mise/config.toml:
       path: zsh/mise.toml
-    ~/.warp/themes:
-      path: warp/themes
     ~/.config/zed/settings.json:
       path: zed/settings.json
     ~/Library/Application Support/com.mitchellh.ghostty/config:
