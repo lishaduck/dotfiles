@@ -51,11 +51,6 @@ zmodule completions \
     && turbo completion zsh > _turbo' \
   --fpath .
 
-# GitHub Copilot
-zmodule ghcopilot \
-  --use mkdir \
-  --on-pull 'gh copilot alias -- zsh > init.zsh'
-
 # fzf
 zmodule fzf \
   --use mkdir \
