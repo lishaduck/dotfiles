@@ -89,23 +89,26 @@ zstyle ':fzf-tab:*' prefix ''
 
 # Fuzzy
 zstyle ':completion::complete:*' cache-path $XDG_CACHE_HOME/zsh/zcompcache
-zstyle ":completion:*" completer _complete _match _approximate
-zstyle ":completion:*:match:*" original only
-zstyle -e ":completion:*:approximate:*" max-errors "reply=($((($#PREFIX + $#SUFFIX) / 3 > 7 ? 7 : ($#PREFIX + $#SUFFIX) / 3))numeric)"
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*:match:*' original only
+zstyle -e ':completion:*:approximate:*' max-errors "reply=($((($#PREFIX + $#SUFFIX) / 3 > 7 ? 7 : ($#PREFIX + $#SUFFIX) / 3))numeric)"
 
 # Pretty
-zstyle ":completion:*" matcher-list "m:{a-zA-Z}={A-Za-z}" "r:|[._-]=* r:|=*" "l:|=* r:|=*"
-zstyle ":completion:*" list-separator ""
-zstyle ":completion:*" rehash true
-zstyle ":completion:*" format '%d'
-zstyle ":completion:*:options" auto-description "%d"
+zstyle ':completion:*' matcher-list \
+  '' \
+  'm:{a-zA-Z}={A-Za-z}' \
+  'r:|[._-]=* r:|=*' \
+  'l:|=* r:|=*'
+zstyle ':completion:*' list-separator ""
+zstyle ':completion:*' rehash true
+zstyle ':completion:*' format '%d'
+zstyle ':completion:*:options' auto-description "%d"
 
 # Disable sorted completions for presorted completions
-zstyle ":completion:*:git-checkout:*" sort false
+zstyle ':completion:*:git-checkout:*' sort false
 zstyle ':completion:complete:git-commit:option--fixup-1' sort false
 zstyle ':completion:complete:git-commit:option--squash-1' sort false
 zstyle ':completion:*:eza' sort false
-zstyle ':completion:files' sort false
 
 #
 # fzf-tab
@@ -179,14 +182,14 @@ fpath=(
 )
 
 # # Override some settings from the completion module in favor of fzf-tab.
-zstyle ":completion:*" menu no
-zstyle ":completion:*:corrections" format "%d (errors: %e)"
-zstyle ":completion:*:messages" format "%d"
-zstyle ":completion:*:warnings" format "%F{red}-- no matches found --%f"
-zstyle ":completion:*:default" list-prompt "%S%M matches%s"
-zstyle -d ":completion:*" format
-zstyle -d ":completion:*:descriptions" format
-zstyle ":completion:*:descriptions" format "%d"
+zstyle ':completion:*' menu no
+zstyle ':completion:*:corrections' format "%d (errors: %e)"
+zstyle ':completion:*:messages' format "%d"
+zstyle ':completion:*:warnings' format "%F{red}-- no matches found --%f"
+zstyle ':completion:*:default' list-prompt "%S%M matches%s"
+zstyle -d ':completion:*' format
+zstyle -d ':completion:*:descriptions' format
+zstyle ':completion:*:descriptions' format "%d"
 # shellcheck disable=SC2086,SC2296
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # On macOS, don't use `:default` for this.
 
@@ -243,9 +246,7 @@ export NODE_COMPILE_CACHE="$XDG_CACHE_HOME/nodejs-compile-cache"
 export CLICOLOR=1
 
 # ZMods
-zmodload -a colors
-zmodload -a autocomplete
-zmodload -a complist
+zmodload -a colors complist
 
 # Globbing and completions
 setopt extended_glob
@@ -288,9 +289,6 @@ autoload -Uz zmv zcalc
 
 ### Enable the Turborepo TUI
 export TURBO_UI=1
-
-## fzf
-export FZF_DEFAULT_OPTS="--style=full"
 
 ## Set personal aliases
 ### For a full list of active aliases, run `alias`.
