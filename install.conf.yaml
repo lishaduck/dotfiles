@@ -86,15 +86,15 @@
     - cocoapods
     - coreutils
     # - cpanminus # Perl package manager; for John dependencies.
-    - deno
     - direnv
     - dotnet
     - dua-cli
+    - erdtree
     - exiftool # View file metadata.
     - eza
     - fastfetch # Neofetch... but faster.
     - fd
-    # - ffmpeg # Heavy dependency; not needed by default.
+    # - ffmpeg-full # Heavy dependency; not needed by default.
     - flow-control # Only the best editor!
     - frizbee # Tag → checksum.
     - fzf
@@ -213,10 +213,11 @@
     - orbstack # Docker/Podman replacement.
     - pgadmin4
     # - playcover-community # Be productive please.
-    - postgres-unofficial
+    - postgres-app
     # - prismlauncher # Be productive please.
     - raycast
     # - rustdesk # RDP client; not needed by default.
+    # - t3-code # LLMs are opt-in.
     # - thaw # Menu bar manager, needs a11y though.
     - tidal # I ❤️ Music!
     # - unity-hub # Heavy dependency; not needed by default.
