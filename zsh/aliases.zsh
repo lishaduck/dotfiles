@@ -10,6 +10,8 @@ alias cleanupds="find . -type f -name '\*.DS_Store' -ls -delete"
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 
 # Aliases for 'eza'
+export EZA_ICONS_AUTO=1
+alias ls='eza'
 alias _eza_base='eza --classify --hyperlink --header --group-directories-first -I .git --icons --git --git-ignore --no-permissions'
 alias eza_long='_eza_base --long --all --dereference --total-size'
 alias eza_tree='_eza_base --tree --almost-all --git'
@@ -25,3 +27,5 @@ alias fresh_flutter='clean_flutter && flutter upgrade && flutter pub get --preco
 unalias gk
 unalias grv
 unalias wiki
+
+export YSU_IGNORED_ALIASES=("ls")
