@@ -25,9 +25,3 @@ alias fresh_flutter='clean_flutter && flutter upgrade && flutter pub get --preco
 unalias gk
 unalias grv
 unalias wiki
-
-# Navigation aliases
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias -- -="cd -"
