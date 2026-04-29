@@ -53,6 +53,8 @@
       path: zsh/atuin.toml
     ~/.config/mise/config.toml:
       path: zsh/mise.toml
+    ~/.config/tmux/tmux.conf:
+      path: tmux/tmux.conf
     ~/.config/zed/settings.json:
       path: zed/settings.json
     ~/Library/Application Support/com.mitchellh.ghostty/config:
@@ -72,7 +74,7 @@
 - brew:
     - ampcode # If I’m going to use LLMs, I might as well do it well.
     # - apktool # For reverse engineering Android apps; not needed by default.
-    - appwrite
+    # - appwrite # Manipulate Appwrite projects from the CLI; not needed by default.
     - ast-grep
     - atuin
     - autoconf
@@ -161,6 +163,8 @@
     - starship
     - texinfo # GNU documentation.
     - tlrc # Man. I wish I knew what this does.
+    - tmux
+    - tpm # Plugin manager for tmux.
     - tree # Why isn’t this built into macOS?
     - typos-cli
     - typst # For MD → PDF.
@@ -264,3 +268,6 @@
       description: Installing uti-cli with pnpm
     - command: git lfs install
       description: Initializing git-lfs
+    - # LLMS are opt-in, hence the conditional.
+      command: (cd $XDG_CONFIG_HOME/tmux/plugins/opensessions && mise x bun -- bun install --frozen-lockfile) || echo 'Skipping opensessions installation'
+      description: Installing opensessions with Bun
