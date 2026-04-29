@@ -230,7 +230,7 @@
 - shell:
     - command: brew completions link
       description: Enable completions for Homebrew-installed commands
-    - command: brew services start atuin
+    - command: brew services restart atuin
       description: Start Atuin daemon
     - command: uv tool install --force textualize-see
       description: Installing see with uv
