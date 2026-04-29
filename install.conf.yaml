@@ -100,6 +100,7 @@
     - fd
     # - ffmpeg-full # Heavy dependency; not needed by default.
     - flow-control # Only the best editor!
+    # - forgecode # LLMs are opt-in, and I prefer Amp over ForgeCode.
     - frizbee # Tag → checksum.
     - fzf
     - gcc
@@ -122,6 +123,7 @@
     - httpie
     - hyperfine
     - icdiff
+    - iina
     - img2pdf
     # - jadx # For reverse engineering Android apps; not needed by default.
     - jj # Simply a better VCS.
@@ -134,6 +136,7 @@
     - vips # For image processing.
     - links
     - lychee # Link checker.
+    - mpv
     - markdownlint-cli2
     # - micro # It’s bigger than nano, who would’ve guessed? I like Flow better though.
     - mise # Package manager.
@@ -144,6 +147,7 @@
     - numbat # Calculator.
     - oils-for-unix
     # - opencode # I prefer Amp. Also, LLMs are opt-in.
+    # - openclaw # LLMs are opt-in.
     - openjdk
     # - openjdk@17 # For Godot Android exports.
     # - p7zip # Archive extractor; macOS native support usually works instead, not needed by default.
@@ -169,6 +173,7 @@
     - typos-cli
     - typst # For MD → PDF.
     - uv
+    - vite-plus
     - vivid
     - w3m
     - watchman # For the jj daemon.
