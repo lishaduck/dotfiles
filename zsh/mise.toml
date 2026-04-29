@@ -2,5 +2,8 @@
 experimental = true
 idiomatic_version_file_enable_tools = ["node", "bun"]
 
+[settings.node]
+corepack = true
+
 [tools]
 "github:TkTech/gdeye" = "latest"
