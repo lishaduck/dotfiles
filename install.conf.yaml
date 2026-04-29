@@ -262,7 +262,5 @@
       description: Installing Turborepo with pnpm
     - command: pnpm add -g uti-cli
       description: Installing uti-cli with pnpm
-    - command: deno install -gArf jsr:@deno/deployctl
-      description: Installing deployctl with Deno
     - command: git lfs install
       description: Initializing git-lfs
