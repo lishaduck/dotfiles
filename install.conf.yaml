@@ -59,6 +59,8 @@
       path: ghostty/config
     ~/.nbrc:
       path: zsh/nbrc
+    ~/.nanorc:
+      path: zsh/nanorc
 
 - tap:
     - ampcode/tap
