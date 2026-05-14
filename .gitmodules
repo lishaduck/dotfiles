@@ -8,3 +8,6 @@
 	path = dotbot-ifplatform
 	url = https://github.com/lishaduck/dotbot-ifplatform.git
 	branch = dev
+[submodule "dotbot-winget"]
+	path = dotbot-winget
+	url = https://github.com/zknx/dotbot-winget
