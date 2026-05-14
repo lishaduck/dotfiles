@@ -1,5 +1,6 @@
 - plugins:
     - dotbot-brew/
+    - dotbot-ifplatform/
 
 - defaults:
     link:
@@ -15,264 +16,266 @@
     "~/.config":
     "~/.local/bin":
 
-- link:
-    ~/.dotfiles:
-      path: ""
-    ~/.zshrc:
-      path: zsh/zshrc
-      force: false
-    ~/.zshenv:
-      path: zsh/zshenv
-      force: false
-    ~/.zimrc:
-      path: zsh/zimrc
-      force: false
-    ~/.config/git/config:
-      path: git/.gitconfig
-    ~/.config/git/local.config:
-      path: git/.local.gitconfig
-    ~/.config/git/attributes:
-      path: git/.gitattributes
-    ~/.config/git/ignore:
-      path: git/.gitignore_global
-    ~/.config/jj/config.toml:
-      path: jj/config.toml
-    ~/.local/share/aliases.zsh:
-      path: zsh/aliases.zsh
-    ~/.local/share/functions.zsh:
-      path: zsh/functions.zsh
-    ~/.inputrc:
-      path: zsh/inputrc
-    ~/.config/starship.toml:
-      path: zsh/starship.toml
-    ~/.config/direnv/direnv.toml:
-      path: zsh/direnv.toml
-    ~/.config/homebrew/brew.env:
-      path: zsh/brew.env
-    ~/.config/atuin/config.toml:
-      path: zsh/atuin.toml
-    ~/.config/mise/config.toml:
-      path: zsh/mise.toml
-    ~/.config/tmux/tmux.conf:
-      path: tmux/tmux.conf
-    ~/.config/zed/settings.json:
-      path: zed/settings.json
-    ~/Library/Application Support/com.mitchellh.ghostty/config:
-      path: ghostty/config
-    ~/.nbrc:
-      path: zsh/nbrc
-    ~/.nanorc:
-      path: zsh/nanorc
+- ifmacos:
 
-- tap:
-    - ampcode/tap
-    # - FelixKratz/formulae
-    - martido/graph
-    - PlayCover/playcover
-    - TheBoredTeam/boring-notch
+  - link:
+      ~/.dotfiles:
+        path: ""
+      ~/.zshrc:
+        path: zsh/zshrc
+        force: false
+      ~/.zshenv:
+        path: zsh/zshenv
+        force: false
+      ~/.zimrc:
+        path: zsh/zimrc
+        force: false
+      ~/.config/git/config:
+        path: git/.gitconfig
+      ~/.config/git/local.config:
+        path: git/.local.gitconfig
+      ~/.config/git/attributes:
+        path: git/.gitattributes
+      ~/.config/git/ignore:
+        path: git/.gitignore_global
+      ~/.config/jj/config.toml:
+        path: jj/config.toml
+      ~/.local/share/aliases.zsh:
+        path: zsh/aliases.zsh
+      ~/.local/share/functions.zsh:
+        path: zsh/functions.zsh
+      ~/.inputrc:
+        path: zsh/inputrc
+      ~/.config/starship.toml:
+        path: zsh/starship.toml
+      ~/.config/direnv/direnv.toml:
+        path: zsh/direnv.toml
+      ~/.config/homebrew/brew.env:
+        path: zsh/brew.env
+      ~/.config/atuin/config.toml:
+        path: zsh/atuin.toml
+      ~/.config/mise/config.toml:
+        path: zsh/mise.toml
+      ~/.config/tmux/tmux.conf:
+        path: tmux/tmux.conf
+      ~/.config/zed/settings.json:
+        path: zed/settings.json
+      ~/Library/Application Support/com.mitchellh.ghostty/config:
+        path: ghostty/config
+      ~/.nbrc:
+        path: zsh/nbrc
+      ~/.nanorc:
+        path: zsh/nanorc
 
-- brew:
-    - ampcode # If I’m going to use LLMs, I might as well do it well.
-    # - apktool # For reverse engineering Android apps; not needed by default.
-    # - appwrite # Manipulate Appwrite projects from the CLI; not needed by default.
-    - ast-grep
-    - atuin
-    - autoconf
-    - bacon
-    - bash
-    - bat
-    # - binutils # For reverse engineering; not needed by default.
-    - btop
-    - cargo-shear
-    # - cloudflared # Tunneling is useful on occasion.
-    - cmake
-    - cmatrix
-    - cocoapods
-    - coreutils
-    # - cpanminus # Perl package manager; for John dependencies.
-    - direnv
-    - dotnet
-    - dua-cli
-    - erdtree
-    - exiftool # View file metadata.
-    - eza
-    - fastfetch # Neofetch... but faster.
-    - fd
-    # - ffmpeg-full # Heavy dependency; not needed by default.
-    - flow-control # Only the best editor!
-    # - forgecode # LLMs are opt-in, and I prefer Amp over ForgeCode.
-    - frizbee # Tag → checksum.
-    - fzf
-    - gcc
-    - gh
-    - ghcup # Haskell.
-    - git
-    - git-absorb
-    - git-lfs
-    - git-trim
-    - gnupg
-    # - gource # This is a cool visualizer for Git repos; very heavy, not needed by default.
-    - gradle
-    - gradle-completion
-    - graphviz
-    - grep
-    # - hashcat # For password cracking; not needed by default.
-    - helix # Did I hear Vim? No? Good.
-    - help2man
-    - hexyl
-    - httpie
-    - hyperfine
-    - icdiff
-    - iina
-    - img2pdf
-    # - jadx # For reverse engineering Android apps; not needed by default.
-    - jj # Simply a better VCS.
-    # - john-jumbo # For password cracking; not needed by default.
-    - jq # JSON JSON JSON
-    - kotlin
-    - lazygit # b/c GitLens effectively shut down the edu plan.
-    - lcov # For test coverage reports.
-    - less
-    - vips # For image processing.
-    - links
-    - lychee # Link checker.
-    - mpv
-    - markdownlint-cli2
-    # - micro # It’s bigger than nano, who would’ve guessed? I like Flow better though.
-    - mise # Package manager.
-    - mole # macOS cleanup tool.
-    - most # More is less.
-    - nano # I prefer nano over Vim, but macOS only comes with Pico (& Vim).
-    - nb # Markdown notebooks in the terminal.
-    - numbat # Calculator.
-    - oils-for-unix
-    # - opencode # I prefer Amp. Also, LLMs are opt-in.
-    # - openclaw # LLMs are opt-in.
-    - openjdk
-    # - openjdk@17 # For Godot Android exports.
-    # - p7zip # Archive extractor; macOS native support usually works instead, not needed by default.
-    # - pdfrip # For ripping text from PDFs; not needed by default.
-    - pinentry-mac
-    - pkg-config
-    - pkgconf
-    - python@3.13
-    - python-tk@3.13
-    - qemu # Playing with bare-metal stuff.
-    - rich-cli
-    - ripgrep
-    - rustup
-    - shellcheck
-    - shfmt
-    # - sketchybar # Maybe someday I’ll spend the time to make something beautiful.
-    - starship
-    - texinfo # GNU documentation.
-    - tlrc # Man. I wish I knew what this does.
-    - tmux
-    - tpm # Plugin manager for tmux.
-    - tree # Why isn’t this built into macOS?
-    - typos-cli
-    - typst # For MD → PDF.
-    - uv
-    - vite-plus
-    - vivid
-    - w3m
-    - watchman # For the jj daemon.
-    - wcurl # wget but it’s curl.
-    - wget
-    - yazi # For those days when you don’t want to open Finder.app.
-    - yt-dlp # Useful for saving notes videos for offline.
-    - z3
-    - zimfw # Zsh framework of preference
-    - zizmor
-    - zstd
+  - tap:
+      - ampcode/tap
+      # - FelixKratz/formulae
+      - martido/graph
+      - PlayCover/playcover
+      - TheBoredTeam/boring-notch
 
-- cask:
-    # - affine # Local-first notion alternative; used for outlining sometimes.
-    - apparency
-    # - arc # I test Arc for Zen people on occasion.
-    # - beeper # For testing Matrix apps.
-    - blender
-    - boring-notch
-    # - chatgpt # LLMs are opt-in.
-    # - claude # LLMs are opt-in.
-    # - cloudflare-warp # LLMs are opt-in.
-    # - codex # LLMs are opt-in.
-    # - codex-app # LLMs are opt-in.
-    # - copilot-cli # LLMs are opt-in.
-    - crystalfetch # Windows
-    # - emacs-app # ’cause it’s funny.
-    - flutter
-    - font-cascadia-code-nf
-    - font-monaspice-nerd-font
-    - font-noto-sans
-    - font-raleway
-    # - gauntlet # I mostly use Raycast.
-    - ghostty@tip
-    - godot
-    # - gramps # Genealogy software; not needed by default.
-    - helium-browser
-    # - httpie # I mostly just use curl.
-    - jetbrains-toolbox
-    # - lagrange # For browsing the Geminispace when I’m bored.
-    # - loungy # I mostly use Raycast.
-    - microsoft-edge@dev
-    # - miniconda # For projects that need Conda; not needed by default.
-    # - mstystudio # b/c Ollma sucks, but LLMs are opt-in.
-    - netnewswire
-    # - ollama-app # For tinkering with stuff locally, but LLMs are opt-in.
-    # - opencode-desktop # I prefer Amp. Also, LLMs are opt-in.
-    - orbstack # Docker/Podman replacement.
-    - pgadmin4
-    # - playcover-community # Be productive please.
-    - postgres-app
-    # - prismlauncher # Be productive please.
-    - raycast
-    # - rustdesk # RDP client; not needed by default.
-    # - t3-code # LLMs are opt-in.
-    # - thaw # Menu bar manager, needs a11y though.
-    - tidal # I ❤️ Music!
-    # - unity-hub # Heavy dependency; not needed by default.
-    - utm@beta # The betas are usually stable.
-    - visual-studio-code@insiders # Stable is broken and I’m too lazy to fix it.
-    # - wireshark # Needs admin, so I can’t brew it.
-    - zed # I mostly use VS Code.
-    - zen@twilight # For latest Firefox.
+  - brew:
+      - ampcode # If I’m going to use LLMs, I might as well do it well.
+      # - apktool # For reverse engineering Android apps; not needed by default.
+      # - appwrite # Manipulate Appwrite projects from the CLI; not needed by default.
+      - ast-grep
+      - atuin
+      - autoconf
+      - bacon
+      - bash
+      - bat
+      # - binutils # For reverse engineering; not needed by default.
+      - btop
+      - cargo-shear
+      # - cloudflared # Tunneling is useful on occasion.
+      - cmake
+      - cmatrix
+      - cocoapods
+      - coreutils
+      # - cpanminus # Perl package manager; for John dependencies.
+      - direnv
+      - dotnet
+      - dua-cli
+      - erdtree
+      - exiftool # View file metadata.
+      - eza
+      - fastfetch # Neofetch... but faster.
+      - fd
+      # - ffmpeg-full # Heavy dependency; not needed by default.
+      - flow-control # Only the best editor!
+      # - forgecode # LLMs are opt-in, and I prefer Amp over ForgeCode.
+      - frizbee # Tag → checksum.
+      - fzf
+      - gcc
+      - gh
+      - ghcup # Haskell.
+      - git
+      - git-absorb
+      - git-lfs
+      - git-trim
+      - gnupg
+      # - gource # This is a cool visualizer for Git repos; very heavy, not needed by default.
+      - gradle
+      - gradle-completion
+      - graphviz
+      - grep
+      # - hashcat # For password cracking; not needed by default.
+      - helix # Did I hear Vim? No? Good.
+      - help2man
+      - hexyl
+      - httpie
+      - hyperfine
+      - icdiff
+      - iina
+      - img2pdf
+      # - jadx # For reverse engineering Android apps; not needed by default.
+      - jj # Simply a better VCS.
+      # - john-jumbo # For password cracking; not needed by default.
+      - jq # JSON JSON JSON
+      - kotlin
+      - lazygit # b/c GitLens effectively shut down the edu plan.
+      - lcov # For test coverage reports.
+      - less
+      - vips # For image processing.
+      - links
+      - lychee # Link checker.
+      - mpv
+      - markdownlint-cli2
+      # - micro # It’s bigger than nano, who would’ve guessed? I like Flow better though.
+      - mise # Package manager.
+      - mole # macOS cleanup tool.
+      - most # More is less.
+      - nano # I prefer nano over Vim, but macOS only comes with Pico (& Vim).
+      - nb # Markdown notebooks in the terminal.
+      - numbat # Calculator.
+      - oils-for-unix
+      # - opencode # I prefer Amp. Also, LLMs are opt-in.
+      # - openclaw # LLMs are opt-in.
+      - openjdk
+      # - openjdk@17 # For Godot Android exports.
+      # - p7zip # Archive extractor; macOS native support usually works instead, not needed by default.
+      # - pdfrip # For ripping text from PDFs; not needed by default.
+      - pinentry-mac
+      - pkg-config
+      - pkgconf
+      - python@3.13
+      - python-tk@3.13
+      - qemu # Playing with bare-metal stuff.
+      - rich-cli
+      - ripgrep
+      - rustup
+      - shellcheck
+      - shfmt
+      # - sketchybar # Maybe someday I’ll spend the time to make something beautiful.
+      - starship
+      - texinfo # GNU documentation.
+      - tlrc # Man. I wish I knew what this does.
+      - tmux
+      - tpm # Plugin manager for tmux.
+      - tree # Why isn’t this built into macOS?
+      - typos-cli
+      - typst # For MD → PDF.
+      - uv
+      - vite-plus
+      - vivid
+      - w3m
+      - watchman # For the jj daemon.
+      - wcurl # wget but it’s curl.
+      - wget
+      - yazi # For those days when you don’t want to open Finder.app.
+      - yt-dlp # Useful for saving notes videos for offline.
+      - z3
+      - zimfw # Zsh framework of preference
+      - zizmor
+      - zstd
 
-- shell:
-    - command: brew completions link
-      description: Enable completions for Homebrew-installed commands
-    - command: brew services restart atuin
-      description: Start Atuin daemon
-    - command: uv tool install --force textualize-see
-      description: Installing see with uv
-    - command: uv tool install --force poetry
-      description: Installing Poetry with uv
-    - command: uv tool install --force "sphinx-autodoc2[cli]"
-      description: Installing sphinx-autodoc2 with uv
-    - command: uv tool install --force ipython
-      description: Installing IPython with uv
-    - command: dart pub global activate melos
-      description: Installing Melos with pub
-    - command: dart pub global activate very_good_cli
-      description: Installing Very Good CLI with pub
-    - command: dart pub global activate mason_cli
-      description: Installing Mason CLI with pub
-    - command: pnpm add -g @biomejs/biome
-      description: Installing Biome with pnpm
-    - command: pnpm add -g @getgrit/cli
-      description: Installing Grit with pnpm
-    - command: pnpm add -g @mariozechner/pi-coding-agent
-      description: Installing Pi with pnpm
-    - command: pnpm add -g jj-stack
-      description: Installing jj-stack with pnpm
-    - command: pnpm add -g readability-cli
-      description: Installing readable with pnpm
-    - command: pnpm add -g turbo
-      description: Installing Turborepo with pnpm
-    - command: pnpm add -g uti-cli
-      description: Installing uti-cli with pnpm
-    - command: git lfs install
-      description: Initializing git-lfs
-    - # LLMS are opt-in, hence the conditional.
-      command: (cd $XDG_CONFIG_HOME/tmux/plugins/opensessions && mise x bun -- bun install --frozen-lockfile) || echo 'Skipping opensessions installation'
-      description: Installing opensessions with Bun
+  - cask:
+      # - affine # Local-first notion alternative; used for outlining sometimes.
+      - apparency
+      # - arc # I test Arc for Zen people on occasion.
+      # - beeper # For testing Matrix apps.
+      - blender
+      - boring-notch
+      # - chatgpt # LLMs are opt-in.
+      # - claude # LLMs are opt-in.
+      # - cloudflare-warp # LLMs are opt-in.
+      # - codex # LLMs are opt-in.
+      # - codex-app # LLMs are opt-in.
+      # - copilot-cli # LLMs are opt-in.
+      - crystalfetch # Windows
+      # - emacs-app # ’cause it’s funny.
+      - flutter
+      - font-cascadia-code-nf
+      - font-monaspice-nerd-font
+      - font-noto-sans
+      - font-raleway
+      # - gauntlet # I mostly use Raycast.
+      - ghostty@tip
+      - godot
+      # - gramps # Genealogy software; not needed by default.
+      - helium-browser
+      # - httpie # I mostly just use curl.
+      - jetbrains-toolbox
+      # - lagrange # For browsing the Geminispace when I’m bored.
+      # - loungy # I mostly use Raycast.
+      - microsoft-edge@dev
+      # - miniconda # For projects that need Conda; not needed by default.
+      # - mstystudio # b/c Ollma sucks, but LLMs are opt-in.
+      - netnewswire
+      # - ollama-app # For tinkering with stuff locally, but LLMs are opt-in.
+      # - opencode-desktop # I prefer Amp. Also, LLMs are opt-in.
+      - orbstack # Docker/Podman replacement.
+      - pgadmin4
+      # - playcover-community # Be productive please.
+      - postgres-app
+      # - prismlauncher # Be productive please.
+      - raycast
+      # - rustdesk # RDP client; not needed by default.
+      # - t3-code # LLMs are opt-in.
+      # - thaw # Menu bar manager, needs a11y though.
+      - tidal # I ❤️ Music!
+      # - unity-hub # Heavy dependency; not needed by default.
+      - utm@beta # The betas are usually stable.
+      - visual-studio-code@insiders # Stable is broken and I’m too lazy to fix it.
+      # - wireshark # Needs admin, so I can’t brew it.
+      - zed # I mostly use VS Code.
+      - zen@twilight # For latest Firefox.
+
+  - shell:
+      - command: brew completions link
+        description: Enable completions for Homebrew-installed commands
+      - command: brew services restart atuin
+        description: Start Atuin daemon
+      - command: uv tool install --force textualize-see
+        description: Installing see with uv
+      - command: uv tool install --force poetry
+        description: Installing Poetry with uv
+      - command: uv tool install --force "sphinx-autodoc2[cli]"
+        description: Installing sphinx-autodoc2 with uv
+      - command: uv tool install --force ipython
+        description: Installing IPython with uv
+      - command: dart pub global activate melos
+        description: Installing Melos with pub
+      - command: dart pub global activate very_good_cli
+        description: Installing Very Good CLI with pub
+      - command: dart pub global activate mason_cli
+        description: Installing Mason CLI with pub
+      - command: pnpm add -g @biomejs/biome
+        description: Installing Biome with pnpm
+      - command: pnpm add -g @getgrit/cli
+        description: Installing Grit with pnpm
+      - command: pnpm add -g @mariozechner/pi-coding-agent
+        description: Installing Pi with pnpm
+      - command: pnpm add -g jj-stack
+        description: Installing jj-stack with pnpm
+      - command: pnpm add -g readability-cli
+        description: Installing readable with pnpm
+      - command: pnpm add -g turbo
+        description: Installing Turborepo with pnpm
+      - command: pnpm add -g uti-cli
+        description: Installing uti-cli with pnpm
+      - command: git lfs install
+        description: Initializing git-lfs
+      - # LLMS are opt-in, hence the conditional.
+        command: (cd $XDG_CONFIG_HOME/tmux/plugins/opensessions && mise x bun -- bun install --frozen-lockfile) || echo 'Skipping opensessions installation'
+        description: Installing opensessions with Bun
