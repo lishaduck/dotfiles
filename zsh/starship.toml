@@ -72,6 +72,10 @@ truncation_symbol = "…/"
 symbol = "󰹍 "
 disabled = false
 
+[gcloud]
+disabled = true
+symbol = "󱇶 "
+
 [custom.roc]
 detect_extensions = ["roc"]
 format = "via [$symbol($output )]($style)"
@@ -148,9 +152,6 @@ symbol = " "
 
 [fortran]
 symbol = " "
-
-[gcloud]
-symbol = "󱇶 "
 
 [gleam]
 symbol = " "
